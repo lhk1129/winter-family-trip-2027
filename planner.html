@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f2a44">
+<title>P1 TRIP PLANNER — 파리·바르셀로나·로마 14일 (아빠용)</title>
+<style>
+:root{--navy:#0f2a44;--blue:#1a5fa8;--bg:#f4f6f9;--card:#ffffff;--line:#dfe6ee;--accent:#e8590c;--green:#2b8a3e;--red:#c92a2a;--mut:#5c6770;--radius:12px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:#1c2733;font-family:-apple-system,"Malgun Gothic","Apple SD Gothic Neo",Roboto,"Noto Sans KR",sans-serif;font-size:16px;line-height:1.6}
+header.top{background:linear-gradient(135deg,#0f2a44,#1a5fa8);color:#fff;padding:20px 16px 16px;position:sticky;top:0;z-index:50}
+header.top h1{margin:0 0 4px;font-size:21px;line-height:1.3}
+header.top .sub{font-size:13px;opacity:.92}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.fact{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.5;flex:1 1 46%;min-width:150px}
+.fact b{color:#ffd43b}
+nav.toc{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+nav.toc a{flex:0 0 auto;text-decoration:none;color:var(--navy);border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-size:14px;font-weight:700;background:#f8fafc;min-height:44px;display:inline-flex;align-items:center}
+.wrap{max-width:860px;margin:0 auto;padding:14px 12px 120px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px;margin:14px 0;box-shadow:0 1px 3px rgba(15,42,68,.06)}
+.card h2{margin:0 0 4px;font-size:19px;color:var(--navy)}
+.card h3{margin:18px 0 8px;font-size:16px;color:#123;background:#eef3f9;border-left:5px solid var(--blue);padding:8px 10px;border-radius:0 8px 8px 0}
+.hint{font-size:13px;color:var(--mut)}
+.progress{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.pill{background:#e7f0fb;border:1px solid #bcd3ee;border-radius:999px;padding:8px 12px;font-size:14px;font-weight:700;color:var(--navy)}
+.pill b{color:var(--blue);font-size:16px}
+.pill.warn{background:#fff4e6;border-color:#f0b429}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 7px;vertical-align:top;text-align:left}
+th{background:#eef3f9;color:var(--navy);font-size:13px;position:sticky;top:0}
+td .url{display:block;word-break:break-all;font-size:12px;color:var(--blue)}
+tr.done td{background:#f1f8ef}
+label.row{display:flex;gap:12px;align-items:flex-start;padding:12px 8px;border:1px solid var(--line);border-radius:10px;margin:8px 0;background:#fff;min-height:56px;cursor:pointer}
+label.row.done{background:#eef7ee;border-color:#9ed3a5}
+label.row input[type=checkbox]{width:28px;height:28px;min-width:28px;margin-top:2px;accent-color:var(--green);cursor:pointer}
+label.row .t{font-size:14.5px}
+label.row .t b{font-size:15px}
+label.row .meta{font-size:13px;color:var(--mut)}
+label.row .price{font-size:13px;color:#7a3b00;font-weight:700}
+label.row .cancel{font-size:12.5px;color:#7c2d12}
+a{color:var(--blue)}
+.btn{display:inline-block;min-height:48px;line-height:1.4;padding:12px 16px;border-radius:10px;border:1px solid var(--blue);background:var(--blue);color:#fff;text-decoration:none;font-weight:800;font-size:15px;margin:4px 4px 4px 0}
+.btn.ghost{background:#fff;color:var(--blue)}
+.btn.warn{background:var(--accent);border-color:var(--accent)}
+.day{border:2px solid var(--navy);border-radius:14px;margin:16px 0;overflow:hidden;background:#fff}
+.day-head{background:var(--navy);color:#fff;padding:12px 14px;display:flex;gap:10px;align-items:center}
+.day-head input{width:30px;height:30px;min-width:30px;accent-color:#51cf66}
+.day-head .dh-t{flex:1}
+.day-head .dh-t b{font-size:17px}
+.day-head .dh-t span{display:block;font-size:13px;opacity:.9}
+.day.done{border-color:var(--green)}
+.day.done .day-head{background:var(--green)}
+.day-body{padding:12px 12px 14px}
+.timeline{width:100%;font-size:14px}
+.timeline td:first-child{white-space:nowrap;font-weight:700;color:var(--navy);width:108px;font-size:13px}
+.ticket{background:#fff8e6;border:1px dashed #e0a100;border-radius:10px;padding:10px 12px;font-size:13.5px;margin:10px 0}
+.ticket b{color:#7a3b00}
+.food{display:grid;grid-template-columns:1fr;gap:6px;margin:8px 0}
+.food div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13.5px;background:#fbfdff}
+.move{font-size:13px;color:var(--mut)}
+.tag{display:inline-block;font-size:12px;font-weight:800;border-radius:6px;padding:2px 8px;margin-right:6px}
+.tag.rest{background:#e0f2e9;color:#0b6e4f}.tag.light{background:#e7f0fb;color:#1a5fa8}.tag.med{background:#fff3bf;color:#7a5b00}.tag.heavy{background:#ffe3e3;color:#a61e1e}.tag.risky{background:#000;color:#ffd43b}
+.emg{background:#fff5f5;border:2px solid var(--red);border-radius:12px;padding:14px}
+.emg h2{color:var(--red)}
+.kv{font-size:14px;margin:6px 0}
+.kv b{color:var(--navy)}
+footer.tools{position:fixed;left:0;right:0;bottom:0;background:#0f2a44;color:#fff;padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;z-index:60}
+footer.tools div{flex:1;text-align:center;font-size:13px;font-weight:800}
+footer.tools b{display:block;font-size:17px;color:#ffd43b}
+.topbtn{position:fixed;right:14px;bottom:86px;background:var(--navy);color:#fff;border-radius:50%;width:56px;height:56px;font-size:22px;border:none;z-index:60}
+@media(min-width:700px){.food{grid-template-columns:1fr 1fr 1fr}header.top h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header class="top">
+<h1>✈️ P1 TRIP PLANNER — 파리 4박＋바르셀로나 4박＋로마 5박</h1>
+<div class="sub">아빠용 실전 플래너 · 2027-02-03(수)〜02-16(화) 14일 · 가족 3인(성인 2＋13세 1) · 오프라인 저장 가능 · 체크는 자동 저장</div>
+<div class="facts">
+<div class="fact">🛫 <b>OZ501</b> 2/3(수) 10:05 ICN → 16:25 CDG<br>탑승 3인 · EES 첫 입국(60~90분)</div>
+<div class="fact">🛬 <b>OZ562</b> 2/16(화) 22:00 FCO → ICN<br>FCO 2.5시간 전(19:30) 도착</div>
+<div class="fact">🎫 국제선 예약번호 <b>FGC5MR</b><br>₩4,625,400 확정 · 위탁 23kg 1개/인 · 부분환불·변경유료</div>
+<div class="fact">📅 요일: 2/3수·2/4목·2/5금·2/6토·2/7일·2/8월·2/9화·2/10수·2/11목·2/12금·2/13토·2/14일·2/15월·2/16화</div>
+</div>
+<div class="progress">
+<div class="pill">예약 <b id="cBk">0/22</b></div>
+<div class="pill">출발전 준비 <b id="cPre">0/10</b></div>
+<div class="pill">일정 <b id="cDay">0/14</b>일 완료</div>
+<div class="pill warn">⚠ W4 목운항·TGV9713 재확인 필수</div>
+</div>
+</header>
+<nav class="toc">
+<a href="#booking">① 예약 체크리스트</a><a href="#pretrip">② 출발전 준비</a><a href="#schedule">③ 14일 일정</a><a href="#emg">④ 비상·재확인</a><a href="#hotels">⑤ 숙소후보</a><a href="#food">⑥ 식당표</a><a href="#appendix">⑦ 부록</a><a href="#budget">⑧ 예산</a>
+</nav>
+<div class="wrap">
+
+<section class="card" id="booking">
+<h2>① 예약 체크리스트 (P1 전부 ＋ 공통) — 순서대로 체크</h2>
+<p class="hint">원칙: ① 숙소 Flex 선확보 → ② 국제열차 오픈즉시 → ③ 항공 직예 → ④ 콜로세오·바티칸·보르게세 가장 이른 슬롯 → ⑤ 나머지 시간제 → ⑥ 노트르담(2~3일전)·판테온(전월중순). 전 티켓 기명·시간엄수·대부분 비환불. 3인 참고가는 2025~2026 공식 공시 기준, €1=1,600원. 결제 전 공식 페이지 재확인. 체크하면 자동 저장(localStorage).</p>
+
+<h3>⓪ 지금 (숙소 Flex ＋ 보험 ＋ 북마크)</h3>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-hotel-paris"><span class="t"><b>파리 4박 — Flex 요금 선확보</b><br><span class="meta">Citadines Bastille Marais(1BR 주방+소파베드) 또는 Adagio Nation(1BR 4인 36㎡, GdL 2정거장·TGV일 최적)</span><br><a class="url" href="https://www.discoverasr.com/en/citadines/france/citadines-bastille-marais-paris">https://www.discoverasr.com/en/citadines/france/citadines-bastille-marais-paris</a><a class="url" href="https://www.adagio-city.com/">https://www.adagio-city.com/</a><span class="price">3인 4박 €880~1,280 (약 141~205만원)</span><br><span class="cancel">취소: Flex는 전일~48시간 무료취소. 2/6 식스네이션스(프랑스-웨일스전 파리) 주말 가산 주의. 대안: Novotel Tour Eiffel(16세 미만 숙박·조식 무료), Malte-Astotel(루브르 도보 10분).</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-hotel-bcn"><span class="t"><b>바르셀로나 4박 — Flex 요금 선확보</b><br><span class="meta">Citadines Ramblas 또는 H10 Casa Mimosa — 파세이그 데 그라시아 도보권, 라발 야간 회피, 에이샴플레 거점</span><br><a class="url" href="https://www.discoverasr.com/">https://www.discoverasr.com/</a><a class="url" href="https://www.h10hotels.com/">https://www.h10hotels.com/</a><span class="price">3인 4박 €640~1,000 (약 102~160만원)</span><br><span class="cancel">취소: 요금제별 Flex 선택. Triple 3베드 확정형 우선(Catalonia Eixample 1864 대안).</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-hotel-rome"><span class="t"><b>로마 5박 — 조기 확보 (2/13 식스네이션스 수요)</b><br><span class="meta">Bettoja Mediterraneo 또는 Numa Monti — 몬티/테르미니 거점</span><br><a class="url" href="https://www.bettojahotels.it/">https://www.bettojahotels.it/</a><a class="url" href="https://www.numa.com/">https://www.numa.com/</a><span class="price">3인 5박 €750~1,250 (약 120~200만원)</span><br><span class="cancel">취소: 요금제별. 환불가능 요금 우선. 대안: Hotel Artemide(직예 3박+10%), The Hive(Termini 도보 5분), Lancelot(콜로세오 도보 5분 가성비).</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-insurance"><span class="t"><b>여행자보험 — trip-delay·의료실비 1억원 이상</b><br><span class="meta">trip-delay 6~12시간 초과 시 식사·숙박 실비, cancellation은 사유 한정. 신용카드 포함 보장·EU261 중복 피함</span><br><span class="price">3인 약 10~45만원</span><br><span class="cancel">전 안 필수. 증권 PDF를 휴대폰+이메일 보관. 보험사 긴급연락처를 ④ 비상박스에 기입.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-etias-bm"><span class="t"><b>ETIAS 북마크 ＋ eSIM/로밍 준비</b><br><span class="meta">공식 단일 창구만 사용, 사설 대행 주의. eSIM은 출국 전 개통</span><br><a class="url" href="https://travel-europe.europa.eu/etias">https://travel-europe.europa.eu/etias</a><span class="price">ETIAS €20×2 (13세 면제, 신청은 필요) ＋ eSIM 약 3~9만원</span><br><span class="cancel">ETIAS 현재 미운영 → 2026-12/2027-01 재확인. EES 지문·안면등록은 파리 첫 입국 시.</span></span></label>
+
+<h3>① 2026-09-30 — SNCF 일괄 오픈 즉시</h3>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-tgv"><span class="t"><b>파리→바르셀로나 TGV INOUI 9713 (2/7) — 오픈 즉시 Standard 확보</b><br><span class="meta">GdL 07:42 → Sants 14:32, 6h50. 1일 직통 2편. GdL 30분 전 도착. 2027 시각 재확인 필수</span><br><a class="url" href="https://www.sncf-connect.com/en-en/train/timetables/paris/barcelona">https://www.sncf-connect.com/en-en/train/timetables/paris/barcelona</a><span class="price">3인 €117~327 (약 19~52만원)</span><br><span class="cancel">취소: 운임제별. 개수·무게 무제한급(휴대 가능 조건). 파업 시 1/3 결항 가능 — 파업고시 감시.</span></span></label>
+
+<h3>② 2026-10월경 — 항공 공식 직예 (이미 판매 중)</h3>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-w4"><span class="t"><b>바르셀로나→로마 W4 6018 (2/11 목 10:00→11:55) — 공식 직예 권장</b><br><span class="meta">⚠ 목요일 운항 재확인 필수. 대안: Vueling 목 오전편 / ITA(수하물 포함) / Ryanair 목 오전편. 공항 120분 전</span><br><a class="url" href="https://www.wizzair.com/en-gb/cheap-flights-from-barcelona-to-rome">https://www.wizzair.com/en-gb/cheap-flights-from-barcelona-to-rome</a><a class="url" href="https://www.vueling.com/en/flights-from-barcelona-to-rome">https://www.vueling.com/en/flights-from-barcelona-to-rome</a><a class="url" href="https://www.ita-airways.com">https://www.ita-airways.com</a><span class="price">Basic €120 ＋ 위탁 20kg×3 온라인 €75~120 ＝ <b>€195~240 (약 31~38만원)</b> (OTA 최저 ₩148,013 baseline, 수하물 미포함)</span><br><span class="cancel">취소: 무료는 40×30×20cm 1개만. 위탁은 온라인 사전구매(공항 2배). BCN T2 Aerobús A2 35분.</span></span></label>
+
+<h3>③ 60일 전 롤링 — 가장 이른 슬롯 선점 (바티칸·콜로세오·보르게세 우선)</h3>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-vatican"><span class="t"><b>바티칸 박물관 (2/15 월 08:00 슬롯) — 통상 60일 롤링</b><br><span class="meta">지도갤러리→라파엘로→시스티나 3.5~4h. 07:15 출발. 일요일 휴관 준수</span><br><a class="url" href="https://tickets.museivaticani.va/">https://tickets.museivaticani.va/</a><span class="price">3인 €65 (약 10.4만원)</span><br><span class="cancel">환불 불가. 시간엄수·기명.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-colosseo"><span class="t"><b>콜로세오·포로로마노 (2/12 금 08:30 최초 슬롯) — 24h권 30일 전</b><br><span class="meta">★가장 이른 슬롯 선점. 콜로세오 먼저 → 포로·팔라티노 2h. 08:15 전 도착</span><br><a class="url" href="https://ticketing.colosseo.it/en">https://ticketing.colosseo.it/en</a><span class="price">3인 €36 (약 5.8만원) / Arena 포함 €48</span><br><span class="cancel">환불·변경 불가.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-borghese"><span class="t"><b>보르게세 미술관 (2/13 토 09:00 고정 슬롯) — 수주 전 (성수기 3~4주 전 매진)</b><br><span class="meta">2시간 고정 슬롯, 현장판매 없음. 08:15 출발. +39 06 32810</span><br><a class="url" href="https://galleriaborghese.cultura.gov.it/">https://galleriaborghese.cultura.gov.it/</a><span class="price">3인 €38 (약 6.1만원)</span><br><span class="cancel">환불·변경 불가. 여권·바우처 지참.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-eiffel"><span class="t"><b>에펠탑 전망대 (2/3 선택) — 60일 전 오픈</b><br><span class="meta">외관+전망대 선택. 도착일 컨디션 따라 결정</span><br><a class="url" href="https://ticket.toureiffel.paris/en">https://ticket.toureiffel.paris/en</a><span class="price">3인 Top €91.80 (약 14.7만원) / 2층 €58.80</span><br><span class="cancel">시간엄수.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-louvre"><span class="t"><b>루브르 (2/4 목) — 수개월 전 순차 오픈</b><br><span class="meta">09:30~12:30 하이라이트 3h. 피라미드 입장</span><br><a class="url" href="https://ticket.louvre.fr/en">https://ticket.louvre.fr/en</a><span class="price">3인 non-EEA €64 (약 10.2만원, 13세 무료)</span><br><span class="cancel">변경·환불 불가. 한국 non-EEA 요금 적용.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-orsay"><span class="t"><b>오르세 (2/5 금 09:30) — 인상파 0~2층+시계창</b><br><span class="meta">2.5h. 관내 점심 가능</span><br><a class="url" href="https://billetterie.musee-orsay.fr/">https://billetterie.musee-orsay.fr/</a><span class="price">3인 €32 (약 5.1만원, 18세 미만 무료)</span><br><span class="cancel">시간제 입장.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-versailles"><span class="t"><b>베르사유 Passport (2/6 토 개장 직후) — 궁전 내부 3h</b><br><span class="meta">거울의 방·대침실·예배당. 15시 이후 할인권 있음</span><br><a class="url" href="https://ticket.chateauversailles.fr/en/">https://ticket.chateauversailles.fr/en/</a><span class="price">3인 Passport €60 (약 9.6만원)</span><br><span class="cancel">환불·교환 불가.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-sagrada"><span class="t"><b>사그라다파밀리아 (2/8 월 09:30) — 약 2개월 전, 온라인 전용</b><br><span class="meta">2h. 오전 타워 슬롯 권장</span><br><a class="url" href="https://sagradafamilia.org/en/tickets">https://sagradafamilia.org/en/tickets</a><span class="price">3인 기본 €78 (약 12.5만원) / 타워 포함 €108</span><br><span class="cancel">기명·양도불가.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-guell"><span class="t"><b>구엘공원 (2/9 화 09:30 개장 직후) — 최대 3개월 전</b><br><span class="meta">2h. 30분 윈도우 엄수</span><br><a class="url" href="https://parkguell.barcelona/en/buy-tickets/">https://parkguell.barcelona/en/buy-tickets/</a><span class="price">3인 €54 (약 8.6만원)</span><br><span class="cancel">일자 변경 전일까지可.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-picasso"><span class="t"><b>피카소미술관 (2/10 수 10:00) — Meninas 연작실 중심 2h</b><br><span class="meta">완충일과 결합</span><br><a class="url" href="https://museupicassobcn.cat/en/plan-your-visit/buy-tickets-and-opening-hours">https://museupicassobcn.cat/en/plan-your-visit/buy-tickets-and-opening-hours</a><span class="price">3인 €28 (약 4.5만원, 18세 미만 무료)</span><br><span class="cancel">시간제.</span></span></label>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-batllo"><span class="t"><b>카사바트요 택1 (2/9 또는 2/10 중) — Be the First 추천</b><br><span class="meta">밀라·바트요 외관만 + 택1 내부. 현장 가산 있음</span><br><a class="url" href="https://www.casabatllo.es/en/online-tickets/">https://www.casabatllo.es/en/online-tickets/</a><span class="price">3인 약 €81 (약 13만원)</span><br><span class="cancel">현장 ＋€4~15 가산. 사전 온라인 권장.</span></span></label>
+
+<h3>④ 전월 중순 — 판테온</h3>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-pantheon"><span class="t"><b>판테온 내부 (2/11 또는 2/14) — 전월 중순 릴리스</b><br><span class="meta">나보나·판테온 외관일(2/11) 또는 휴식일(2/14) 중 택1~2회</span><br><a class="url" href="https://portale.museiitaliani.it/">https://portale.museiitaliani.it/</a><span class="price">3인 €14 (약 2.2만원)</span><br><span class="cancel">기명·신분증 대조.</span></span></label>
+
+<h3>⑤ 2~3일 전·당일 — 노트르담</h3>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-notredame"><span class="t"><b>노트르담 (2/5 또는 2/7 선택) — 2~3일 전·당일만 오픈</b><br><span class="meta">이동일·일요일 무예약 원칙의 유동 슬롯. QR+신분증, 20분 유효</span><br><a class="url" href="https://resa.notredamedeparis.fr/">https://resa.notredamedeparis.fr/</a><span class="price">무료</span><br><span class="cancel">시간 엄수. 미확보 시 외관만.</span></span></label>
+
+<h3>⑥ 출발 전 재확인 (예약 아님 — 감시 항목)</h3>
+<label class="row"><input type="checkbox" class="bk" data-id="bk-recheck"><span class="t"><b>출발 전: 파업고시 ＋ OZ 스케줄 ＋ ETIAS 재확인</b><br><span class="meta">프랑스 파업고시·OZ 변경 고지·ETIAS 운영 여부 확인</span><br><a class="url" href="https://treniamo.it/en/train-strikes">https://treniamo.it/en/train-strikes</a><a class="url" href="https://travel-europe.europa.eu/etias">https://travel-europe.europa.eu/etias</a><span class="price">—</span><br><span class="cancel">2/14 발렌타인 저녁 사전예약(로마·파리)은 1월 초 완료.</span></span></label>
+</section>
+
+<section class="card" id="pretrip">
+<h2>② 출발전 준비 체크 (10항)</h2>
+<p class="hint">12월 / 1월 / 출발 2~3일 전으로 나눠 체크. 전부 끝나야 출국.</p>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-etias"><span class="t"><b>ETIAS 운영 여부 재확인 (2026-12 / 2027-01 두 번)</b><br><span class="meta">공식 단일 창구만: <a href="https://travel-europe.europa.eu/etias">https://travel-europe.europa.eu/etias</a> — 사설 대행 결제 금지. 필요 시 3인 신청(13세 면제 아님, 신청은 필요·요금만 면제).</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-insurance"><span class="t"><b>여행자보험 증권 확정 · 휴대폰＋이메일 저장</b><br><span class="meta">trip-delay 6~12h·의료실비 1억원 이상·EU261 중복 확인. 긴급연락처를 ④ 비상박스에 기입.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-ees"><span class="t"><b>EES 첫 입국 대비 — 여권·얼굴·지문 등록 각오</b><br><span class="meta">CDG 도착 60~90분 소요 전제. 일행 흩어지지 않기. 여권 유효기간·빈 페이지 확인.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-rer"><span class="t"><b>RER B·소매치기 대비 — 분산 보관 훈련</b><br><span class="meta">CDG→호텔 RER B 약 50분. 여권·카드·현금 분산, 크로스백·잠금포치, Rambla·Raval 야간 회피, Termini 북측·Esquilino 심야 회피.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-valentine"><span class="t"><b>2/14 발렌타인 저녁 예약 (1월 초 필수)</b><br><span class="meta">Osteria da Fortunata(수제파스타 ~€50, 단품可 확인) / Baffetto(얇은피자 ~€25, 회전 빠름) / Cantina e Cucina(~€50, 조용한 가족석 요청) 중 택1. Six Nations 로마전 주말이라 조기 매진.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-w4"><span class="t"><b>W4 6018 목요일 운항 재확인 (wizzair.com)</b><br><span class="meta"><a href="https://www.wizzair.com/en-gb/cheap-flights-from-barcelona-to-rome">https://www.wizzair.com/en-gb/cheap-flights-from-barcelona-to-rome</a> — 결항 시 대안 Vueling/ITA/Ryanair 목 오전편 즉시 확보. Aerobús A2 35분, 120분 전 도착.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-tgv"><span class="t"><b>TGV 9713 시각 재확인 (2026-09-30 오픈 후)</b><br><span class="meta"><a href="https://www.sncf-connect.com/en-en/train/timetables/paris/barcelona">https://www.sncf-connect.com/en-en/train/timetables/paris/barcelona</a> — 2027 시각 변동 가능. GdL 30분 전, 차내 점심·휴식.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-strike"><span class="t"><b>파업·OZ 스케줄 감시 북마크</b><br><span class="meta"><a href="https://treniamo.it/en/train-strikes">https://treniamo.it/en/train-strikes</a> — 프랑스 파업 시 TGV 1/3 결항 가능. OZ501/OZ562(FGC5MR) 변경 고지 확인.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-pack"><span class="t"><b>패킹 — 3~15℃ 겨울 대응</b><br><span class="meta">방한 3겹(히트텍+미들+방풍), 방수 신발 2켤레 교대, 우산·장갑·목도리, 상비약·멀티탭·보조배터리, 세탁 고려(주방 숙소면 세제 소분). 박물관 예약 QR·여권사본 출력+스캔본.</span></span></label>
+<label class="row"><input type="checkbox" class="pre" data-id="pre-tickets"><span class="t"><b>전 티켓 QR·바우처 오프라인 저장 ＋ 출력</b><br><span class="meta">기명·시간엄수 티켓은 스크린샷+PDF+메일 3중 보관. 콜로세오·보르게세·바티칸은 여권 원본 지참.</span></span></label>
+</section>
+
+<section id="schedule">
+<div class="card">
+<h2>③ 14일 일정 — 시간 블록 ＋ 티켓/픽업 메모</h2>
+<p class="hint">하루 1개씩 체크. 유료 대형 1일 1개, 이동일·일요일 무예약 원칙. ★REST일은 무리 금지. Six Nations 주말(2/6 파리·2/13 로마)은 시내 혼잡.</p>
+</div>
+
+<div class="day" id="d1"><div class="day-head"><input type="checkbox" class="day" data-id="day-1"><div class="dh-t"><b>Day 1 — 2/3(수) 파리 도착</b><span><span class="tag rest">★REST · light</span> OZ501 16:25 CDG 도착 · EES 60~90분</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>16:25–18:00</td><td>CDG 도착·EES 등록·수하물 <span class="move">도보</span></td></tr><tr><td>18:00–19:00</td><td>CDG→호텔 <span class="move">RER B 약 50분, 소지품 전방·분산 보관</span></td></tr><tr><td>19:00–19:45</td><td>체크인·휴식</td></tr><tr><td>19:45–21:00</td><td>에펠탑 외관(트로카데로)＋센강변 산책, 조기 취침 <span class="move">M6/M9 Trocadéro 도보 10분</span></td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> 에펠 전망대 선택 시 <a href="https://ticket.toureiffel.paris/en">ticket.toureiffel.paris</a> 60일 전권 지참. 첫날은 무리 금지 — 전망대 미확보 시 외관만으로 충분.</div>
+<div class="food"><div><b>석 ①</b> Chartier Montparnasse(부용 ~€20, 예약불가·회전빠름·무휴)</div><div><b>석 ②</b> 20 Eiffel(트라디 ~€35, 에펠 도보 10분)</div><div><b>석 ③</b> Bistrot de Vignes(파시 ~€30, 트로카데로 도보 8분)</div></div>
+</div></div>
+
+<div class="day" id="d2"><div class="day-head"><input type="checkbox" class="day" data-id="day-2"><div class="dh-t"><b>Day 2 — 2/4(목) 루브르</b><span><span class="tag med">medium-heavy</span> 루브르 하이라이트 3h · 목 정상영업 확인</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>08:00–09:00</td><td>조식·출발 <span class="move">M1 Palais Royal 20~30분</span></td></tr><tr><td>09:00–09:30</td><td>피라미드 입장·보안 대기</td></tr><tr><td>09:30–12:30</td><td><b>루브르 3h</b> — 드농(모나리자·사모트라케)→쉴리(함무라비·밀로)→리슐리외(나폴레옹 3세 아파트)</td></tr><tr><td>12:30–13:30</td><td>점심 — Loulou(관내 ~€35, 예약필수) / Le Cochon à l'Oreille(레알 ~€25) / L'Auberge du Louvre(도보 5분 ~€25)</td></tr><tr><td>13:30–15:00</td><td>튈르리→콩코르드→오랑주리 외관(수동)</td></tr><tr><td>15:00–16:00</td><td>호텔 복귀·휴식 <span class="move">M1 20분</span></td></tr><tr><td>16:00–18:00</td><td>자유·저녁 — La Bourse et la Vie(~€45, 목정상) / Le Petit Vendôme(~€20) / Au Pied de Cochon(~€45, 심야)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://ticket.louvre.fr/en">ticket.louvre.fr</a> 시간엄수·변경환불불가·non-EEA 요금. Loulou 예약 확정 문자 저장. 목요일 개관 확인.</div>
+<div class="food"><div><b>점 ①</b> Loulou(관내, 예약필수)</div><div><b>점 ②</b> Le Cochon à l'Oreille(일휴무)</div><div><b>석 ①</b> La Bourse et la Vie(일·월휴무, 목정상)</div></div>
+</div></div>
+
+<div class="day" id="d3"><div class="day-head"><input type="checkbox" class="day" data-id="day-3"><div class="dh-t"><b>Day 3 — 2/5(금) 오르세＋좌안</b><span><span class="tag med">medium</span> 일몰 17:45 · 센강 해질녘 선택</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>08:30–09:30</td><td>출발 <span class="move">RER C Musée d'Orsay 25~35분</span></td></tr><tr><td>09:30–12:00</td><td><b>오르세 2.5h</b> — 인상파 0~2층＋시계창</td></tr><tr><td>12:00–13:00</td><td>점심 — 관내 Restaurant d'Orsay(~€30) / Café Campana(~€20) / Les Antiquaires(rue du Bac ~€30)</td></tr><tr><td>13:00–15:30</td><td>생제르맹→뤽상부르→팡테온 외관(수동, 도보 2km) <span class="move">도보＋M4</span></td></tr><tr><td>15:30–17:00</td><td>호텔 휴식 <span class="move">귀가 25분</span></td></tr><tr><td>17:00–19:00</td><td>센강 산책(선택)＋저녁 — Bouillon Chartier Montparnasse(~€20) / Le Procope(~€45) / Brasserie Lutetia(~€55)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://billetterie.musee-orsay.fr/">billetterie.musee-orsay.fr</a>. 노트르담 노릴 경우 <a href="https://resa.notredamedeparis.fr/">resa.notredamedeparis.fr</a> 2~3일 전 슬롯 오늘·내일 중 확인(무료·QR+신분증·20분 유효).</div>
+</div></div>
+
+<div class="day" id="d4"><div class="day-head"><input type="checkbox" class="day" data-id="day-4"><div class="dh-t"><b>Day 4 — 2/6(토) 베르사유 반일</b><span><span class="tag heavy">heavy</span> ※Six Nations 프랑스-웨일스전 — 시내 혼잡, 야외 최소화</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>08:00–09:00</td><td>출발 <span class="move">RER C 40분＋도보 10분</span></td></tr><tr><td>09:00–12:00</td><td><b>궁전 내부 3h</b> — 개장 직후 입장(거울의 방·대침실·예배당)</td></tr><tr><td>12:00–13:00</td><td>정원＋Trianon 외관＋점심 — Angelina(~€25) / Le Petit Bouillon(~€18) / La Place 크레프(~€18)</td></tr><tr><td>14:00–15:00</td><td>파리 복귀 <span class="move">RER C 40분</span></td></tr><tr><td>15:00–19:00</td><td><b>호텔 휴식(필수)</b>＋저녁 — Bouillon Julien(~€22) / Bofinger(~€50, 혼잡) / Chez Francis(~€55, 에펠 야경석 요청)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://ticket.chateauversailles.fr/en/">ticket.chateauversailles.fr</a> Passport·환불교환불가. RER C 파업·지연 대비 일찍 출발. 저녁 예약 필수(경기일).</div>
+</div></div>
+
+<div class="day" id="d5"><div class="day-head"><input type="checkbox" class="day" data-id="day-5"><div class="dh-t"><b>Day 5 — 2/7(일) 파리→바르셀로나</b><span><span class="tag light">light</span> TGV 9713 GdL 07:42→Sants 14:32 · 이동일 무예약</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>06:30–07:10</td><td>체크아웃·Gare de Lyon 이동 <span class="move">Metro 30분, 출발 30분 전 도착</span></td></tr><tr><td>07:42–14:32</td><td><b>TGV 9713 6h50</b> — 차내 점심·휴식</td></tr><tr><td>14:32–15:30</td><td>Sants→호텔·체크인 <span class="move">Metro L3/L5 25분</span></td></tr><tr><td>15:30–16:30</td><td>점심·휴식 — Ciudad Condal / El Nacional / Honest Greens</td></tr><tr><td>16:30–19:00</td><td><b>고딕지구 야간만</b>(대성당 외관→레이알 광장)＋저녁 — Tapas Avinyó(~€30, 일영업) / Gourmet Sensi(~€40, 온라인예약만) / Ocaña(~€30)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://www.sncf-connect.com/en-en/train/timetables/paris/barcelona">SNCF</a> 예약 바우처 오프라인 저장. GdL 전광판 호차 확인. 노트르담 미방문 시 오늘 오전 외관만 선택 가능(당일 슬롯).</div>
+<div class="food"><div><b>점</b> Ciudad Condal(~€22, 무휴) · El Nacional(~€25) · Honest Greens(~€18)</div><div><b>석</b> Tapas Avinyó / Gourmet Sensi / Ocaña — 고딕 도보 2km, 소매치기 주의</div></div>
+</div></div>
+
+<div class="day" id="d6"><div class="day-head"><input type="checkbox" class="day" data-id="day-6"><div class="dh-t"><b>Day 6 — 2/8(월) 사그라다파밀리아</b><span><span class="tag med">medium</span> 오전 타워 슬롯 권장</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>08:30–09:30</td><td>출발 <span class="move">Metro L2/L5 20~30분</span></td></tr><tr><td>09:30–11:30</td><td><b>사그라다 2h</b>(오전 타워 슬롯 권장)</td></tr><tr><td>11:30–12:30</td><td>Eixample 산책(밀라·바트요 외관만)</td></tr><tr><td>12:30–13:30</td><td>점심 — La Paradeta(~€25) / Madre Taberna(~€22) / Lepanto 메뉴델디아(~€16)</td></tr><tr><td>13:30–16:00</td><td>호텔 휴식＋그라시아 자유산책 <span class="move">Metro 20분</span></td></tr><tr><td>16:00–18:00</td><td>시타델·개선문 산책(선택)＋저녁 — Bardeni(~€40, 예약요망) / La Pedreta(~€30) / Can Pizza(~€20)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://sagradafamilia.org/en/tickets">sagradafamilia.org</a> 온라인전용·기명·양도불가. 여권·바우처 지참. Bardeni 저녁 예약.</div>
+</div></div>
+
+<div class="day" id="d7"><div class="day-head"><input type="checkbox" class="day" data-id="day-7"><div class="dh-t"><b>Day 7 — 2/9(화) 구엘공원</b><span><span class="tag med">medium</span> 개장 직후 입장 · 카사바트요 택1일</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>08:30–09:30</td><td>출발 <span class="move">M L3 Vallcarca＋도보 20분(오르막)</span></td></tr><tr><td>09:30–11:30</td><td><b>구엘공원 2h</b>(개장 직후)</td></tr><tr><td>11:30–13:00</td><td>그라시아 산책＋점심 — La Salut 메뉴(~€14) / Bar Casi(고정메뉴) / Terra Mia(~€20)</td></tr><tr><td>13:00–15:00</td><td>호텔 휴식</td></tr><tr><td>15:00–17:30</td><td>카탈루냐·람블라스 산책(선택)＋저녁 — La Panxa del Bisbe(~€40) / La Graciosa(~€30) / Oído(~€35)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://parkguell.barcelona/en/buy-tickets/">parkguell.barcelona</a> 30분 윈도우 엄수. 카사바트요(<a href="https://www.casabatllo.es/en/online-tickets/">casabatllo.es</a>)는 오늘·내일 중 택1 — Be the First 권장, 현장가산 주의.</div>
+</div></div>
+
+<div class="day" id="d8"><div class="day-head"><input type="checkbox" class="day" data-id="day-8"><div class="dh-t"><b>Day 8 — 2/10(수) 피카소 ★완충</b><span><span class="tag light">light-medium</span> 본 지구 산책 · 짐 정리 시작</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>09:00–10:00</td><td>출발 <span class="move">M L4 Jaume I＋도보 25~35분</span></td></tr><tr><td>10:00–12:00</td><td><b>피카소 2h</b> — Meninas 연작실 중심</td></tr><tr><td>12:00–13:00</td><td>점심(본) — Bar del Pla(~€30, 예약필수) / Tapes La Bona Sort(~€30) / El Xampanyet(~€25, 바석)</td></tr><tr><td>13:00–16:00</td><td>본 완충 산책(산타마리아델마르→시우타데야→개선문, 도보 2km)</td></tr><tr><td>16:00~</td><td>호텔 복귀·짐 정리＋저녁 — Cal Pep(~€45, 웨이팅) / El SET(~€40) / Bodega La Tinaja(~€30)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://museupicassobcn.cat/en/plan-your-visit/buy-tickets-and-opening-hours">museupicassobcn.cat</a>. Bar del Pla 예약. 내일 W4 서류(여권·위탁 바우처·Aerobús) 미리 패킹. 카사바트요 미방문 시 오늘 택1.</div>
+</div></div>
+
+<div class="day" id="d9"><div class="day-head"><input type="checkbox" class="day" data-id="day-9"><div class="dh-t"><b>Day 9 — 2/11(목) 바르셀로나→로마</b><span><span class="tag light">light</span> <span class="tag risky">RISKY: W4 목운항 재확인</span></span></div></div><div class="day-body">
+<table class="timeline"><tr><td>07:15–08:00</td><td>호텔→BCN T2 <span class="move">Aerobús A2 35분, 08:00 도착 목표</span></td></tr><tr><td>08:00–10:00</td><td>수속·보안·탑승(120분)</td></tr><tr><td>10:00–11:55</td><td><b>W4 6018 BCN→FCO</b> <span class="move">항공 1h55, 대안 Vueling/ITA/Ryanair 목 오전편</span></td></tr><tr><td>11:55–13:00</td><td>FCO 수하물(40~60분)</td></tr><tr><td>13:00–13:35</td><td>FCO→Termini <span class="move">Leonardo Express 32분</span></td></tr><tr><td>13:35–14:30</td><td>호텔 이동·체크인 <span class="move">Metro 20분</span></td></tr><tr><td>14:30–15:30</td><td>점심·휴식 — Mercato Centrale(~€15) / Trimani(~€20) / Trapizzino(~€8)</td></tr><tr><td>15:30–18:00</td><td><b>나보나·판테온 외관만</b>(도보 1.5km)＋저녁 — Er Faciolaro(~€30) / Pietro al Pantheon(~€28) / Navona Notte(~€28)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> Wizz 바우처＋위탁 20kg×3 온라인 구매 확인서. <a href="https://portale.museiitaliani.it/">판테온</a> 전월중순권 있으면 오늘 내부 1회. Leonardo Express 표는 자판기·앱 vooraf.</div>
+</div></div>
+
+<div class="day" id="d10"><div class="day-head"><input type="checkbox" class="day" data-id="day-10"><div class="dh-t"><b>Day 10 — 2/12(금) 콜로세움</b><span><span class="tag med">medium-heavy</span> 08:30 최초 슬롯 · 오후 휴식 필수</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>07:45–08:15</td><td>출발(08:15 전 도착) <span class="move">M B Colosseo 15~25분</span></td></tr><tr><td>08:30–10:00</td><td><b>콜로세움 1.5h — 08:30 최초 슬롯</b> <span class="move">관내 계단</span></td></tr><tr><td>10:00–12:00</td><td><b>포로로마노·팔라티노 2h</b> <span class="move">유적 도보</span></td></tr><tr><td>12:00–13:00</td><td>점심(몬티) — al42(~€18) / La Taverna dei Fori(~€25) / Madonna dei Monti 피자(~€12)</td></tr><tr><td>13:00–15:00</td><td>호텔 휴식(필수) <span class="move">M B 20분</span></td></tr><tr><td>15:00–16:30</td><td>캄피돌리오·베네치아 외관(선택)＋저녁 — La Carbonara(~€35) / Trattoria Valentino(~€35) / Cuoco e Camicia(~€50, 예약권장)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> ★가장 이른 슬롯 <a href="https://ticketing.colosseo.it/en">ticketing.colosseo.it</a> 24h권·환불변경불가·콜로세오 먼저. 여권·바우처 지참. 물·모자(유적 그늘 적음).</div>
+</div></div>
+
+<div class="day" id="d11"><div class="day-head"><input type="checkbox" class="day" data-id="day-11"><div class="dh-t"><b>Day 11 — 2/13(토) 보르게세</b><span><span class="tag med">medium</span> ※Six Nations 로마전 — 예약 필수</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>08:15–09:00</td><td>출발 <span class="move">M A Spagna＋도보 15분</span></td></tr><tr><td>09:00–11:00</td><td><b>보르게세 2h 고정 슬롯(09:00 권장)</b></td></tr><tr><td>11:00–13:00</td><td>빌라 보르게세 정원→포폴로 전망＋점심 — Canova Tadolini(~€25) / Pastasciutta(~€18) / La Pariolina(~€22)</td></tr><tr><td>14:00~</td><td>호텔 휴식·자유＋저녁 — EMME(~€50) / Girarrosto(~€50) / Fradiavolo(~€28)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://galleriaborghese.cultura.gov.it/">galleriaborghese.cultura.gov.it</a> 2시간 고정·현장판매 없음·수주 전 매진 주의. 슬롯 15분 전 도착. 저녁 식당 예약 필수(경기일 혼잡).</div>
+</div></div>
+
+<div class="day" id="d12"><div class="day-head"><input type="checkbox" class="day" data-id="day-12"><div class="dh-t"><b>Day 12 — 2/14(일) ★REST ＋ 발렌타인</b><span><span class="tag rest">light</span> 바티칸 준비일 · 무리 금지</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>09:00–11:00</td><td>늦은 조식·휴식</td></tr><tr><td>11:00–13:00</td><td>아피아 가도 또는 카라칼라 외관(수동) <span class="move">Bus 118 30~40분</span></td></tr><tr><td>13:00–14:00</td><td>점심 — Appia Antica Caffe(~€20) / Roscioli 포르노(~€15) / Ginger(~€22)</td></tr><tr><td>14:00–16:30</td><td>판테온 내부 또는 트라스테베레 산책(선택) <span class="move">Bus/Tram 20분</span></td></tr><tr><td>16:30~</td><td>휴식·바티칸 준비＋<b>발렌타인 저녁(1월 초 예약 필수)</b> — Fortunata(~€50) / Baffetto(~€25) / Cantina e Cucina(~€50)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://portale.museiitaliani.it/">판테온</a> 전월중순권 있으면 오늘 사용. 내일 바티칸 08:00 슬롯 바우처·여권·편한 신발·물 미리 준비. 발렌타인 예약 확정 문자 재확인.</div>
+</div></div>
+
+<div class="day" id="d13"><div class="day-head"><input type="checkbox" class="day" data-id="day-13"><div class="dh-t"><b>Day 13 — 2/15(월) 바티칸</b><span><span class="tag heavy">heavy</span> 3.5~4h · 관내 3~4km</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>07:15–08:00</td><td>출발(08:00 슬롯 30분 전) <span class="move">M A Ottaviano＋도보 10분</span></td></tr><tr><td>08:00–12:00</td><td><b>바티칸＋시스티나 3.5~4h</b> — 지도갤러리→라파엘로→시스티나</td></tr><tr><td>12:00–13:00</td><td>성베드로 광장＋점심 — Dino e Toni(~€22) / Faruso(~€25) / Pompi 티라미수(~€12)</td></tr><tr><td>13:00–15:00</td><td>호텔 휴식(필수) <span class="move">M A 20분</span></td></tr><tr><td>15:00–17:00</td><td>산탄젤로 외관·테베레 산책(선택)＋저녁 — Dal Toscano(~€50) / Bar Sotto il Mare(~€40) / Pratolina(~€35)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> <a href="https://tickets.museivaticani.va/">tickets.museivaticani.va</a> 60일 롤링권·환불불가. 어깨·무릎 가리는 복장(성당 규정). 오디오가이드 있으면 초반에 수령.</div>
+</div></div>
+
+<div class="day" id="d14"><div class="day-head"><input type="checkbox" class="day" data-id="day-14"><div class="dh-t"><b>Day 14 — 2/16(화) 출국</b><span><span class="tag light">light</span> OZ562 22:00 · FCO 19:30 도착 목표</span></div></div><div class="day-body">
+<table class="timeline"><tr><td>08:30–10:30</td><td>성베드로 광장 아침 산책(짐 호텔 보관) <span class="move">M A 20분</span></td></tr><tr><td>10:30–12:00</td><td>복귀·휴식·짐 정리</td></tr><tr><td>12:00–14:00</td><td>점심 — Mercato Centrale(~€20) / Trattoria Monti(~€30, 평일점심 예약필수) / Pietro al Pantheon(~€25) ＋ 일찍 저녁</td></tr><tr><td>14:00–17:00</td><td>자유(판테온 재방 또는 휴식)</td></tr><tr><td>18:30–19:15</td><td>호텔→FCO <span class="move">Leonardo 32분, 2.5h 전 도착</span></td></tr><tr><td>19:30–22:00</td><td>수속·탑승, OZ562 22:00 출발(FGC5MR)</td></tr></table>
+<div class="ticket">🎫 <b>티켓/픽업:</b> 호텔 짐 보관 확인, Leonardo 표, 여권·면세 서류, EES 출국 스탬프 확인. Trattoria Monti 마지막 롱런치 노릴 경우 사전 예약.</div>
+</div></div>
+</section>
+
+<section class="card emg" id="emg">
+<h2>④ 비상·재확인 박스 (여행 중 수시 확인)</h2>
+<div class="kv">🏛️ <b>주재국 대사관:</b> 프랑스 주프랑스대사관 ＋33-1-4753-0101 / 스페인 주스페인대사관 ＋34-91-353-2000 / 이탈리아 주이탈리아대사관 ＋39-06-8024-61 — 여권 분실 시 영사콜센터 ＋82-2-3210-0404(24h). 여권사본·보험증권 스캔본은 메일에 보관.</div>
+<div class="kv">🛡️ <b>보험 긴급연락처:</b> 가입 후 여기에 기입 ✎ ______________ — trip-delay 6~12h 초과 영수증 전액 보관, EU261(항공 지연·결항 보상)과 중복 수령 불가 항목 확인.</div>
+<div class="kv">🚧 <b>파업 감시:</b> <a href="https://treniamo.it/en/train-strikes">https://treniamo.it/en/train-strikes</a> — 프랑스 파업 시 TGV 1/3 결항 가능. GdL 대체편·호텔 연장 플랜B 염두.</div>
+<div class="kv">✈️ <b>W4 목요일 운항 재확인:</b> <a href="https://www.wizzair.com/en-gb/cheap-flights-from-barcelona-to-rome">https://www.wizzair.com/en-gb/cheap-flights-from-barcelona-to-rome</a> — 2/11 목 운항 여부 출발 주 재확인. 결항 시 대안 <a href="https://www.vueling.com/en/flights-from-barcelona-to-rome">Vueling</a> / <a href="https://www.ita-airways.com">ITA Airways</a> 목 오전편.</div>
+<div class="kv">🚄 <b>TGV 9713 재확인:</b> <a href="https://www.sncf-connect.com/en-en/train/timetables/paris/barcelona">https://www.sncf-connect.com/en-en/train/timetables/paris/barcelona</a> — 2026-09-30 오픈 후 2027 시각 확정 확인. GdL 30분 전 도착.</div>
+<div class="kv">🛂 <b>ETIAS 재확인:</b> <a href="https://travel-europe.europa.eu/etias">https://travel-europe.europa.eu/etias</a> — 2026-12 / 2027-01 두 번. 사설 대행 주의.</div>
+<div class="kv">🍽️ <b>발렌타인(2/14) 예약:</b> 1월 초 Osteria da Fortunata / Baffetto / Cantina e Cucina 중 택1 확정 — Six Nations 주말 매진 주의.</div>
+<div class="kv">🎒 <b>소매치기·치안:</b> RER B·Rambla·Raval 남부·Termini 북측·Esquilino 심야 회피. Gare du Nord·Stalingrad·북부 18·19구 야간 회피(파리). Monti(Via Cavour~Nazionale 축) 거점 유지(로마). Eixample(Pg de Gràcia 축) 거점(바르셀로나).</div>
+<p><a class="btn warn" href="#booking">예약 미완료 확인하기</a><a class="btn ghost" href="#schedule">오늘 일정으로 이동</a></p>
+</section>
+
+<section class="card" id="hotels">
+<h2>⑤ 숙소 후보 상세 (도시별 · 공식 URL · 3인 참고가)</h2>
+<p class="hint">거점: 파리 마레(3·4구)＋7구 / 바르셀로나 Eixample(Pg de Gràcia 축) / 로마 Monti(Via Cavour~Nazionale 축). 회피: 파리 Gare du Nord·Stalingrad·북부 18·19구 야간, 바르셀로나 Raval 남부·Rambla 야간, 로마 Termini 북측·Esquilino 심야.</p>
+<h3>파리 4박</h3>
+<table><tr><th>숙소</th><th>3인 객실</th><th>2월 참고가</th><th>취소·특기</th></tr>
+<tr><td>Citadines Bastille-Marais<br><a class="url" href="https://www.discoverasr.com/en/citadines/france/citadines-bastille-marais-paris">discoverasr.com 공식</a></td><td>1BR 주방＋소파베드</td><td>€150~210/박, 4박 €600~840</td><td>Flex/비환불-10~15%. Bastille M1·5·8, 루브르 M1 15분. 주방＋세탁 가성비 1순위</td></tr>
+<tr><td>Adagio Paris Nation<br><a class="url" href="https://www.adagio-city.com/">adagio-city.com</a></td><td>1BR 4인 36㎡</td><td>€130~180/박, 4박 €520~720</td><td>무료취소/EB-25%. Nation M1·2·6·RER A, GdL 2정거장(2/7 TGV 최적)</td></tr>
+<tr><td>Novotel Tour Eiffel<br><span class="meta">novotel-paris-toureiffel.com</span></td><td>Family 퀸＋소파베드</td><td>€170~230/박, 4박 €680~920</td><td>Flex/Advance-10~20%. Bir-Hakeim M6, 에펠 도보 15분, RER C 직통. 16세 미만 숙박·조식 무료＋수영장</td></tr>
+<tr><td>Hôtel Malte-Astotel<br><span class="meta">astotel.com</span></td><td>Family 35㎡</td><td>€150~200/박, 4박 €600~800</td><td>전일 무료취소. Pyramides 도보, 루브르 도보 10분. 파리 1위 독립호텔</td></tr>
+<tr><td>Hôtel Astra Opéra-Astotel<br><span class="meta">astotel.com</span></td><td>Triple·연결형</td><td>€180~250/박, 4박 €720~1000</td><td>상동. Havre-Caumartin, 실내 수영장 보유</td></tr></table>
+<p class="hint"><b>P1 추천:</b> Adagio Nation(이동 동선) 또는 Citadines Bastille(주방). 2/6 식스네이션스 주말 가산 주의 — Flex로 조기 확보.</p>
+<h3>바르셀로나 4박</h3>
+<table><tr><th>숙소</th><th>3인 객실</th><th>2월 참고가</th><th>취소·특기</th></tr>
+<tr><td>Catalonia Eixample 1864<br><span class="meta">cataloniahotels.com</span></td><td>Triple 3베드</td><td>€150~200/박, 4박 €600~800</td><td>Flex/비환불-10~15%. Pg de Gràcia 도보 5분, 카사 도보, 사그라다 L2 3정거장. Triple 확정 1순위</td></tr>
+<tr><td>Acta Atrium Palace<br><span class="meta">actahotels.com</span></td><td>Triple</td><td>€140~190/박, 4박 €560~760</td><td>직예 무료취소多. Universitat 도보, 카탈루냐광장 10분. 테라스 객실</td></tr>
+<tr><td>NH Barcelona Eixample<br><span class="meta">nh-hotels.com</span></td><td>Junior Suite 협의</td><td>€110~150/박, 4박 €440~600</td><td>Flex/Advance-15%. Hospital Clínic L3·L5, 주거지형 야간 안전</td></tr>
+<tr><td>Eric Vökel Sagrada Suites<br><span class="meta">ericvokel.com</span></td><td>1BR 55㎡</td><td>€150~220/박, 4박 €600~880</td><td>선결제 비환불. 사그라다 도보 10분(2/8 최적). 세탁기·주방</td></tr>
+<tr><td>Derby Barcelona Apartment<br><span class="meta">barcelona-apartment.com</span></td><td>Family 아파트</td><td>€160~230/박, 4박 €640~920</td><td>요금제별. Eixample, 호텔식 서비스＋취사</td></tr></table>
+<h3>로마 5박</h3>
+<table><tr><th>숙소</th><th>3인 객실</th><th>2월 참고가</th><th>취소·특기</th></tr>
+<tr><td>Hotel Artemide<br><span class="meta">hotelartemide.it</span></td><td>Deluxe 3인·Junior Suite 4인</td><td>€150~220/박, 5박 €750~1100</td><td>직예 3박＋-10%. Repubblica MA 도보 3분. 루프탑＋스파</td></tr>
+<tr><td>The Hive Hotel<br><span class="meta">thehiverome.com</span></td><td>Triple·Junior Suite</td><td>€140~200/박, 5박 €700~1000</td><td>요금제별. Termini 도보 5분(이동일 특화)＋루프탑</td></tr>
+<tr><td>77 Seventy Seven<br><span class="meta">hotelseventyseven.com</span></td><td>Triple·Family</td><td>€130~190/박, 5박 €650~950</td><td>확인 요. Cavour MB, Monti 한복판 부티크</td></tr>
+<tr><td>Hotel Lancelot<br><span class="meta">lancelothotel.com</span></td><td>Triple 18㎡</td><td>€90~140/박, 5박 €450~700</td><td>유연. Colosseo MB 도보 5분. 가성비王</td></tr>
+<tr><td>The Building Hotel<br><span class="meta">thebuildinghotelrome.com</span></td><td>Triple 전용</td><td>€120~180/박, 5박 €600~900</td><td>확인 요. Repubblica 인접 실속형</td></tr>
+<tr><td>Hotel Colosseum<br><span class="meta">hotelcolosseum.com</span></td><td>Family 대형</td><td>€100~150/박, 5박 €500~750</td><td>확인 요. 콜로세오 인접, Lancelot 대안</td></tr></table>
+</section>
+
+<section class="card" id="food">
+<h2>⑥ 식당 전일 3안표 (끼니별 · Maps 링크 · 현장용)</h2>
+<p class="hint">전점 웹 존재 확인済. 13세 동반 기준. 예약 필수 표시된 곳은 사전 예약. Six Nations 주말(2/6·2/13 저녁)은 혼잡 — 예약 필수.</p>
+<h3>Day 1 — 2/3(수) 파리 석식</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Chartier%20Montparnasse%2C%20Paris">Chartier Montparnasse</a></td><td>부용·~€20</td><td>에펠 M6 직행 약 20분, 예약불가·회전 빠름, 연중무휴</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=20%20Eiffel%2C%20Paris">20 Eiffel</a></td><td>트라디·~€35</td><td>에펠 도보 10분, 조용·밝음, 일 휴무 가능 사전확인</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Bistrot%20de%20Vignes%2C%20Paris">Bistrot de Vignes</a></td><td>비스트로·~€30</td><td>트로카데로 도보 8분, 도착일 가벼운 저녁</td></tr></table>
+<h3>Day 2 — 2/4(목) 루브르</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Loulou%2C%20Paris">Loulou</a></td><td>지중해·~€35</td><td>관람 중 도보 0분, 예약 필수</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Le%20Cochon%20a%20l%27Oreille%2C%20Paris">Le Cochon à l'Oreille</a></td><td>비스트로·~€25</td><td>M1 1정거장, 일 휴무</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Auberge%20du%20Louvre%2C%20Paris">L'Auberge du Louvre</a></td><td>비스트로·~€25</td><td>루브르 도보 5분, 영어 메뉴, 13세 호응</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Bourse%20et%20la%20Vie%2C%20Paris">La Bourse et la Vie</a></td><td>비스트로·~€45</td><td>M1 1–2정거장, 일·월휴무(목 정상)</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Le%20Petit%20Vendome%2C%20Paris">Le Petit Vendôme</a></td><td>샌드위치·~€20</td><td>도보 12분, 일 휴무</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Au%20Pied%20de%20Cochon%2C%20Paris">Au Pied de Cochon</a></td><td>브라세리·~€45</td><td>M1 1정거장, 매일 심야영업</td></tr></table>
+<h3>Day 3 — 2/5(금) 오르세·좌안</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Musee%20d%27Orsay%20Restaurant%2C%20Paris">Restaurant d'Orsay</a></td><td>프렌치·~€30</td><td>관람 중, 11:45–17:30</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Cafe%20Campana%20Musee%20d%27Orsay%2C%20Paris">Café Campana</a></td><td>캐주얼·~€20</td><td>관람 중, 빠름</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Les%20Antiquaires%2C%20Paris">Les Antiquaires</a></td><td>비스트로·~€30</td><td>미술관 도보 8분, 일 휴무</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Chartier%20Montparnasse%2C%20Paris">Bouillon Chartier Montparnasse</a></td><td>부용·~€20</td><td>M12 직행 15분, 무휴</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Le%20Procope%2C%20Paris">Le Procope</a></td><td>트라디·~€45</td><td>M4 2정거장, 1686년 역사</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Brasserie%20Lutetia%2C%20Paris">Brasserie Lutetia</a></td><td>브라세리·~€55</td><td>도보·M4, 가족 환영</td></tr></table>
+<h3>Day 4 — 2/6(토) 베르사유·파리</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Angelina%20Versailles%2C%20Versailles">Angelina Versailles</a></td><td>살롱·~€25</td><td>궁전 1층, 13세 보상용</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Le%20Petit%20Bouillon%20Versailles%2C%20Versailles">Le Petit Bouillon Versailles</a></td><td>부용·~€18</td><td>궁전 도보 5분, 빠름·저렴</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Place%20creperie%2C%20Versailles">La Place creperie Versailles</a></td><td>크레프·~€18</td><td>궁전 옆 도보 2분, 13세 확실</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Bouillon%20Julien%2C%20Paris">Bouillon Julien</a></td><td>부용·~€22</td><td>RER·M4 25분, 무휴</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Bofinger%2C%20Paris">Bofinger</a></td><td>브라세리·~€50</td><td>M1 직행, ※Six Nations일 혼잡</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Chez%20Francis%20Paris%2C%20Paris">Chez Francis</a></td><td>비스트로·~€55</td><td>M9 20분, 에펠 야경 자리 요청</td></tr></table>
+<h3>Day 5 — 2/7(일) 바르셀로나 이동일</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Ciudad%20Condal%2C%20Barcelona">Ciudad Condal</a></td><td>타파스·~€22</td><td>숙소·산츠역 경유, 무휴</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=El%20Nacional%2C%20Barcelona">El Nacional</a></td><td>스페인 종합·~€25</td><td>M L3, 13세 선택 쉬움</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Honest%20Greens%2C%20Barcelona">Honest Greens Barcelona</a></td><td>헬시·~€18</td><td>가벼운 점심</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Tapas%20Avinyo%2C%20Barcelona">Tapas Avinyo</a></td><td>타파스·~€30</td><td>고딕 도보권, 일요일 영업</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Gourmet%20Sensi%2C%20Barcelona">Gourmet Sensi</a></td><td>고메 타파스·~€40</td><td>온라인 예약만</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Ocana%2C%20Barcelona">Orcana Rambla</a></td><td>타파스·~€30</td><td>람블라 옆, 늦은 도착·가벼운 밤</td></tr></table>
+<h3>Day 6 — 2/8(월) 사그라다</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Paradeta%2C%20Barcelona">La Paradeta Sagrada Familia</a></td><td>해산물·~€25</td><td>성당 도보 8분, 월 정상</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Madre%20Taberna%2C%20Barcelona">Madre Taberna Moderna</a></td><td>모던 타파스·~€22</td><td>성당 앞 도보 2분</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Restaurante%20Lepanto%2C%20Barcelona">Restaurante Lepanto Barcelona</a></td><td>메뉴델디아·~€16</td><td>성당 300m, 가장 든든·저렴</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Bardeni%2C%20Barcelona">Bardeni Meatbar</a></td><td>고기·창작·~€40</td><td>예약 요망, 13세 고기파 환영</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Pedreta%2C%20Barcelona">La Pedreta</a></td><td>카탈루냐·~€30</td><td>성당 200m 도보 3분</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Can%20Pizza%2C%20Barcelona">Can Pizza</a></td><td>피자·~€20</td><td>성당 인근 도보 5분, 10대 확실</td></tr></table>
+<h3>Day 7 — 2/9(화) 구엘공원</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Restaurant%20La%20Salut%2C%20Barcelona">Restaurant La Salut Barcelona</a></td><td>카탈루냐 메뉴·~€14</td><td>공원 도보 5분, €12.5 메뉴</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Bar%20Casi%2C%20Barcelona">Bar Casi</a></td><td>가정식 고정메뉴</td><td>공원 도보 8분, 동네·가족 분위기</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Terra%20Mia%2C%20Barcelona">Terra Mia Barcelona</a></td><td>피자·파스타·~€20</td><td>공원 인근, 가족 환영</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Panxa%20del%20Bisbe%2C%20Barcelona">La Panxa del Bisbe</a></td><td>창작타파스·~€40</td><td>M L3 15분, 예약 권장</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Graciosa%2C%20Barcelona">La Graciosa</a></td><td>타파스·~€30</td><td>나눔형, 편안</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Oido%20Gracia%2C%20Barcelona">Oido Barcelona</a></td><td>계절요리·~€35</td><td>그라시아 광장 테라스, 예약 권장</td></tr></table>
+<h3>Day 8 — 2/10(수) 피카소·완충</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Bar%20del%20Pla%2C%20Barcelona">Bar del Pla</a></td><td>타파스·~€30</td><td>박물관 옆, 예약 필수</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Tapes%20La%20Bona%20Sort%2C%20Barcelona">Tapes La Bona Sort</a></td><td>카탈루냐 타파스·~€30</td><td>박물관 도보 4분</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=El%20Xampanyet%2C%20Barcelona">El Xampanyet</a></td><td>전통 보데가·~€25</td><td>박물관 도보 1분, 바석</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Cal%20Pep%2C%20Barcelona">Cal Pep</a></td><td>해산물타파스·~€45</td><td>웨이팅, 해산물 OK면 강추</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=El%20SET%2C%20Barcelona">El SET Barcelona</a></td><td>세련 타파스·~€40</td><td>나눔형</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Bodega%20La%20Tinaja%2C%20Barcelona">Bodega La Tinaja</a></td><td>전통 보데가·~€30</td><td>편안</td></tr></table>
+<h3>Day 9 — 2/11(목) 로마 이동일</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Mercato%20Centrale%20Roma%20Termini%2C%20Rome">Mercato Centrale Roma Termini</a></td><td>푸드홀·~€15</td><td>Termini 도착 직후, 이동일 가장 빠름</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Trimani%20Via%20Cernaia%2C%20Rome">Trimani</a></td><td>와인바·경식·~€20</td><td>1821년 노포, 가벼운 점심</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Trapizzino%20Termini%2C%20Rome">Trapizzino Termini</a></td><td>스트리트푸드·~€8</td><td>테이크아웃可, 체크인 전</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Er%20Faciolaro%2C%20Rome">Er Faciolaro</a></td><td>로마 가정식·~€30</td><td>판테온 인근, 가족 운영</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Pietro%20al%20Pantheon%2C%20Rome">Pietro al Pantheon</a></td><td>이탈리안·~€28</td><td>도보 5분, 매일 11–23시</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Navona%20Notte%2C%20Rome">Navona Notte</a></td><td>피자·라자냐·~€28</td><td>도보 3분, 늦은 이동일 저녁 무난</td></tr></table>
+<h3>Day 10 — 2/12(금) 콜로세움</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=al42%20Street%20Food%2C%20Rome">al42 Street Food Gourmet</a></td><td>파스타·테이크아웃·~€18</td><td>콜로세움 도보 8분</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Taverna%20dei%20Fori%20Imperiali%2C%20Rome">La Taverna dei Fori Imperiali</a></td><td>이탈리안·~€25</td><td>포로 도보 5분, 야외석</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Pizza%20Madonna%20dei%20Monti%2C%20Rome">Pizza Madonna dei Monti</a></td><td>피자 알탈리오·~€12</td><td>몬티 광장 분수 앞 피크닉형</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Carbonara%20Monti%2C%20Rome">La Carbonara Monti</a></td><td>로마 오스테리아·~€35</td><td>M B Cavour 6분, 1906년 노포</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Trattoria%20Valentino%20Rome%2C%20Rome">Trattoria Valentino</a></td><td>트라토리아·~€35</td><td>현지인 만석·가성비</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Cuoco%20e%20Camicia%2C%20Rome">Cuoco e Camicia</a></td><td>세련 트라토리아·~€50</td><td>예약 권장, 기념일급인데 가족 환영</td></tr></table>
+<h3>Day 11 — 2/13(토) 보르게세</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Canova%20Tadolini%2C%20Rome">Canova Tadolini</a></td><td>이탈리안·~€25</td><td>공원 하산 도보 12분, 조각 아틀리에 식당</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Pastasciutta%2C%20Rome">Pastasciutta Flaminio</a></td><td>파스타·~€18</td><td>Flaminio역 앞, 빠름·든든</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Pariolina%2C%20Rome">La Pariolina</a></td><td>피자·로마식·~€22</td><td>얇은 로마피자</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=EMME%20Ristorante%20Via%20Margutta%2C%20Rome">EMME Ristorante Margutta</a></td><td>로마·창작·~€50</td><td>※Six Nations일 혼잡, 예약 필수</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Girarrosto%20Fiorentino%2C%20Rome">Girarrosto Fiorentino Roma</a></td><td>고기·토스카나·~€50</td><td>1960년 노포, 13세 고기파 안정</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Fradiavolo%2C%20Rome">Fradiavolo Via Po</a></td><td>장인피자·~€28</td><td>그룹·가족 적합</td></tr></table>
+<h3>Day 12 — 2/14(일) REST·발렌타인</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Appia%20Antica%20Caffe%2C%20Rome">Appia Antica Caffe</a></td><td>카페·가벼운 식사·~€20</td><td>정원 테이블, 일 08–21시</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Antico%20Forno%20Roscioli%2C%20Rome">Antico Forno Roscioli</a></td><td>포르노·~€15</td><td>일 08–18시, 13세 확실</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Ginger%20Rome%2C%20Rome">Ginger Rome</a></td><td>브런치·헬시·~€22</td><td>매일 08–23시</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Osteria%20da%20Fortunata%2C%20Rome">Osteria da Fortunata Navona</a></td><td>수제파스타·~€50</td><td>★발렌타인 1월 초 예약 필수, 단품可 확인</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Pizzeria%20da%20Baffetto%2C%20Rome">Pizzeria da Baffetto</a></td><td>로마 얇은피자·~€25</td><td>회전 빠름·캐주얼, 일 영업</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Cantina%20e%20Cucina%2C%20Rome">Cantina e Cucina</a></td><td>가정식·~€50</td><td>촛불 석조실, 조용한 가족석 요청</td></tr></table>
+<h3>Day 13 — 2/15(월) 바티칸</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Hostaria%20Dino%20e%20Toni%2C%20Rome">Hostaria Dino e Toni</a></td><td>로마 가정식·~€22</td><td>박물관 도보 5분, 정직·저렴</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Faruso%20Rome%2C%20Rome">Faruso</a></td><td>이탈리안·고기·~€25</td><td>M A Ottaviano 6분, 매일 12–24시</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Pompi%20Tiramisu%2C%20Rome">Pompi Tiramisù</a></td><td>디저트·~€12</td><td>수십년 명물 티라미수</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Dal%20Toscano%2C%20Rome">Dal Toscano Roma</a></td><td>토스카나·로마·~€50</td><td>바티칸 인근 대표, heavy일 보양</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=Il%20Bar%20Sotto%20il%20Mare%2C%20Rome">Il Bar Sotto il Mare</a></td><td>해산물파스타·~€40</td><td>육류 연속 탈출</td></tr>
+<tr><td>석</td><td><a href="https://www.google.com/maps/search/?api=1&query=La%20Pratolina%2C%20Rome">La Pratolina Prati</a></td><td>이탈리안·~€35</td><td>동네·가족형</td></tr></table>
+<h3>Day 14 — 2/16(화) 출국 점심</h3>
+<table><tr><th>끼니</th><th>식당</th><th>종류·1인</th><th>동선·비고</th></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Mercato%20Centrale%20Roma%2C%20Rome">Mercato Centrale Roma</a></td><td>푸드홀·~€20</td><td>FCO행 전, 13세 자기선택</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Trattoria%20Monti%2C%20Rome">Trattoria Monti</a></td><td>마르케·~€30</td><td>평일 점심 예약 필수, 마지막 롱런치</td></tr>
+<tr><td>점</td><td><a href="https://www.google.com/maps/search/?api=1&query=Pietro%20al%20Pantheon%2C%20Rome">Pietro al Pantheon</a></td><td>이탈리안·~€25</td><td>아침 산책 후, 매일 영업</td></tr></table>
+<p class="hint">검증 기록: 시간 블록 겹침 없음, 유료 대형 1일 1개, 이동일·일요일 무예약. 휴관 정합 전일 적법(루브르 목·오르세 금·베르사유 토·사그라다 월·구엘 화·피카소 수·콜로세움 금오전·보르게세 토·REST 일·바티칸 월). 교통 검증 2026-ref, 2027년 재확인: TGV INOUI 9713 GdL 07:42→Sants 14:32 / W4 6018 BCN 10:00→FCO 11:55(목 운항 재확인, 대안 Vueling/ITA/Ryanair, 공항 120분 전).</p>
+</section>
+
+<section class="card" id="appendix">
+<h2>⑦ 부록 — 짐·회화·교통 현장 메모 (오프라인용)</h2>
+<h3>패킹 (3~15℃ · 13박 · 세탁 전제)</h3>
+<table><tr><th>분류</th><th>내용</th><th>비고</th></tr>
+<tr><td>방한</td><td>히트텍 상하 각 2, 미들플리스 1, 방풍·방수 외투 1, 목도리·장갑·비니</td><td>로마 낮 15℃·아침 3℃ 일교차. 박물관·성당은 실내외 온도차 큼</td></tr>
+<tr><td>신발</td><td>방수 운동화＋편한 워킹화 2켤레 교대, 두꺼운 양말 4족</td><td>바티칸 관내 3~4km, 포로로마노 자갈길. 새 신발 금지</td></tr>
+<tr><td>우천</td><td>접이우산 1＋경량 우비 3</td><td>2월 파리·바르셀로나 비 잦음. 우산은 기내 반입 규정 확인</td></tr>
+<tr><td>서류</td><td>여권 원본＋사본 출력, 예약 바우처 출력 1세트, 보험증권, 면세서류 봉투</td><td>콜로세오·보르게세·바티칸·판테온은 여권(신분증) 대조. 스캔본은 메일＋휴대폰 저장</td></tr>
+<tr><td>상비</td><td>상비약(해열·소화·지사·밴드·파스), 멀티탭(유럽 C타입), 보조배터리, 세제 소분</td><td>주방 숙소(Citadines/Adagio)면 간단 세탁 가능. 약 처방전 영문 보관</td></tr>
+<tr><td>도난방지</td><td>크로스백(앞맴), 잠금포치, 카드 2장 분산, 현금 소액 분산(€20권 위주)</td><td>RER B·람블라스·테르미니에서 백팩 뒤로 메지 않기. 여권은 숙소 금고＋사본 휴대</td></tr></table>
+<h3>교통 현장 메모</h3>
+<table><tr><th>구간</th><th>현장 메모</th></tr>
+<tr><td>CDG→파리 호텔</td><td>RER B 약 50분. 자판기·앱 표 구매, 개찰구 표 보관(하차 검사). 야간·혼잡 시 공식 택시(G7) 대안. 소지품 전방.</td></tr>
+<tr><td>파리 시내</td><td>M1(루브르·콩코르드)·M4(좌안)·M6(에펠)·RER C(오르세·베르사유). 베르사유 RER C 40분＋도보 10분, 파업·지연 대비 일찍 출발.</td></tr>
+<tr><td>TGV 9713 (2/7)</td><td>GdL 30분 전 도착, 전광판 호차(COACH) 확인, 큰 짐은 객차 끝 짐칸. 차내 점심·휴식. 파업 시 1/3 결항 — 전일 운행정보 확인.</td></tr>
+<tr><td>바르셀로나 시내</td><td>L2/L5(사그라다)·L3(구엘·그라시아)·L4(피카소·본). 구엘은 Vallcarca 하차 후 오르막 도보 20분. Aerobús A2 BCN T2 35분.</td></tr>
+<tr><td>W4 6018 (2/11)</td><td>120분 전 도착. 무료 수하물은 40×30×20cm 1개만 — 위탁 20kg×3 온라인 구매 확인서 저장. T2 터미널 확인.</td></tr>
+<tr><td>FCO→로마 호텔</td><td>Leonardo Express 32분 Termini행. 자판기·앱 vooraf 구매, 개찰 전 표 소지. Termini 북측·Esquilino 심야 회피, Monti 숙소는 Metro B Cavour 또는 도보.</td></tr>
+<tr><td>로마 시내</td><td>M B(콜로세오)·M A(바티칸·스파냐). Bus 118(아피아)·Tram(트라스테베레). 유적일은 물·모자 — 포로·팔라티노 그늘 적음.</td></tr>
+<tr><td>FCO 출국 (2/16)</td><td>호텔→FCO Leonardo 32분, 2.5h 전(19:30) 도착. 면세·EES 출국 줄 감안. OZ562 22:00(FGC5MR).</td></tr></table>
+<h3>한 줄 회화 (현장용)</h3>
+<table><tr><th>상황</th><th>프랑스어</th><th>스페인어(카탈루냐)</th><th>이탈리아어</th></tr>
+<tr><td>예약 확인</td><td>J'ai une réservation. (자베 윈 레제르바시옹)</td><td>Tengo una reserva. (뗑고 우나 레세르바)</td><td>Ho una prenotazione. (오 우나 프레노타치오네)</td></tr>
+<tr><td>3명</td><td>Trois personnes. (트루아 페르손)</td><td>Tres personas. (트레스 페르소나스)</td><td>Tre persone. (트레 페르소네)</td></tr>
+<tr><td>계산서</td><td>L'addition, s'il vous plaît.</td><td>La cuenta, por favor.</td><td>Il conto, per favore.</td></tr>
+<tr><td>화장실</td><td>Où sont les toilettes ?</td><td>¿Dónde está el baño?</td><td>Dov'è il bagno?</td></tr>
+<tr><td>도와주세요</td><td>Au secours !</td><td>¡Ayuda, por favor!</td><td>Aiuto, per favore!</td></tr></table>
+<p class="hint">이 페이지는 단일 파일·외부 CDN 없음 — 저장 후 비행기 모드에서도 열람 가능. 체크 상태는 이 기기(localStorage)에만 저장됩니다.</p>
+<h3>출국 당일 아침 루틴 (2/3 · 30분)</h3>
+<table><tr><th>순서</th><th>확인</th></tr>
+<tr><td>1</td><td>여권 3권·ETIAS(필요 시)·보험증권·바우처 출력본 파우치 1곳 — 사진도 휴대폰에 저장</td></tr>
+<tr><td>2</td><td>OZ501(OZ562 귀국편 포함 FGC5MR) 체크인·좌석·위탁 23kg/인 확인, 스케줄 변경 문자 확인</td></tr>
+<tr><td>3</td><td>eSIM·로밍 개통 확인, 숙소·TGV·W4 바우처 오프라인 저장(비행기 모드에서 열기 테스트)</td></tr>
+<tr><td>4</td><td>카드 2장 분산·현금 € 소액권·잠금포치·크로스백 — RER B 첫 관문부터 분산 보관</td></tr>
+<tr><td>5</td><td>이 플래너 홈화면 추가: 브라우저 공유 → 홈 화면에 추가 → 여행 중 ①②③④ 순서로 사용</td></tr></table>
+<h3>검증 기록 (상세일정 PART4 인용)</h3>
+<p class="hint">시간 블록 겹침 없음, 유료 대형 1일 1개, 이동일·일요일 무예약 원칙 준수. 휴관 정합 전일 적법 — 루브르 목(2/4)·오르세 금(2/5)·베르사유 토(2/6)·사그라다 월(2/8)·구엘 화(2/9)·피카소 수(2/10)·콜로세움 금오전(2/12)·보르게세 토(2/13)·REST 일(2/14)·바티칸 월(2/15). [RISKY] 2건: W4 6018 목 운항(wizzair.com 재확인, 대안 Vueling/ITA/Ryanair) / 2027 TGV 시각(2026-09-30 오픈 후 9713 확인). 숙소 16곳·식당 전점 웹 존재 확인. ETIAS 2026-12/2027-01 재확인(europa.eu/etias). 예약 순서 원칙: ① 숙소 Flex 선확보 → ② 국제열차 오픈 즉시(2026-09-30 일괄) → ③ 항공(이미 판매 중) → ④ 콜로세오·바티칸·보르게세 가장 이른 슬롯 선점 → ⑤ 나머지 시간제 → ⑥ 노트르담(2~3일 전)·판테온(전월 중순). 융프라우·당일 항목은 P1 해당 없음.</p>
+<p class="hint">사용법: ① 출발전에는 ①예약＋②준비 섹션만 위에서부터 체크 — 진행률이 상단 바에 표시됩니다. ② 여행 중에는 ③일정에서 오늘 날짜 카드만 펼쳐 확인(시간 블록＋티켓 메모＋식당). ③ 문제 발생 시 ④비상 박스(대사관·파업·대체편 링크). 본 파일은 의료·법률 자문이 아닌 개인 여행 메모이며, 모든 금액·시각은 공식 사이트에서 결제·탑승 전 재확인하시기 바랍니다. 즐거운 여행 되십시오 — Bon voyage ! · ¡Buen viaje! · Buon viaggio!</p>
+</section>
+
+<section class="card" id="budget">
+<h2>⑧ 예산 합계 (P1 예약분 소계 · 3인)</h2>
+<table><tr><th>구분</th><th>금액</th><th>비고</th></tr>
+<tr><td>국제선 (확정)</td><td>₩4,625,400</td><td>OZ501＋OZ562, FGC5MR, 위탁 23kg/인</td></tr>
+<tr><td>숙박 13박</td><td>€2,270~3,530 (약 516만원 중 일부)</td><td>파리 4박 €880~1,280 ＋ 바르셀로나 4박 €640~1,000 ＋ 로마 5박 €750~1,250</td></tr>
+<tr><td>교통 (TGV＋W4)</td><td>€312~567 (약 50~91만원)</td><td>TGV €117~327 ＋ W4 €195~240(위탁 포함)</td></tr>
+<tr><td>입장권 합계</td><td>약 €642 (약 103만원)</td><td>에펠 91.80 ＋ 루브르 64 ＋ 오르세 32 ＋ 베르사유 60 ＋ 사그라다 78(타워 108) ＋ 구엘 54 ＋ 피카소 28 ＋ 바트요 81 ＋ 콜로세오 36(Arena 48) ＋ 보르게세 38 ＋ 바티칸 65 ＋ 판테온 14 ＋ 노트르담 무료</td></tr>
+<tr><td><b>P1 예약분 소계</b></td><td><b>€3,224~4,739 (약 516~758만원)</b></td><td>＋ 국제선 ₩462.5만 ＋ 식비·현지교통·보험 별도</td></tr></table>
+<p class="hint">전 가격은 2025~2026 공식 공시 기준 참고가. 13세는 다수 박물관 18세 미만 무료이나 루브르 등 EEA/non-EEA 이중요금에서는 non-EEA(한국) 요금 적용. €1=1,600원 환산. 결제 전 공식 페이지 재확인 필수.</p>
+<p class="hint">일일 지출 가늠자(3인, 2026-ref): 파리 식비 하루 약 €120~180(점심 €60~90＋석식 €60~120, 부용일 절반) · 바르셀로나 하루 약 €90~150(타파스·메뉴델디아 활용 시 하한) · 로마 하루 약 €100~160(몬티 트라토리아 기준). 현지교통: 파리 Navigo·카르네 vs 단권, 바르셀로나 T-casual/T-dia, 로마 BIT·CIS권 — 체류일·탑승횟수로 현장 계산. 식비＋현지교통＋보험을 더하면 총액 가늠: 국제선 ₩462.5만＋예약분 €3,224~4,739(약 516~758만원)＋식비·교통 약 €1,400~2,200(약 224~352만원)＋보험·eSIM 약 15~55만원 ≈ <b>전체 약 1,220만~1,630만원대(3인 14일)</b>. 환율은 출발전 은행·카드사 고시로 재계산하고, 현금 €500~800＋카드 2장 분산을 권장합니다. Six Nations 주말(2/6 파리·2/13 로마)은 식당·숙박 가산 — 예약 확정이 곧 예산 확정입니다.</p>
+<p class="hint">숙소 대안(상세일정 PART2): 파리 Citadines Bastille-Marais(discoverasr.com) €150~210/박·Adagio Nation(adagio-city.com) €130~180/박·Novotel Tour Eiffel(novotel-paris-toureiffel.com) €170~230/박·Malte-Astotel/Astra Opéra(astotel.com) €150~250/박. 바르셀로나 Catalonia Eixample 1864(cataloniahotels.com) €150~200/박·Acta Atrium(actahotels.com) €140~190/박·NH Eixample(nh-hotels.com) €110~150/박·Eric Vökel(ericvokel.com) €150~220/박. 로마 Artemide(hotelartemide.it) €150~220/박·Hive(thehiverome.com) €140~200/박·77(hotelseventyseven.com) €130~190/박·Lancelot(lancelothotel.com) €90~140/박·Building(thebuildinghotelrome.com)·Colosseum(hotelcolosseum.com) €100~180/박. 동선·치안: 파리 마레+7구, 바르셀로나 Eixample, 로마 Monti 거점.</p>
+<p><button class="btn ghost" id="resetBtn" style="color:#1a5fa8">↺ 모든 체크 초기화</button> <span class="hint">체크 상태는 이 기기에만 저장됩니다(localStorage). 오프라인에서도 동작합니다.</span></p>
+</section>
+
+</div>
+<footer class="tools"><div>예약<b id="fBk">0/22</b></div><div>준비<b id="fPre">0/10</b></div><div>일정<b id="fDay">0/14</b></div></footer>
+<button class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">▲</button>
+<script>
+(function(){
+var KEY='p1planner_v1';
+var state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){state={};}
+function boxes(sel){return Array.prototype.slice.call(document.querySelectorAll(sel));}
+var bk=boxes('.bk'),pre=boxes('.pre'),day=boxes('input.day[type=checkbox]');
+function apply(list){list.forEach(function(b){var id=b.getAttribute('data-id');if(state[id]){b.checked=true;b.closest('label,.day-head,.day')&&mark(b,true);}else{b.checked=false;mark(b,false);}});}
+function mark(b,on){
+var l=b.closest('label.row');if(l){l.classList.toggle('done',!!on);return;}
+var d=b.closest('.day');if(d){d.classList.toggle('done',!!on);}
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function count(list){var n=0;list.forEach(function(b){if(b.checked)n++;});return n;}
+function render(){
+var nb=count(bk),np=count(pre),nd=count(day);
+document.getElementById('cBk').textContent=nb+'/'+bk.length;
+document.getElementById('cPre').textContent=np+'/'+pre.length;
+document.getElementById('cDay').textContent=nd+'/'+day.length;
+document.getElementById('fBk').textContent=nb+'/'+bk.length;
+document.getElementById('fPre').textContent=np+'/'+pre.length;
+document.getElementById('fDay').textContent=nd+'/'+day.length;
+}
+[bk,pre,day].forEach(function(list){list.forEach(function(b){
+var id=b.getAttribute('data-id');
+if(state[id]){b.checked=true;mark(b,true);}
+b.addEventListener('change',function(){state[id]=b.checked;mark(b,b.checked);save();render();});
+});});
+render();
+document.getElementById('resetBtn').addEventListener('click',function(){
+if(!confirm('모든 체크를 초기화할까요?'))return;
+state={};save();
+[bk,pre,day].forEach(function(list){list.forEach(function(b){b.checked=false;mark(b,false);});});
+render();
+});
+})();
+</script>
+</body>
+</html>
