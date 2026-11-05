@@ -1,0 +1,1304 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#2f4b8f">
+<title>2027 겨울 가족여행 · 파리 · 바르셀로나 · 로마</title>
+<meta name="description" content="2027년 2월 가족 유럽여행 — 일정, 예약, 준비 사항을 한눈에">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 가족여행 대시보드 — 디자인 토큰과 화면 스타일 */
+:root {
+  --bg: #faf6ef; --surface: #ffffff; --surface2: #fdfaf4; --ink: #2a2520; --muted: #6f675d; --faint: #9a9185;
+  --line: #ece2d2; --line2: #f3ebdd; --shadow: 0 1px 2px rgba(60,40,10,.05), 0 6px 20px rgba(60,40,10,.07);
+  --shadow-lg: 0 2px 4px rgba(60,40,10,.06), 0 14px 36px rgba(60,40,10,.12);
+  --radius: 20px; --radius-sm: 12px;
+  --ok: #2b8a57; --ok-soft: #e1f3e8;
+  --need: #d97706; --need-soft: #fff0d9;
+  --pay: #d6452b; --pay-soft: #ffe4de;
+  --chk: #6552d4; --chk-soft: #ece8ff;
+  --opt: #7a7266; --opt-soft: #efe9de;
+  --sans: "Pretendard Variable", Pretendard, system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", Roboto, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171c; --surface: #1d2128; --surface2: #222730; --ink: #ede9e2; --muted: #a8a195; --faint: #7d776c;
+    --line: #2d333d; --line2: #262b34; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+    --shadow-lg: 0 2px 4px rgba(0,0,0,.5), 0 14px 36px rgba(0,0,0,.45);
+    --ok: #62c590; --ok-soft: #1c3527; --need: #f2a444; --need-soft: #3a2b14; --pay: #ff8a73; --pay-soft: #3d221d;
+    --chk: #a99dff; --chk-soft: #272445; --opt: #b3ab9d; --opt-soft: #2a2c30;
+    color-scheme: dark;
+  }
+}
+/* 도시별 색 — data-c 로 지정 */
+[data-c="paris"] { --c: #5b7fc7; --c-deep: #2f4b8f; --c-soft: #e8eefa; --c-ink: #27427f; }
+[data-c="bcn"]   { --c: #f0a22f; --c-deep: #944d06; --c-soft: #fff1d8; --c-ink: #8a4a06; }
+[data-c="rome"]  { --c: #d9644f; --c-deep: #a63a2b; --c-soft: #fce6e1; --c-ink: #8e2f22; }
+[data-c="air"]   { --c: #3fa39a; --c-deep: #206b65; --c-soft: #ddf3f0; --c-ink: #1b5c57; }
+@media (prefers-color-scheme: dark) {
+  [data-c="paris"] { --c-soft: #1e2740; --c-ink: #aac1f3; }
+  [data-c="bcn"]   { --c-soft: #3a2b12; --c-ink: #f7c677; }
+  [data-c="rome"]  { --c-soft: #3b1f1a; --c-ink: #f2a598; }
+  [data-c="air"]   { --c-soft: #14312f; --c-ink: #87d4cb; }
+}
+
+/* 이동일(두 도시)의 두 번째 색 */
+[data-c2="paris"] { --c2: #5b7fc7; --c2-deep: #2f4b8f; --c2-soft: #e8eefa; }
+[data-c2="bcn"]   { --c2: #f0a22f; --c2-deep: #944d06; --c2-soft: #fff1d8; }
+[data-c2="rome"]  { --c2: #d9644f; --c2-deep: #a63a2b; --c2-soft: #fce6e1; }
+[data-c2="air"]   { --c2: #3fa39a; --c2-deep: #206b65; --c2-soft: #ddf3f0; }
+@media (prefers-color-scheme: dark) {
+  [data-c2="paris"] { --c2-soft: #1e2740; } [data-c2="bcn"] { --c2-soft: #3a2b12; }
+  [data-c2="rome"] { --c2-soft: #3b1f1a; } [data-c2="air"] { --c2-soft: #14312f; }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--sans); letter-spacing: -.01em; padding-bottom: 84px; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+h1, h2, h3, h4, p { margin: 0; }
+:focus-visible { outline: 3px solid var(--c, #5b7fc7); outline-offset: 2px; border-radius: 8px; }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* 상단 바 */
+.top { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; }
+.brand .logo { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(135deg, #2f4b8f, #c25a5a 70%, #e8a04a); color: #fff; font-size: 18px; }
+.nav { display: none; gap: 4px; }
+.nav a { padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; color: var(--muted); }
+.nav a:hover { background: var(--line2); color: var(--ink); }
+.nav a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+.tabbar { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(4, 1fr); background: var(--surface); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 24px rgba(60,40,10,.08); }
+.tabbar a { display: grid; justify-items: center; gap: 1px; padding: 6px 4px; border-radius: 14px; font-size: 12px; font-weight: 700; color: var(--muted); }
+.tabbar a .ic { font-size: 22px; line-height: 1.2; }
+.tabbar a[aria-current="page"] { color: var(--ink); background: var(--line2); }
+@media (min-width: 720px) { .nav { display: flex; } .tabbar { display: none; } body { padding-bottom: 40px; } }
+
+/* 히어로 */
+.hero { position: relative; overflow: hidden; color: #fff; border-radius: 0 0 36px 36px; background: linear-gradient(115deg, #2f4b8f 0%, #5e4a9e 36%, #c25a5a 70%, #e8a04a 100%); }
+.hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 12% 18%, rgba(255,255,255,.18), transparent 38%), radial-gradient(circle at 88% 8%, rgba(255,230,170,.22), transparent 30%); }
+.hero .art { position: absolute; bottom: -6px; color: #fff; opacity: .16; }
+.hero .art svg { display: block; width: 100%; height: auto; }
+.hero .a1 { left: 4%; width: clamp(80px, 12vw, 150px); } .hero .a2 { left: 44%; width: clamp(110px, 17vw, 210px); opacity: .12; } .hero .a3 { right: 3%; width: clamp(130px, 20vw, 250px); }
+.hero-in { position: relative; display: grid; gap: 22px; padding: 30px 0 54px; }
+.eyebrow { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .92; }
+.hero h1 { font-size: clamp(30px, 6.4vw, 54px); line-height: 1.15; font-weight: 800; letter-spacing: -.03em; }
+.hero .route-line { font-size: clamp(17px, 3vw, 22px); font-weight: 600; opacity: .96; margin-top: 8px; }
+.hero .dates { margin-top: 6px; font-size: 15px; opacity: .9; }
+.crew { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.crew span { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px 6px 8px; border-radius: 999px; background: rgba(255,255,255,.18); font-weight: 700; font-size: 15px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.crew span i { font-style: normal; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.9); font-size: 17px; }
+.dday { align-self: end; justify-self: start; padding: 14px 22px; border-radius: 22px; background: rgba(20,16,40,.34); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.22); }
+.dday .big { font-size: clamp(38px, 8vw, 58px); font-weight: 800; line-height: 1; letter-spacing: -.03em; }
+.dday .small { margin-top: 6px; font-size: 14px; font-weight: 600; opacity: .95; }
+@media (min-width: 860px) { .hero-in { grid-template-columns: 1fr auto; align-items: end; padding: 38px 0 60px; } .dday { justify-self: end; } }
+
+/* 섹션 */
+main { display: block; }
+.sec { margin-top: 34px; }
+.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.sec-h h2 { font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+.sec-h .hint { font-size: 14px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.pull { margin-top: -28px; position: relative; z-index: 2; }
+
+/* 여행 리본 */
+/* 좁은 화면은 도시 3개만 가로 한 줄, 넓은 화면은 인천까지 5개 */
+.ribbon { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: start; padding: 14px 8px 12px; }
+.ribbon .rb-home, .ribbon .rb-leg.edge { display: none; }
+.rb-node { display: grid; justify-items: center; text-align: center; gap: 6px; padding: 8px 2px; border-radius: 16px; min-width: 0; }
+a.rb-node:hover { background: var(--c-soft); }
+.rb-dot { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 17px; background: var(--c-soft); font-size: 25px; }
+.rb-t { font-weight: 800; font-size: 15px; line-height: 1.25; } .rb-s { font-size: 12px; color: var(--muted); }
+.rb-n { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--c-soft); color: var(--c-ink); white-space: nowrap; }
+.rb-leg { display: grid; justify-items: center; align-self: start; padding-top: 20px; gap: 2px; }
+.rb-leg .line { display: none; }
+.rb-leg .lab { display: grid; justify-items: center; font-size: 12px; color: var(--muted); font-weight: 700; line-height: 1.3; }
+.rb-leg .le { font-size: 20px; } .rb-leg .lt { display: none; }
+@media (min-width: 980px) {
+  .ribbon { grid-template-columns: auto 1fr auto 1fr auto 1fr auto 1fr auto; align-items: center; padding: 22px 26px; }
+  .ribbon .rb-home, .ribbon .rb-leg.edge { display: grid; }
+  .rb-node { gap: 8px; padding: 12px 14px; }
+  .rb-dot { width: 64px; height: 64px; font-size: 32px; border-radius: 22px; }
+  .rb-t { font-size: 18px; } .rb-s { font-size: 14px; } .rb-n { font-size: 13px; padding: 4px 11px; }
+  .rb-leg { padding: 0 6px; gap: 4px; align-self: center; }
+  .rb-leg .line { display: block; order: 2; width: 100%; height: 0; border-top: 3px dotted var(--faint); }
+  .rb-leg .lab { order: 1; display: block; white-space: nowrap; font-size: 14px; }
+  .rb-leg .le { font-size: inherit; } .rb-leg .lt { display: inline; }
+}
+
+/* 숫자 요약 */
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.stat { padding: 14px 16px; display: grid; gap: 2px; align-content: start; }
+.stat .e { font-size: 26px; line-height: 1.2; } .stat b { display: block; font-size: 19px; line-height: 1.25; font-weight: 800; margin-top: 2px; } .stat span.s { font-size: 13.5px; color: var(--muted); }
+@media (min-width: 760px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+
+/* 달력 */
+.cal { padding: 18px; }
+.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+.cal-head h3 { font-size: 18px; font-weight: 800; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
+.legend i { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; margin-right: 5px; font-style: normal; font-size: 11px; font-weight: 800; color: #fff; vertical-align: -3px; }
+.dot-ok { background: var(--ok); } .dot-need { background: var(--need); } .dot-chk { background: var(--chk); }
+.dotm { display: inline-grid; place-items: center; flex: none; width: 22px; height: 22px; border-radius: 50%; font-size: 12px; font-weight: 800; color: #fff; }
+.cal-grid { display: none; }
+.cal-grid .dow { text-align: center; font-size: 13px; font-weight: 700; color: var(--muted); padding: 2px 0 8px; }
+.cell { position: relative; display: flex; flex-direction: column; gap: 4px; min-height: 120px; padding: 9px 10px 10px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface2); overflow: hidden; transition: transform .15s ease, box-shadow .15s ease; }
+.cell.off { background: transparent; border-style: dashed; border-color: var(--line2); color: var(--faint); }
+.cell.off .num { color: var(--faint); font-weight: 600; }
+a.cell { background: var(--c-soft); border-color: transparent; cursor: pointer; }
+a.cell::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--c); }
+a.cell.two::before { background: linear-gradient(90deg, var(--c), var(--c2)); }
+a.cell.two { background: linear-gradient(135deg, var(--c-soft) 0 50%, var(--c2-soft) 50% 100%); }
+a.cell:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+a.cell.today { outline: 3px solid var(--ink); outline-offset: 2px; }
+.cell .num { font-size: 19px; font-weight: 800; line-height: 1; color: var(--c-ink); }
+.cell .ctop { display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.cell .ico { font-size: 22px; line-height: 1.1; }
+.cell .lab { margin-top: auto; font-size: 13px; font-weight: 700; line-height: 1.3; color: var(--ink); word-break: keep-all; }
+.cell .dotm { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 800; color: #fff; }
+.cell .cn { font-size: 11px; font-weight: 700; color: var(--c-ink); opacity: .85; }
+.dlist { display: grid; gap: 10px; }
+.drow { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 12px; padding: 12px 14px 12px 12px; border-radius: 18px; background: var(--c-soft); border: 1px solid transparent; position: relative; overflow: hidden; }
+.drow::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--c); }
+.drow .dn { text-align: center; line-height: 1.1; padding-left: 4px; } .drow .dn b { display: block; font-size: 22px; font-weight: 800; color: var(--c-ink); } .drow .dn span { font-size: 12px; color: var(--muted); font-weight: 600; }
+.drow .tt { font-weight: 800; font-size: 16px; line-height: 1.3; } .drow .ss { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+.drow .rt { display: flex; align-items: center; gap: 8px; font-size: 24px; }
+.drow .dotm { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; font-size: 12px; font-weight: 800; color: #fff; }
+@media (min-width: 760px) { .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; } .dlist { display: none; } }
+
+/* 홈 2열 */
+.cols { display: grid; gap: 18px; }
+@media (min-width: 900px) { .cols { grid-template-columns: minmax(0, 2.4fr) minmax(280px, 1fr); align-items: start; } }
+.prep { padding: 20px; display: grid; gap: 16px; }
+.ring-row { display: flex; align-items: center; gap: 16px; }
+.ring { position: relative; width: 92px; height: 92px; flex: none; }
+.ring svg { transform: rotate(-90deg); display: block; } .ring .pct { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font-weight: 800; font-size: 22px; line-height: 1.1; }
+.ring .pct small { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
+.prep h3 { font-size: 17px; font-weight: 800; } .prep .sub { font-size: 14px; color: var(--muted); }
+.nexts { display: grid; gap: 8px; }
+.next { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 14px; background: var(--surface2); border: 1px solid var(--line2); }
+.next .e { font-size: 20px; } .next .tt { font-size: 14.5px; font-weight: 700; line-height: 1.35; }
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 800; white-space: nowrap; }
+.pill.ok { background: var(--ok-soft); color: var(--ok); } .pill.need, .pill.wait { background: var(--need-soft); color: var(--need); } .pill.pay { background: var(--pay-soft); color: var(--pay); }
+.pill.chk { background: var(--chk-soft); color: var(--chk); } .pill.opt, .pill.todo { background: var(--opt-soft); color: var(--opt); } .pill.late { background: var(--pay-soft); color: var(--pay); } .pill.soon { background: var(--need-soft); color: var(--need); } .pill.far { background: var(--opt-soft); color: var(--opt); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 14.5px; background: var(--ink); color: var(--bg); border: 0; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); } .btn.ghost:hover { background: var(--line2); }
+.btn.sm { padding: 6px 12px; font-size: 13px; }
+
+/* 도시 카드 */
+.cities { display: grid; gap: 16px; }
+@media (min-width: 760px) { .cities { grid-template-columns: repeat(3, 1fr); } }
+.ccard { display: grid; overflow: hidden; transition: transform .15s ease, box-shadow .15s ease; }
+.ccard:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.ccard .cb { position: relative; padding: 18px 18px 56px; color: #fff; background: linear-gradient(140deg, var(--c-deep), var(--c)); overflow: hidden; }
+.ccard .cb { background: linear-gradient(140deg, var(--c-deep), color-mix(in srgb, var(--c-deep) 70%, var(--c))); }
+.ccard .cb .art { position: absolute; right: 10px; bottom: -8px; width: 120px; opacity: .22; color: #fff; }
+.ccard .cb .nm { font-size: 24px; font-weight: 800; letter-spacing: -.02em; } .ccard .cb .en { font-size: 13px; opacity: .9; font-weight: 600; } .ccard .cb .tg { margin-top: 8px; font-size: 14px; font-weight: 600; opacity: .95; }
+.ccard .cx { padding: 14px 18px 18px; display: grid; gap: 10px; }
+.ccard .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 11px; border-radius: 999px; font-size: 13px; font-weight: 700; background: var(--c-soft); color: var(--c-ink); }
+.chip.plain { background: var(--opt-soft); color: var(--muted); }
+.ccard .stay { font-size: 14px; color: var(--muted); } .ccard .stay b { color: var(--ink); }
+.ccard ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 14px; } .ccard li::before { content: attr(data-e); margin-right: 6px; }
+
+/* 하위 페이지 공통 */
+.back { display: inline-flex; align-items: center; gap: 6px; margin: 18px 0 14px; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); }
+.back:hover { color: var(--ink); background: var(--line2); }
+.dhero { position: relative; overflow: hidden; color: #fff; border-radius: 28px; padding: 24px 22px 26px; background: linear-gradient(135deg, var(--c-deep), var(--c)); box-shadow: var(--shadow-lg); }
+.dhero { background: linear-gradient(135deg, var(--c-deep), color-mix(in srgb, var(--c-deep) 75%, var(--c))); }
+.dhero.two { background: linear-gradient(120deg, var(--c-deep), var(--c-deep) 30%, var(--c2-deep) 70%, var(--c2-deep)); }
+.dhero .art { position: absolute; right: 14px; bottom: -10px; width: clamp(110px, 22vw, 190px); opacity: .18; color: #fff; }
+.dhero .dayn { display: inline-flex; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.22); font-weight: 800; font-size: 13px; letter-spacing: .06em; }
+.dhero h1 { margin-top: 12px; font-size: clamp(26px, 5vw, 40px); line-height: 1.2; font-weight: 800; letter-spacing: -.03em; }
+.dhero .dd { margin-top: 6px; font-size: 16px; font-weight: 600; opacity: .95; }
+.dhero .sm { margin-top: 12px; max-width: 640px; font-size: 16px; opacity: .97; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.fact { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; border-radius: 999px; background: rgba(0,0,0,.2); font-size: 14px; font-weight: 700; }
+.meter { display: inline-flex; gap: 3px; } .meter i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.35); } .meter i.on { background: #fff; }
+
+.two-col { display: grid; gap: 18px; margin-top: 20px; align-items: start; }
+@media (min-width: 900px) { .two-col { grid-template-columns: 1.6fr 1fr; } }
+.panel { padding: 20px; } .panel h2 { font-size: 18px; font-weight: 800; margin-bottom: 14px; display: flex; gap: 8px; align-items: center; }
+.tl { position: relative; display: grid; gap: 0; }
+.ev { position: relative; display: grid; grid-template-columns: 74px 40px 1fr; gap: 8px; padding-bottom: 18px; }
+.ev:last-child { padding-bottom: 0; }
+.ev::before { content: ""; position: absolute; left: calc(74px + 8px + 19px); top: 38px; bottom: -2px; width: 2px; background: var(--line); }
+.ev:last-child::before { display: none; }
+.ev .tm { padding-top: 7px; font-size: 13px; font-weight: 800; color: var(--c-ink); line-height: 1.3; word-break: keep-all; }
+.ev .ib { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; background: var(--c-soft); font-size: 21px; position: relative; z-index: 1; }
+.ev.booked .ib { background: var(--ok-soft); box-shadow: 0 0 0 2px var(--ok) inset; }
+.ev.need .ib, .ev.pay .ib { background: var(--need-soft); box-shadow: 0 0 0 2px var(--need) inset; }
+.ev.check .ib { background: var(--chk-soft); box-shadow: 0 0 0 2px var(--chk) inset; }
+.ev .tx { padding-top: 5px; min-width: 0; }
+.ev .tx h3 { font-size: 16.5px; font-weight: 800; line-height: 1.35; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.ev .tx p { margin-top: 3px; font-size: 14.5px; color: var(--muted); }
+.ev .tag { display: block; margin-top: 8px; padding: 8px 12px; border-radius: 12px; background: var(--need-soft); color: var(--ink); font-size: 13.5px; font-weight: 600; border-left: 4px solid var(--need); }
+.ev .tag.warn { background: var(--chk-soft); border-left-color: var(--chk); }
+.ev .go { display: inline-flex; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--c-ink); padding: 4px 10px; border-radius: 999px; background: var(--c-soft); }
+.ev .go:hover { filter: brightness(.96); }
+@media (max-width: 520px) { .ev { grid-template-columns: 40px 1fr; } .ev::before { left: 19px; } .ev .tm { grid-column: 2; padding-top: 0; order: -1; } .ev .ib { grid-row: 1 / span 2; } .ev .tx { grid-column: 2; padding-top: 0; } }
+.side { display: grid; gap: 18px; }
+.bring { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; } .bring li { padding: 7px 12px; border-radius: 12px; background: var(--c-soft); color: var(--c-ink); font-size: 14px; font-weight: 700; }
+.notes { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; } .notes li { position: relative; padding-left: 26px; font-size: 14.5px; } .notes li::before { content: "💡"; position: absolute; left: 0; top: 0; }
+.meals { display: grid; gap: 18px; margin-top: 18px; } @media (min-width: 760px) { .meals { grid-template-columns: 1fr 1fr; } }
+.mgrid { display: grid; gap: 10px; }
+.meal { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 12px 14px; border-radius: 16px; background: var(--surface2); border: 1px solid var(--line2); }
+.meal b { font-size: 15.5px; } .meal .mk { margin-top: 3px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); } .meal .mn { margin-top: 3px; font-size: 13.5px; color: var(--muted); }
+.mapb { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; background: var(--c-soft); font-size: 18px; }
+.mapb:hover { filter: brightness(.95); }
+.empty { padding: 14px 16px; border-radius: 14px; background: var(--surface2); border: 1px dashed var(--line); color: var(--muted); font-size: 14.5px; }
+.pn { display: grid; gap: 12px; margin-top: 22px; } @media (min-width: 640px) { .pn { grid-template-columns: 1fr 1fr; } }
+.pn a { display: grid; gap: 2px; padding: 14px 18px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); } .pn a:hover { box-shadow: var(--shadow-lg); } .pn small { color: var(--muted); font-weight: 700; font-size: 12.5px; } .pn b { font-size: 16px; } .pn a.nx { text-align: right; }
+
+/* 도시 상세 */
+.hotel { display: grid; gap: 12px; } .hotel h3 { font-size: 19px; font-weight: 800; } .hotel .kv { display: grid; gap: 6px; font-size: 14.5px; } .hotel .kv div { display: grid; grid-template-columns: 76px 1fr; gap: 8px; } .hotel .kv span { color: var(--muted); font-weight: 700; }
+.facts-l { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; } .facts-l li { position: relative; padding-left: 22px; font-size: 14.5px; } .facts-l li::before { content: "•"; position: absolute; left: 6px; color: var(--c); font-weight: 900; }
+.hl { display: grid; gap: 10px; } @media (min-width: 640px) { .hl { grid-template-columns: 1fr 1fr; } }
+.hl div { display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: center; padding: 12px 14px; border-radius: 16px; background: var(--c-soft); } .hl .e { font-size: 28px; text-align: center; } .hl b { font-size: 15px; } .hl p { font-size: 13.5px; color: var(--muted); }
+.dl-links { display: grid; gap: 8px; } .dl-links a { display: grid; grid-template-columns: 46px 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; border-radius: 14px; background: var(--c-soft); } .dl-links a:hover { filter: brightness(.97); } .dl-links b { font-size: 15px; } .dl-links small { color: var(--muted); display: block; font-size: 13px; }
+
+/* 할 일 · 예약 */
+.sumbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.group { margin-top: 26px; } .group h2 { font-size: 19px; font-weight: 800; margin-bottom: 12px; display: flex; gap: 8px; align-items: center; } .group h2 small { font-size: 13px; color: var(--muted); font-weight: 600; }
+.tds { display: grid; gap: 10px; }
+.td { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
+.td summary { list-style: none; display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; cursor: pointer; }
+.td summary::-webkit-details-marker { display: none; }
+.td .e { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; background: var(--need-soft); font-size: 21px; }
+.td.done .e { background: var(--ok-soft); } .td.late .e { background: var(--pay-soft); }
+.td .tt { font-weight: 800; font-size: 15.5px; line-height: 1.35; } .td .ss { font-size: 13px; color: var(--muted); margin-top: 1px; }
+.td .bd { padding: 0 16px 16px 68px; font-size: 14.5px; color: var(--muted); display: grid; gap: 10px; }
+.td[open] summary { background: var(--surface2); }
+@media (max-width: 520px) { .td .bd { padding-left: 16px; } }
+.bks { display: grid; gap: 12px; } @media (min-width: 760px) { .bks { grid-template-columns: 1fr 1fr; } }
+.bk { padding: 16px 18px; display: grid; gap: 8px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.bk .hd { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: start; } .bk .e { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; background: var(--opt-soft); font-size: 21px; }
+.bk.ok .e { background: var(--ok-soft); } .bk.pay .e, .bk.wait .e, .bk.todo .e { background: var(--need-soft); } .bk.chk .e { background: var(--chk-soft); }
+.bk b { font-size: 16px; line-height: 1.3; display: block; } .bk .sub { font-size: 13.5px; color: var(--muted); } .bk .wh { font-weight: 800; font-size: 14.5px; } .bk .nt { font-size: 14px; color: var(--muted); }
+.bk a.lk { justify-self: start; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--opt-soft); } .bk a.lk:hover { filter: brightness(.96); }
+
+/* 짐 · 팁 */
+.packs { display: grid; gap: 14px; } @media (min-width: 760px) { .packs { grid-template-columns: 1fr 1fr; } }
+.pk { padding: 18px; } .pk h3 { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 17px; font-weight: 800; margin-bottom: 8px; } .pk h3 small { font-size: 13px; color: var(--muted); font-weight: 700; }
+.chk { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; } .chk label { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; padding: 8px 6px; border-radius: 12px; cursor: pointer; font-size: 15px; } .chk label:hover { background: var(--line2); }
+.chk input { appearance: none; -webkit-appearance: none; width: 24px; height: 24px; margin: 0; border-radius: 8px; border: 2px solid var(--faint); display: grid; place-items: center; background: var(--surface); }
+.chk input:checked { background: var(--ok); border-color: var(--ok); } .chk input:checked::after { content: "✓"; color: #fff; font-size: 15px; font-weight: 900; }
+.chk input:checked + span { color: var(--faint); text-decoration: line-through; }
+.tips { display: grid; gap: 12px; } @media (min-width: 760px) { .tips { grid-template-columns: 1fr 1fr; } }
+.tip { padding: 16px 18px; display: grid; grid-template-columns: 44px 1fr; gap: 12px; } .tip .e { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 15px; background: var(--c-soft, var(--opt-soft)); font-size: 24px; } .tip b { font-size: 16px; } .tip p { font-size: 14.5px; color: var(--muted); margin-top: 2px; }
+.foot { margin-top: 44px; padding: 24px 0 30px; color: var(--muted); font-size: 13.5px; text-align: center; border-top: 1px solid var(--line); }
+.foot b { color: var(--ink); }
+
+@media (prefers-reduced-motion: no-preference) { .view { animation: rise .35s ease both; } @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#/"><span class="logo">✈️</span>2027 가족여행</a>
+    <nav class="nav" aria-label="메뉴">
+      <a href="#/" data-nav="home">홈</a>
+      <a href="#/todo" data-nav="todo">해야 할 일</a>
+      <a href="#/book" data-nav="book">예약 현황</a>
+      <a href="#/pack" data-nav="pack">짐 · 팁</a>
+    </nav>
+  </div>
+</header>
+<main id="app"><noscript><div class="wrap"><p style="padding:40px 0">이 페이지는 자바스크립트가 켜져 있어야 보여요.</p></div></noscript></main>
+<nav class="tabbar" aria-label="메뉴">
+  <a href="#/" data-nav="home"><span class="ic">🏠</span>홈</a>
+  <a href="#/todo" data-nav="todo"><span class="ic">✅</span>할 일</a>
+  <a href="#/book" data-nav="book"><span class="ic">🎟️</span>예약</a>
+  <a href="#/pack" data-nav="pack"><span class="ic">🧳</span>짐·팁</a>
+</nav>
+<script>
+/* 가족여행 대시보드 — 개요·도시·예약·할 일.  as_of 2026-11-05.
+   공개 페이지에 올라가므로 예약번호·계좌·출입 코드·이메일은 넣지 않는다. */
+window.TRIP = window.TRIP || {};
+
+TRIP.meta = {
+  title: "2027 겨울 가족여행",
+  subtitle: "파리 · 바르셀로나 · 로마",
+  start: "2027-02-03",
+  end: "2027-02-17",
+  asOf: "2026-11-05",
+  nights: 13,
+  travelers: [
+    { name: "아빠", emoji: "🧑" },
+    { name: "엄마", emoji: "👩" },
+    { name: "수안", emoji: "👧" }
+  ]
+};
+
+TRIP.cities = [
+  {
+    id: "paris", cls: "paris", name: "파리", en: "Paris", country: "프랑스", flag: "🗼",
+    from: "2027-02-03", to: "2027-02-07", nights: 4,
+    tagline: "예술과 야경의 도시",
+    intro: "루브르·오르세에서 명작을 보고, 해 질 무렵 에펠탑에 올라가고, 베르사유 궁전까지 다녀와요. 마레 지구에 묵어서 걸어 다니기 좋아요.",
+    art: "eiffel",
+    days: ["2027-02-03", "2027-02-04", "2027-02-05", "2027-02-06", "2027-02-07"],
+    stay: {
+      name: "Apartments du Louvre – Le Marais",
+      area: "마레 · 2구",
+      address: "4 Rue Étienne Marcel, 75002 Paris",
+      room: "스튜디오 44㎡ (큰 침대 + 소파베드, 주방)",
+      checkin: "15:00~18:00 · 늦은 도착은 셀프 체크인",
+      checkout: "10:00",
+      map: "Apartments du Louvre Le Marais, 4 Rue Etienne Marcel, Paris",
+      facts: [
+        "지하철 4호선 에티엔 마르셀역이 50m, 루브르는 걸어서 12~14분",
+        "공항(CDG)에서 RER B로 약 58분, 택시는 정액 €56 (숙소 안내)",
+        "조용히 지내는 시간 22:00~08:00",
+        "도착할 때 보증금용 카드 등록이 있어요 (청구가 아니라 등록) — 예약할 때 쓴 카드를 가져가요",
+        "2/3은 늦게 도착해서 셀프 체크인 — 1/30 영상 체크인(WhatsApp 영상통화)이 꼭 필요해요"
+      ]
+    },
+    highlights: [
+      { e: "🖼️", t: "루브르 가이드 투어", d: "모나리자·밀로의 비너스를 3시간 동안 가이드와 함께" },
+      { e: "⛪", t: "노트르담 · 시테섬", d: "센강변 산책, 노트르담은 무료 입장" },
+      { e: "🎨", t: "오르세미술관", d: "모네·르누아르·고흐, 커다란 시계창" },
+      { e: "🗼", t: "에펠탑 일몰 전망대", d: "17:00 입장, 일몰 17:52" },
+      { e: "👑", t: "베르사유 궁전", d: "한국어 공인가이드가 궁전 안을 90분 안내" }
+    ],
+    getting: [
+      "2/3 ✈️ 인천 → 파리 도착 (16:25)",
+      "2/7 🚄 TGV 타고 바르셀로나로 (06:56 출발)"
+    ]
+  },
+  {
+    id: "bcn", cls: "bcn", name: "바르셀로나", en: "Barcelona", country: "스페인", flag: "⛪",
+    from: "2027-02-07", to: "2027-02-11", nights: 4,
+    tagline: "가우디와 타파스의 도시",
+    intro: "하루 종일 가우디 투어로 4곳을 들어가고, 저녁엔 고딕지구 야경을 걸어요. 피카소미술관과 여유로운 날도 있어요.",
+    art: "sagrada",
+    days: ["2027-02-07", "2027-02-08", "2027-02-09", "2027-02-10", "2027-02-11"],
+    stay: {
+      name: "H10 Casanova",
+      area: "에이샴플레",
+      address: "Gran Via de les Corts Catalanes 559, Barcelona",
+      room: "트리플 디럭스 (싱글 침대 3개, 20㎡급)",
+      checkin: "15:00~자정 (밤 10시 도착도 가능하다고 회신받음)",
+      checkout: null,
+      map: "H10 Casanova, Barcelona",
+      facts: [
+        "지하철 우르헬역(L1) 200m, 우니베르시타트역(L1/L2) 350m",
+        "사그라다 파밀리아까지 L2 직행 약 15분, 카사 바트요는 걸어서 17분",
+        "공항은 택시 16분 (Aerobús A2 승강장 450m)",
+        "조식은 별도(1인), 숙박비는 숙소에서 결제해요"
+      ]
+    },
+    highlights: [
+      { e: "🌙", t: "고딕지구 야경 투어", d: "2/8 저녁 19:50, 한국어 가이드와 약 2시간" },
+      { e: "🏛️", t: "가우디 하루 투어", d: "카사 밀라·카사 바트요·구엘공원·성가족 성당 내부" },
+      { e: "🎨", t: "피카소미술관", d: "‘시녀들’ 연작이 대표 작품" },
+      { e: "🥘", t: "타파스 저녁", d: "작은 접시를 여러 개 나눠 먹어요" }
+    ],
+    getting: [
+      "2/7 🚄 파리 → 바르셀로나 산츠역 (13:49 도착)",
+      "2/11 ✈️ 바르셀로나 → 로마 (09:15 출발)"
+    ]
+  },
+  {
+    id: "rome", cls: "rome", name: "로마", en: "Rome", country: "이탈리아", flag: "🏛️",
+    from: "2027-02-11", to: "2027-02-16", nights: 5,
+    tagline: "고대의 이야기가 있는 도시",
+    intro: "콜로세움 바로 옆 동네(몬티)에 묵어요. 가이드와 콜로세움·바티칸을 보고, 보르게세 미술관과 쉬는 날도 있어요.",
+    art: "colosseum",
+    days: ["2027-02-11", "2027-02-12", "2027-02-13", "2027-02-14", "2027-02-15", "2027-02-16"],
+    stay: {
+      name: "Colosseo Living Suites",
+      area: "몬티 지구",
+      address: "Via della Polveriera 17, Roma",
+      room: "1베드룸 하우스 46㎡ (침실 + 거실 소파베드, 주방)",
+      checkin: "12:00~21:00 (정한 시각에 직원이 마중 나와요)",
+      checkout: "07:00~10:00",
+      map: "Colosseo Living Suites, Via della Polveriera 17, Roma",
+      facts: [
+        "콜로세움까지 걸어서 6분(450m), 테르미니역 9분",
+        "공항 픽업 차량 €60(카드 결제) — 2/8에 편명·인원·만날 곳을 다시 보내야 확정돼요",
+        "세탁기가 없어요 · 엑스트라 베드는 없어요",
+        "2/16은 숙소에 짐을 맡길 수 없어요 → 근처 짐 보관소(07:00~23:00) 이용"
+      ]
+    },
+    highlights: [
+      { e: "🏟️", t: "콜로세움·포로 로마노", d: "2/12 오전, 가이드와 함께" },
+      { e: "🗿", t: "보르게세 미술관", d: "베르니니의 조각 명작, 2시간 예약제" },
+      { e: "⛪", t: "바티칸 투어", d: "박물관·시스티나·성 베드로 대성당·지하묘지" },
+      { e: "🍝", t: "로마 맛집 · 발렌타인 저녁", d: "2/14은 쉬면서 특별한 저녁" }
+    ],
+    getting: [
+      "2/11 ✈️ 바르셀로나 → 로마 FCO (11:05 도착) → 숙소 픽업",
+      "2/16 ✈️ 로마 → 인천 (22:00 출발, 2/17 17:25 도착)"
+    ]
+  }
+];
+
+/* 예약 현황. st: ok 확정 · pay 입금 남음 · chk 확정 메시지 필요 · wait 예매 오픈 대기 · todo 해야 함 */
+TRIP.bookings = [
+  { id: "f1", cat: "flight", e: "✈️", title: "인천 → 파리", sub: "아시아나 OZ501", when: "2/3(수) 10:05 → 16:25", st: "ok",
+    note: "인천 출발, 파리 샤를드골(CDG) 도착", day: "2027-02-03" },
+  { id: "t1", cat: "train", e: "🚄", title: "파리 → 바르셀로나", sub: "TGV INOUI 9711 · 2등석", when: "2/7(일) 06:56 → 13:49", st: "ok",
+    note: "6시간 53분 · 15호차 위층 548·552·553(같은 테이블일 가능성이 높아요) · 출발 7일 전(1/31)까지 무료 환불·교환", day: "2027-02-07" },
+  { id: "f2", cat: "flight", e: "✈️", title: "바르셀로나 → 로마", sub: "이베리아 IB5332 (부엘링 운항)", when: "2/11(목) 09:15 → 11:05", st: "ok",
+    note: "위탁 23kg×3·기내 10kg×3 포함 · 출발 24시간 전까지 1회 변경 가능(차액)", day: "2027-02-11" },
+  { id: "f3", cat: "flight", e: "✈️", title: "로마 → 인천", sub: "아시아나 OZ562", when: "2/16(화) 22:00 → 2/17(수) 17:25", st: "ok",
+    note: "로마 FCO 출발, 인천 도착", day: "2027-02-16" },
+
+  { id: "h1", cat: "stay", e: "🏨", title: "파리 숙소", sub: "Apartments du Louvre – Le Marais", when: "2/3 ~ 2/7 (4박)", st: "ok",
+    note: "무료취소 1/26 23:59(현지)까지 · 1/30 18:00(한국) 영상 체크인", day: "2027-02-03" },
+  { id: "h2", cat: "stay", e: "🏨", title: "바르셀로나 숙소", sub: "H10 Casanova", when: "2/7 ~ 2/11 (4박)", st: "ok",
+    note: "무료취소 2/5 23:59(현지)까지 · 체크인 15:00~자정", day: "2027-02-07" },
+  { id: "h3", cat: "stay", e: "🏨", title: "로마 숙소", sub: "Colosseo Living Suites", when: "2/11 ~ 2/16 (5박)", st: "ok",
+    note: "무료취소 2/5 23:59(현지)까지 · 체크인 12:00~21:00", day: "2027-02-11" },
+  { id: "p1", cat: "stay", e: "🚐", title: "로마 공항 픽업", sub: "숙소 기사님 · €60(카드)", when: "2/11(목) 12:00경", st: "chk",
+    note: "2/8에 편명·인원·만날 곳을 다시 보내면 확정돼요", day: "2027-02-11" },
+
+  { id: "g1", cat: "tour", e: "🧑‍🏫", title: "루브르 소규모 가이드 투어", sub: "3시간 · 입장권 구매 완료", when: "2/4(목) 오전", st: "ok",
+    note: "집합 루브르 피라미드 옆 기마상(09:30경) · 가이드가 전날 시각 확정 · 카톡으로 연락", day: "2027-02-04" },
+  { id: "g2", cat: "tour", e: "👑", title: "베르사유 궁전 반일 투어", sub: "한국어 공인가이드 · 입장권 입금 완료", when: "2/6(토) 12:30 ~ 18:00", st: "ok",
+    note: "집합 개선문역 5번 출구 앞 LE VIN COEUR 카페 · 유선 이어폰·여권 · 개인 입장권(공식 패스)은 사지 마세요", day: "2027-02-06" },
+  { id: "g3", cat: "tour", e: "🌙", title: "고딕지구 야경 투어", sub: "약 2시간 · 최소 3명 출발", when: "2/8(월) 19:50", st: "ok",
+    note: "집합 Plaça d’Isidre Nonell 1 · 22:00경 Liceu 극장 앞에서 끝", day: "2027-02-08" },
+  { id: "g4", cat: "tour", e: "🏛️", title: "가우디 하루 투어", sub: "카사 밀라·바트요·구엘공원·성가족 성당", when: "2/9(화) 07:50 집합 · 16~17시 해산", st: "pay",
+    note: "입장권·가이드비 €321(€107×3)을 입금해야 해요 — 판매자가 원화 금액을 안내하면(12/9 이후) 1/30까지", day: "2027-02-09" },
+  { id: "g5", cat: "tour", e: "🏟️", title: "콜로세움·포로 로마노 투어", sub: "오전 · 입장료는 현장 현금", when: "2/12(금) 08:30~09:00 집합", st: "ok",
+    note: "성인 €35×2 + 수안 학생 €10 현금, 수신기 €3×3 · 전날 저녁 카톡 단톡방", day: "2027-02-12" },
+  { id: "g6", cat: "tour", e: "⛪", title: "바티칸 오전 투어", sub: "박물관·성 베드로 대성당·지하묘지", when: "2/15(월) 09:05 집합", st: "ok",
+    note: "입장 비용 입금 완료 · 현장 현금: 성 베드로 대성당 예약비 €7(인당인지 확인 필요) · 전날 카톡 단톡방", day: "2027-02-15" },
+
+  { id: "w1", cat: "ticket", e: "🗼", title: "에펠탑 전망대", sub: "17:00 시간 지정 · 수안은 청소년 요금", when: "2/5(금) 17:00", st: "wait",
+    note: "예매 오픈 약 11/7(방문 90일 전) — 아직 안 샀어요", day: "2027-02-05" },
+  { id: "w2", cat: "ticket", e: "🎨", title: "오르세미술관", sub: "09:30 시간 지정", when: "2/5(금) 09:30", st: "wait",
+    note: "공식 판매 창이 1/31까지만 열려 있어요 → 11/20 전후에 열렸는지 확인", day: "2027-02-05" },
+  { id: "w3", cat: "ticket", e: "🖼️", title: "피카소미술관", sub: "수안은 무료지만 무료 표도 예약", when: "2/10(수) 오전", st: "wait",
+    note: "예매 오픈 약 11/13 — 아직 안 샀어요", day: "2027-02-10" },
+  { id: "w4", cat: "ticket", e: "🗿", title: "보르게세 미술관", sub: "2시간 고정 슬롯", when: "2/13(토) 09:00", st: "wait",
+    note: "예매 오픈 12/15경 [확인 필요]", day: "2027-02-13" },
+  { id: "w5", cat: "ticket", e: "💝", title: "발렌타인 저녁 식당", sub: "나보나 근처 식당 후보", when: "2/14(일) 저녁", st: "todo",
+    note: "인기가 많아 1월 초에 예약해요", day: "2027-02-14" },
+  { id: "w6", cat: "ticket", e: "🛡️", title: "여행자보험", sub: "출발 60일 전부터 가입 가능", when: "12/5 이후", st: "todo",
+    note: "12/5에 상품을 다시 비교해서 가입해요", day: null }
+];
+
+TRIP.bookingCats = [
+  { id: "flight", e: "✈️", t: "비행기" },
+  { id: "train", e: "🚄", t: "기차" },
+  { id: "stay", e: "🏨", t: "숙소 · 이동" },
+  { id: "tour", e: "🧑‍🏫", t: "가이드 투어" },
+  { id: "ticket", e: "🎟️", t: "아직 안 샀거나 해야 하는 것" }
+];
+
+TRIP.status = {
+  ok:   { label: "예약 완료", cls: "ok" },
+  pay:  { label: "입금 필요", cls: "pay" },
+  chk:  { label: "확정 메시지 필요", cls: "chk" },
+  wait: { label: "예매 오픈 대기", cls: "wait" },
+  todo: { label: "해야 해요", cls: "todo" }
+};
+
+/* 할 일. due 가 있으면 D-day 계산. who: 아빠·엄마·수안·모두. done:true 는 끝낸 일 */
+TRIP.todos = [
+  { id: "d1", due: "2026-11-07", who: "아빠", e: "🗼", title: "에펠탑 전망대 예매 (2/5 17:00)",
+    detail: "방문 90일 전에 열려요(2/5 − 90일 = 11/7, 추정). 오픈 시각은 확인 못 했어요 — 안 열려 있으면 오후나 다음 날 다시 확인. 17:00~17:30 슬롯, 전망대(정상) 리프트, 3명. 수안은 12~24세 청소년 요금.", day: "2027-02-05", st: "wait" },
+  { id: "d2", due: "2026-11-13", who: "아빠", e: "🖼️", title: "피카소미술관 예매 (2/10 오전)",
+    detail: "예매 창이 하루씩 앞으로 열려요(약 89일 앞). 2/10은 약 11/13에 열릴 것으로 계산(추정). 수안은 무료이지만 무료 표도 예약해요. 월요일 휴관(2/10은 수요일이라 정상).", day: "2027-02-10", st: "wait" },
+  { id: "d3", due: "2026-11-20", who: "아빠", e: "🎨", title: "오르세 입장권 열렸는지 확인 (2/5 09:30)",
+    detail: "공식 사이트의 판매 창이 2027-01-31까지만 열려 있어서 2/5는 아직이에요. 열리면 09:30 시간 지정 3장을 사요. 가짜 사이트 주의 — 주소가 https와 .fr인지 확인.", day: "2027-02-05", st: "wait" },
+  { id: "d4", due: "2026-12-05", who: "아빠", e: "🛡️", title: "여행자보험 다시 비교하고 가입",
+    detail: "국내 보험사 다이렉트는 출발 60일 이내만 받아서 2/3 출발은 12/5부터 가입돼요. 해외의료비 한도, 항공 지연, 취소 보장, 가족 할인을 다시 봐요.", day: null, st: "todo" },
+  { id: "d5", due: "2026-12-09", who: "아빠", e: "💶", title: "가우디 투어 입장권 €321 입금 (마감 1/30)",
+    detail: "투어 2달 전(12/9)부터 판매자가 입금을 받아요. 판매자가 환율을 적용한 원화 금액을 마이리얼트립 채팅으로 알려주면 그 금액을 이체해요. 입금이 늦으면 티켓을 못 사서 투어가 취소될 수 있어요.", day: "2027-02-09", st: "pay" },
+  { id: "d6", due: "2026-12-15", who: "아빠", e: "🗿", title: "보르게세 미술관 예매 (2/13 09:00)",
+    detail: "공식 예매 시작일이 확실하지 않아요(2차 자료: 10일 전~60일 전). 12/15에 열렸는지 보고, 아니면 1/13·2/3에 다시 확인해요.", day: "2027-02-13", st: "wait" },
+  { id: "d7", due: "2026-12-31", who: "모두", e: "🛂", title: "여권 · 카드 점검",
+    detail: "여권 유효기간이 귀국일 기준 3개월 이상 남았는지(셋 모두). 해외 결제 카드가 3D Secure 인증이 되는지. 파리 체크인 때 예약할 때 쓴 카드와 같은 카드를 가져가요.", day: null, st: "todo" },
+  { id: "d8", due: "2027-01-05", who: "아빠", e: "💝", title: "발렌타인 저녁 식당 예약 (2/14)",
+    detail: "나보나 근처 후보: Osteria da Fortunata(★예약 필수), Cantina e Cucina(촛불 석조실, 조용한 가족석 요청), Pizzeria da Baffetto(캐주얼). 단품 주문이 되는지 확인해요.", day: "2027-02-14", st: "todo" },
+  { id: "d9", due: "2027-01-25", who: "아빠", e: "📱", title: "eSIM · 카카오톡 설정 · 현금 준비",
+    detail: "데이터 eSIM 준비. 카카오톡 ‘전체설정 → 친구 → 전화번호로 친구 추가 허용’ 켜기(바티칸·콜로세움 가이드가 단톡방에 초대해요). 현장 현금 유로 약 €120 이상: 콜로세움 €80 + 수신기 €9, 바티칸 성 베드로 예약비 €21(인당 €7이면) + 수신기 €9 [확인 필요].", day: null, st: "todo" },
+  { id: "d10", due: "2027-01-25", who: "아빠", e: "🔔", title: "취소 마감 전 마지막 점검",
+    detail: "파리 숙소 1/26, 루브르 투어 1/29, 베르사유 투어와 TGV 1/31, 바르셀로나·로마 숙소 2/5, 콜로세움 투어 2/6. 계획이 바뀐다면 이 날짜 전에 결정해요.", day: null, st: "todo" },
+  { id: "d11", due: "2027-01-30", who: "아빠", e: "📹", title: "파리 숙소 영상 체크인 (한국 18:00 = 파리 10:00)",
+    detail: "WhatsApp 영상통화를 숙소에서 걸어와요. 여권 실물을 카메라로 보여요. 통화 중에 받은 카드 등록 링크만 사용해요. 이때 유아용 침대 자동 요청을 취소하고, 다음 날 아침 리셉션에 안 가도 되는지 한 번 더 확인해요.", day: "2027-02-03", st: "todo" },
+  { id: "d12", due: "2027-02-03", who: "아빠", e: "👥", title: "가우디·고딕 투어 출발 확정 확인",
+    detail: "가우디 투어는 최소 5명, 고딕 야경은 최소 3명이 모여야 출발해요. 투어 5일 전(2/4)까지 미달이면 취소·변경 안내가 올 수 있어요. 마이리얼트립 채팅과 메일을 확인해요.", day: "2027-02-09", st: "todo" },
+  { id: "d13", due: "2027-02-04", who: "아빠", e: "🚕", title: "2/7 새벽 05:45 택시 예약 (숙소 → 리옹역)",
+    detail: "새벽 택시가 가능한지 [확인 필요]. 안 되면 숙소에 물어보거나 앱으로 예약해요. 짐이 많아서(큰 캐리어 3개) 택시가 편해요.", day: "2027-02-07", st: "todo" },
+  { id: "d14", due: "2027-02-08", who: "아빠", e: "✉️", title: "로마 숙소에 공항 픽업 확정 메시지",
+    detail: "2/11 IB5332 11:05 도착, 3명, 큰 가방 3 + 기내 3, 만날 장소를 다시 보내요. 짐 보관소의 위치와 1개당 가격도 같이 물어봐요.", day: "2027-02-11", st: "todo" },
+  { id: "d15", due: "2027-02-15", who: "아빠", e: "⛪", title: "성 베드로 돔에 오를지 정하기 (선택)",
+    detail: "바티칸 투어는 성 베드로 대성당 내부까지 포함이에요. 돔(예약제)에 오르는 건 추가예요. 체력과 컨디션을 보고 정해요.", day: "2027-02-15", st: "todo" },
+
+  { id: "x1", due: null, who: "아빠", e: "✅", title: "항공권 3구간 · TGV · 숙소 3곳 예약", detail: "모두 확정서를 받았어요.", day: null, done: true },
+  { id: "x2", due: null, who: "아빠", e: "✅", title: "가이드 투어 5건 확정 (루브르·베르사유·고딕·콜로세움·바티칸) + 가우디 투어 예약", detail: "가우디 투어는 입장권 입금이 남았어요.", day: null, done: true },
+  { id: "x3", due: null, who: "아빠", e: "✅", title: "루브르 · 베르사유 · 바티칸 입장권 선결제", detail: "루브르는 가이드를 통해 구매했고, 베르사유 €60과 바티칸 입장 비용은 입금했어요.", day: null, done: true }
+];
+
+/* 날짜별 일정 15일 (2/3 ~ 2/17).  as_of 2026-11-05.
+   출처: 02_상세일정/P1 시간별 상세 + 세션 인계 + 티켓/예약기록(확정 투어로 갱신).
+   st: booked 예약됨 · need 예매 필요 · pay 입금 필요 · opt 선택 · check 확인 필요 · free */
+window.TRIP = window.TRIP || {};
+(function () {
+  const E = (t, e, title, d, st, o) => Object.assign({ t: t, e: e, title: title, d: d || "", st: st || "free" }, o || {});
+  const M = (name, kind, price, note, q) => ({ name: name, kind: kind, price: price, note: note, q: q || name });
+
+  TRIP.days = [
+    {
+      date: "2027-02-03", n: 1, cls: "paris", route: "서울 → 파리", title: "파리에 도착해요", icon: "✈️",
+      short: "✈️ 파리 도착",
+      summary: "아침 비행기로 서울을 떠나 저녁에 파리에 도착해요. 늦게 도착하니 오늘은 가볍게 먹고 일찍 자요.",
+      effort: 1, sunset: "17:49",
+      events: [
+        E("10:05", "✈️", "인천 출발", "아시아나 OZ501 · 약 14시간 20분 비행", "booked", { map: "Incheon International Airport" }),
+        E("16:25–18:00", "🛂", "파리 샤를드골공항 도착", "입국 심사(EES 등록)와 짐 찾기 — 60~90분 걸려요", "free", { map: "Charles de Gaulle Airport" }),
+        E("18:00–19:15", "🚕", "공항 → 숙소", "택시 정액 €56(숙소 안내)을 추천해요. 짐이 3개이고 시차 때문에 피곤해요. RER B 열차는 약 45~58분", "free"),
+        E("19:15–19:45", "🏨", "셀프 체크인", "18시 이후 도착은 셀프 체크인이에요. 안내 메일의 순서대로 해요", "check", { map: "Apartments du Louvre Le Marais, Paris", tag: "1/30 영상 체크인을 먼저 해야 해요" }),
+        E("19:45–20:45", "🍽️", "숙소 근처에서 저녁", "걸어서 5~10분 거리의 레알·몽토르게이 쪽이 편해요", "free"),
+        E("~21:30", "😴", "일찍 자요", "시차 적응 첫날이에요", "free")
+      ],
+      lunch: [],
+      dinner: [M("Au Pied de Cochon", "브라세리", "~€45", "레알 · 매일 심야까지 해서 늦게 도착해도 좋아요", "Au Pied de Cochon, Paris")],
+      mealNote: "도착이 늦어서 점심 후보는 없어요 (기내식 + 공항 간식).",
+      bring: ["여권", "예약 확인서(폰)", "택시비용 카드 · 유로 약간"],
+      notes: ["숙소 보증금용 카드 등록이 있어요. 예약할 때 쓴 카드를 가져가요.", "리셉션은 매일 10:00~18:00에만 열어요."]
+    },
+    {
+      date: "2027-02-04", n: 2, cls: "paris", route: "파리", title: "루브르와 시테섬", icon: "🖼️",
+      short: "루브르 투어",
+      summary: "가이드와 함께 루브르를 3시간 둘러보고, 오후엔 센강을 따라 걸어 노트르담까지 가요.",
+      effort: 3, sunset: "17:51",
+      events: [
+        E("08:50", "🚶", "숙소 출발", "루브르까지 걸어서 약 15분(1.1km)", "free", { map: "Louvre Museum, Paris" }),
+        E("09:30–12:30", "🧑‍🏫", "루브르 가이드 투어 (3시간)", "모나리자 · 사모트라케의 니케 · 밀로의 비너스 등 하이라이트를 가이드와 함께 봐요. 입장권은 가이드를 통해 구매 완료", "booked", { map: "Louvre Pyramid, Paris", tag: "집합: 유리 피라미드 옆 기마상 — 가이드가 전날 시각을 확정해 줘요 (09:30 또는 14:00, ±30분)", tagType: "warn" }),
+        E("12:30–13:30", "🍽️", "점심", "루브르 근처에서 먹어요", "free"),
+        E("13:30–15:30", "⛪", "센강 산책 → 시테섬 노트르담", "노트르담은 무료로 들어가요(온라인 예약은 선택). 생트샤펠은 선택이고 유료·시간 지정이에요", "opt", { map: "Notre-Dame de Paris" }),
+        E("15:30", "🚇", "숙소로 돌아가요", "지하철 4호선 시테역 → 에티엔 마르셀역", "free"),
+        E("16:00–18:30", "😴", "숙소에서 쉬어요", "내일은 에펠탑까지 보는 긴 날이에요", "free"),
+        E("18:30–20:00", "🍽️", "마레 쪽에서 저녁", "숙소 근처에서 걸어서", "free")
+      ],
+      lunch: [
+        M("Loulou", "지중해 요리", "~€35", "루브르·튈르리 · 예약 필수", "Loulou, Paris"),
+        M("Le Cochon à l'Oreille", "비스트로", "~€25", "레알 · 지하철 1정거장 · 일요일 휴무", "Le Cochon a l'Oreille, Paris"),
+        M("L'Auberge du Louvre", "비스트로", "~€25", "루브르에서 걸어서 5분 · 영어 메뉴가 있어요", "Auberge du Louvre, Paris")
+      ],
+      dinner: [
+        M("La Bourse et la Vie", "비스트로", "~€45", "2구 · 일·월 휴무 (목요일은 문 열어요)", "La Bourse et la Vie, Paris"),
+        M("Le Petit Vendôme", "샌드위치", "~€20", "오페라 근처 · 일요일 휴무", "Le Petit Vendome, Paris"),
+        M("Au Pied de Cochon", "브라세리", "~€45", "레알 · 매일 심야까지", "Au Pied de Cochon, Paris")
+      ],
+      bring: ["여권(수안 무료입장 증빙)", "편한 신발"],
+      notes: ["루브르는 가이드 투어로 들어가서 따로 줄 설 필요가 없어요.", "수안은 18세 미만이라 루브르 입장이 무료예요."]
+    },
+    {
+      date: "2027-02-05", n: 3, cls: "paris", route: "파리", title: "오르세와 에펠탑 일몰", icon: "🗼",
+      short: "오르세 · 에펠탑",
+      summary: "아침엔 인상파 그림을 보고, 오후에 쉬었다가 해 질 무렵 에펠탑 전망대에 올라가요.",
+      effort: 3, sunset: "17:52",
+      events: [
+        E("08:15", "🚇", "숙소 출발 → 오르세", "RER B + C로 약 18분", "free", { map: "Musée d'Orsay, Paris" }),
+        E("09:30–11:45", "🎨", "오르세미술관", "모네 · 르누아르 · 고흐의 인상파 층과 커다란 시계창", "need", { map: "Musée d'Orsay, Paris", tag: "입장권을 아직 안 샀어요 — 11/20 전후에 열렸는지 확인" }),
+        E("11:45–12:45", "🍽️", "점심", "미술관 안이나 근처에서", "free"),
+        E("12:45–14:30", "🌳", "생제르맹 · 뤽상부르 산책", "체력에 따라 건너뛰어도 돼요", "opt", { map: "Jardin du Luxembourg, Paris" }),
+        E("14:30–16:15", "😴", "숙소에서 쉬어요", "에펠탑 가기 전에 충전", "free"),
+        E("16:15–17:00", "🚇", "에펠탑으로 이동", "약 30~35분", "free"),
+        E("17:00–18:45", "🗼", "에펠탑 전망대 (17:00 입장)", "일몰이 17:52, 어스름이 18:26까지라서 해 지는 파리를 볼 수 있어요", "need", { map: "Eiffel Tower, Paris", tag: "예매 오픈 약 11/7 — 아직 안 샀어요 · 수안은 청소년 요금" }),
+        E("18:45–20:15", "🍽️", "에펠탑 근처에서 저녁", "7구 · 에펠 뒷골목", "free"),
+        E("20:15–21:00", "🚇", "숙소로 돌아가요", "지하철로", "free")
+      ],
+      lunch: [
+        M("Restaurant d'Orsay", "프렌치", "~€30", "오르세 안 · 11:45~17:30", "Restaurant du Musee d'Orsay, Paris"),
+        M("Café Campana", "캐주얼", "~€20", "오르세 안 · 빨리 먹을 수 있어요", "Cafe Campana Musee d'Orsay, Paris"),
+        M("Les Antiquaires", "비스트로", "~€30", "7구 · 미술관에서 걸어서 8분 · 일요일 휴무", "Les Antiquaires, Paris")
+      ],
+      dinner: [
+        M("20 Eiffel", "전통 프렌치", "~€35", "에펠탑 걸어서 10분 · 일요일 휴무일 수 있어 미리 확인", "20 Eiffel, Paris"),
+        M("Bouillon Chartier Montparnasse", "부용(대중식당)", "~€20", "지하철 12호선 직행 약 15분 · 예약 불가, 회전 빠름", "Chartier Montparnasse, Paris"),
+        M("Le Procope", "전통 프렌치", "~€45", "오데옹 · 1686년부터 영업", "Le Procope, Paris")
+      ],
+      bring: ["에펠탑 입장권(폰)", "따뜻한 겉옷 — 전망대는 바람이 불어요"],
+      notes: ["2/5 하루에 오르세와 에펠탑 입장권 두 개를 사야 해요 (아직 둘 다 안 샀어요)."]
+    },
+    {
+      date: "2027-02-06", n: 4, cls: "paris", route: "파리 → 베르사유", title: "베르사유 궁전 (오후 투어)", icon: "👑",
+      short: "베르사유 투어",
+      summary: "오전엔 여유롭게 쉬고, 12:30에 개선문에서 만나 가이드와 베르사유로 가요. 궁전 안은 한국어 가이드가 90분 안내해요.",
+      effort: 4, sunset: "17:54",
+      events: [
+        E("오전", "😴", "여유로운 오전", "늦은 조식, 마레 산책. 점심은 출발 전에 가볍게 먹어요", "free"),
+        E("10:30–11:30", "🍽️", "가볍게 점심", "오후 5시간 반이 투어라서 미리 먹어 둬요", "free"),
+        E("11:45", "🚇", "숙소 출발 → 개선문", "지하철 4호선 → 샤틀레 → 1호선, 25~35분 (우버는 약 €10~16)", "free", { map: "Arc de Triomphe, Paris" }),
+        E("12:30", "📍", "개선문역 5번 출구 앞에서 만나요", "LE VIN COEUR 카페 (4 Avenue Carnot, 75017 Paris)", "booked", { map: "Le Vin Coeur, 4 Avenue Carnot, 75017 Paris", tag: "지각하면 기다리기 어려워요 — 10분 전 도착" }),
+        E("13:10", "🌳", "베르사유 정원 해설", "9인승 미니밴을 다른 여행자들과 함께 타요", "booked", { map: "Palace of Versailles" }),
+        E("15:30–17:00", "👑", "궁전 안 (한국어 공인가이드 90분)", "거울의 방 · 왕의 침실 등. 전용 입구로 단체 입장해요", "booked"),
+        E("17:10", "🚐", "베르사유 출발", "같은 차로 돌아가요", "free"),
+        E("18:00", "📍", "개선문에서 해산", "처음 만난 곳에서 끝나요", "free"),
+        E("저녁", "🍽️", "저녁", "숙소로 돌아가서 먹어도 좋아요", "free")
+      ],
+      lunch: [],
+      dinner: [
+        M("Bouillon Julien", "부용(대중식당)", "~€22", "10구 · 매일 영업", "Bouillon Julien, Paris"),
+        M("Bofinger", "브라세리", "~€50", "바스티유 · 지하철 1호선 직행", "Bofinger, Paris"),
+        M("Chez Francis", "비스트로", "~€55", "8구 센강변 · 에펠탑 야경 자리를 부탁해 보세요", "Chez Francis Paris")
+      ],
+      mealNote: "점심은 12:30 전에 먹어요 (정해 둔 식당 없음).",
+      bring: ["수신기용 유선 이어폰 3.5mm × 3", "여권 3개 (수안은 18세 이하 증빙)"],
+      notes: ["입장권 €60은 입금 완료했어요(성인 €25×2 + 수안 예약비 €10 포함). 당일 가이드가 €10을 또 달라고 하면 판매자 답변(‘예약비 포함 60유로’)을 보여 줘요.", "공식 사이트의 개인 입장권(Passport)은 사지 마세요. 단체 입장이라 쓸 수 없어요.", "이 날 저녁 파리에서 럭비 경기가 있을 수 있어요(미확인). 시내가 붐비면 북쪽 경기장 쪽은 피해요."]
+    },
+    {
+      date: "2027-02-07", n: 5, cls: "paris", cls2: "bcn", route: "파리 → 바르셀로나", title: "TGV로 바르셀로나에", icon: "🚄",
+      short: "🚄 → 바르셀로나",
+      summary: "새벽에 일어나 기차로 6시간 53분. 오후에 바르셀로나에 도착해서 푹 쉬어요.",
+      effort: 2, sunset: "18:13",
+      events: [
+        E("04:30", "⏰", "일어나요", "짐은 객실에서 챙겨 나와요 (보관 없음)", "free"),
+        E("05:15–05:45", "☕", "체크아웃 · 간단한 아침", "이른 아침은 역 근처 카페나 준비한 간식으로", "check", { tag: "호텔 조식이 몇 시에 시작하는지 확인 필요" }),
+        E("05:45", "🚕", "택시 → 리옹역", "약 20~25분", "check", { map: "Gare de Lyon, Paris", tag: "새벽 택시를 미리 예약해야 해요 (가능 여부 확인 필요)" }),
+        E("06:15–06:40", "🚉", "리옹역 도착 · 승강장 확인", "출발 30분 전 도착을 권해요", "free"),
+        E("06:56", "🚄", "TGV INOUI 9711 출발", "바르셀로나 산츠 13:49 도착. 2등석 15호차 위층 548 · 552 · 553. 식당칸이 있고 간식을 챙기면 좋아요. 지중해는 가는 방향 왼쪽일 것 같아요(추정, 타서 확인)", "booked", { map: "Gare de Lyon, Paris" }),
+        E("13:49", "🚉", "바르셀로나 산츠역 도착", "역에서 숙소까지 택시로 이동해요", "free", { map: "Barcelona Sants railway station" }),
+        E("14:00–14:30", "🚕", "택시 → H10 Casanova", "약 15분", "free", { map: "H10 Casanova, Barcelona" }),
+        E("15:00", "🏨", "체크인 · 휴식", "15:00부터 자정까지 가능해요", "free"),
+        E("저녁", "🌆", "고딕지구 가벼운 산책", "대성당 외관 → 산트 자우메 광장 → 레이알 광장. 컨디션 봐서 선택", "opt", { map: "Barri Gotic, Barcelona" }),
+        E("저녁", "🍽️", "저녁", "타파스로 가볍게", "free")
+      ],
+      lunch: [
+        M("Ciudad Condal", "타파스", "~€22", "에이샴플레 · 숙소와 산츠역 사이 · 연중무휴", "Ciudad Condal, Barcelona"),
+        M("El Nacional", "스페인 종합", "~€25", "메뉴가 다양해서 고르기 쉬워요", "El Nacional, Barcelona"),
+        M("Honest Greens", "건강식", "~€18", "가볍게 먹고 싶을 때", "Honest Greens, Barcelona")
+      ],
+      dinner: [
+        M("Tapas Avinyó", "타파스", "~€30", "고딕지구 · 일요일도 영업", "Tapas Avinyo, Barcelona"),
+        M("Gourmet Sensi", "고메 타파스", "~€40", "온라인 예약만 받아요", "Gourmet Sensi, Barcelona"),
+        M("Ocaña", "타파스", "~€30", "람블라 옆 · 늦은 도착에 가벼운 밤", "Ocana, Barcelona")
+      ],
+      bring: ["기차 간식·물", "e-티켓 (폰 저장)", "짐 3개 + 기내 가방 3개"],
+      notes: ["열차가 취소되면 무료로 교환할 수 있어요. 같은 날 14:42 출발(21:35 도착) 열차로 갈아탈 수 있어요.", "열차 환불·교환은 출발 7일 전(1/31)까지 무료예요.", "TGV 좌석은 자동 배정이에요 — 548·552·553은 같은 테이블일 가능성이 높아요."]
+    },
+    {
+      date: "2027-02-08", n: 6, cls: "bcn", route: "바르셀로나", title: "여유 시간 + 고딕 야경", icon: "🌙",
+      short: "야경 투어",
+      summary: "낮에는 정해진 일정이 없어요 — 여유 있는 날! 저녁 19:50에 고딕지구 야경 투어가 있어요.",
+      effort: 1,
+      events: [
+        E("낮", "🗓️", "자유 시간 — 아직 정하지 않았어요", "시타델 공원·개선문 산책, 그라시아 동네 산책, 숙소에서 푹 쉬기 중에서 골라요. 사그라다 파밀리아는 2/9 가우디 투어에서 들어가요", "check", { tag: "함께 정해요" }),
+        E("오늘 중", "✉️", "로마 숙소에 픽업 확정 메시지", "2/11 IB5332 11:05 도착 · 3명 · 큰 가방 3 + 기내 3 · 만날 장소를 다시 알려요", "check", { tag: "아빠 할 일" }),
+        E("18:00경", "🍽️", "일찍 저녁", "투어 전에 먹어요", "free"),
+        E("19:50–22:00", "🌙", "고딕지구 야경 투어", "집합 Plaça d'Isidre Nonell 1 (‘키스의 벽’). 한국어 라이브 가이드와 약 2시간, 22:00경 Liceu 극장 앞에서 끝나요", "booked", { map: "Placa d'Isidre Nonell 1, Barcelona", tag: "최소 3명이 모여야 출발해요" })
+      ],
+      lunch: [],
+      dinner: [],
+      mealNote: "식당은 아직 안 정했어요. 투어가 고딕지구에서 열리니 그 근처(2/7 저녁 후보)가 편해요.",
+      bring: ["따뜻한 겉옷 (밤에 쌀쌀해요)"],
+      notes: ["내일 아침 07:50에 가우디 투어 집합이에요. 야경 후에는 바로 숙소로 가서 일찍 자요!", "투어 무료취소는 전날 17:00(한국 시각)까지예요."]
+    },
+    {
+      date: "2027-02-09", n: 7, cls: "bcn", route: "바르셀로나", title: "가우디 하루 투어", icon: "🏛️",
+      short: "가우디 투어",
+      summary: "카사 밀라 · 카사 바트요 · 구엘공원 · 성가족 성당(사그라다 파밀리아)을 가이드와 하루에 모두 들어가요.",
+      effort: 4,
+      events: [
+        E("집합 5분 전", "🚶", "집합 장소로 이동", "늦어도 기다려 주지 않고, 중간에 합류할 수도 없어요", "free"),
+        E("07:50", "📍", "집합: 카사 밀라 건너편 몽클레어(Moncler) 매장 앞", "Passeig de Gràcia 89", "booked", { map: "Moncler, Passeig de Gracia 89, Barcelona", tag: "5분 전에 도착해요" }),
+        E("오전~낮", "🏛️", "가우디 4곳 입장", "카사 밀라 · 카사 바트요 · 구엘공원 · 성가족 성당. 방문 순서는 가이드가 알려줘요. 차량 이동은 2번(구엘공원까지, 성가족 성당까지) 무료예요", "pay", { map: "Park Güell, Barcelona", tag: "입장권·가이드비 €321을 1/30까지 입금해야 해요 — 판매자가 원화 금액을 알려주면(12/9 이후) 이체" }),
+        E("12시경", "🍽️", "점심 (가이드가 빠른 식사를 안내)", "개별 예약은 안 돼요", "free"),
+        E("오후", "⛪", "성가족 성당(사그라다 파밀리아) 입장", "성당 안에서 16:00~17:00에 해산해요", "booked", { map: "Sagrada Família, Barcelona" }),
+        E("저녁", "🍽️", "저녁", "그라시아 동네에서 먹어도 좋아요", "free")
+      ],
+      lunch: [],
+      dinner: [
+        M("La Panxa del Bisbe", "창작 타파스", "~€40", "그라시아 · 지하철 3호선 15분 · 예약 권장", "La Panxa del Bisbe, Barcelona"),
+        M("La Graciosa", "타파스", "~€30", "그라시아 · 나눠 먹는 편안한 분위기", "La Graciosa, Barcelona"),
+        M("Oído", "계절 요리", "~€35", "그라시아 광장 · 테라스 · 예약 권장", "Oido Gracia, Barcelona")
+      ],
+      mealNote: "점심은 투어 중에 가이드가 안내해요.",
+      bring: ["수신기용 유선 이어폰 3.5mm × 3 (없으면 현장 €1)", "여권 사진을 폰에 (영문 이름·나이를 불시에 확인해요)", "따뜻한 옷 · 편한 신발 · 우산 (구엘공원은 바람이 불어요)"],
+      notes: ["입장권·가이드비 €321(€107×3)을 1/30까지 입금해야 해요. 수안도 12세 이상이라 성인 요금이에요.", "성가족 성당 복장: 모자 · 슬리퍼 · 어깨가 드러나는 옷 · 짧은 하의는 안 돼요 (샌들은 가능).", "캐리어 · 삼각대 · 호신용품은 가지고 들어갈 수 없고, 짐 보관도 안 돼요.", "최소 5명이 모여야 출발해요. 투어 전날 오후에 마이리얼트립 채팅으로 오픈채팅방 안내가 와요."]
+    },
+    {
+      date: "2027-02-10", n: 8, cls: "bcn", route: "바르셀로나", title: "피카소미술관과 산책", icon: "🎨",
+      short: "피카소미술관",
+      summary: "오전에 피카소 그림을 보고, 오후에는 본 지구와 고딕지구를 천천히 걸어요. 내일 아침이 이르니 짐도 미리 싸요.",
+      effort: 2,
+      events: [
+        E("09:00", "🚇", "숙소 출발", "지하철 4호선 Jaume I + 걷기, 25~35분", "free", { map: "Museu Picasso, Barcelona" }),
+        E("10:00–12:00", "🎨", "피카소미술관", "‘시녀들(Las Meninas)’ 연작이 대표예요. 월요일은 쉬지만 수요일은 열어요", "need", { map: "Museu Picasso, Barcelona", tag: "예매 오픈 약 11/13 — 아직 안 샀어요 · 수안은 무료지만 표를 예약해요" }),
+        E("12:00–13:00", "🍽️", "점심 (본 지구)", "박물관 근처에서", "free"),
+        E("13:00–16:00", "🚶", "본 지구 산책", "산타 마리아 델 마르 성당 → 시우타데야 공원 → 개선문 (약 2km). 고딕지구도 걷고 싶으면 대성당 → 산트 자우메 광장 → 레이알 광장", "opt", { map: "Santa Maria del Mar, Barcelona" }),
+        E("16:00~", "🧳", "숙소 복귀 · 짐 정리", "내일 06:15에 공항으로 출발해요", "free"),
+        E("저녁", "🍽️", "저녁", "숙소 근처 또는 본 지구에서", "free")
+      ],
+      lunch: [
+        M("Bar del Pla", "타파스", "~€30", "본 · 박물관 옆 · 예약 필수", "Bar del Pla, Barcelona"),
+        M("Tapes La Bona Sort", "카탈루냐 타파스", "~€30", "박물관에서 걸어서 4분", "Tapes La Bona Sort, Barcelona"),
+        M("El Xampanyet", "전통 보데가", "~€25", "박물관에서 걸어서 1분 · 서서 먹는 바 자리", "El Xampanyet, Barcelona")
+      ],
+      dinner: [
+        M("Cal Pep", "해산물 타파스", "~€45", "본 · 줄이 길어요 · 해산물 좋아하면 추천", "Cal Pep, Barcelona"),
+        M("El SET", "세련된 타파스", "~€40", "본 · 나눠 먹는 형식", "El SET Barcelona"),
+        M("Bodega La Tinaja", "전통 보데가", "~€30", "본 · 편안한 분위기", "Bodega La Tinaja, Barcelona")
+      ],
+      bring: ["피카소 입장권(폰)"],
+      notes: ["성인 온라인 입장료는 €12 안팎이에요. 수안은 무료이지만 무료 표도 예약해야 해요."]
+    },
+    {
+      date: "2027-02-11", n: 9, cls: "bcn", cls2: "rome", route: "바르셀로나 → 로마", title: "비행기로 로마에", icon: "✈️",
+      short: "✈️ → 로마",
+      summary: "아침 일찍 비행기로 로마에 가요. 공항에서 숙소 기사님이 숙소까지 데려다줘요.",
+      effort: 2,
+      events: [
+        E("06:15", "🚇", "숙소 출발 → 공항", "Aerobús 약 35분 또는 택시 16~17분", "check", { map: "Barcelona El Prat Airport", tag: "터미널(T1일 가능성)과 버스 노선은 확인 필요" }),
+        E("07:00–07:15", "🧳", "공항 도착 · 짐 3개 맡기기", "출발 2시간 전을 목표로 해요", "free"),
+        E("07:15–09:15", "🛂", "수속 · 보안 · 탑승", "", "free"),
+        E("09:15–11:05", "✈️", "IB5332 바르셀로나 → 로마 FCO", "이베리아 편명(부엘링 운항), 1시간 50분. 위탁 23kg×3 · 기내 10kg×3", "booked"),
+        E("11:05–12:00", "🧳", "로마 도착 · 짐 찾기", "40~60분 걸려요. 도착홀에서 숙소 기사님을 만나요", "free", { map: "Rome Fiumicino Airport" }),
+        E("12:00–12:55", "🚐", "숙소 픽업 차량 (€60, 카드 결제)", "Colosseo Living Suites까지 40~55분", "check", { map: "Colosseo Living Suites, Via della Polveriera 17, Roma", tag: "2/8에 편명·인원·만날 곳 메시지를 다시 보내야 확정돼요" }),
+        E("12:55–13:30", "🏨", "체크인 · 짐 정리", "12:00~21:00, 정한 시각에 직원이 마중 나와요", "free"),
+        E("13:30–15:30", "🍽️", "점심 · 휴식", "", "free"),
+        E("15:30–18:00", "🏛️", "나보나 광장 · 판테온 외관", "걸어서 약 1.5km. 컨디션에 따라 선택", "opt", { map: "Piazza Navona, Roma" }),
+        E("저녁", "🍽️", "저녁", "판테온·나보나 근처", "free")
+      ],
+      lunch: [
+        M("Mercato Centrale Roma Termini", "푸드홀", "~€15", "테르미니역 안 · 이동일에 가장 빨라요", "Mercato Centrale Roma Termini"),
+        M("Trimani", "와인바 · 경식", "~€20", "테르미니 근처 · 1821년 노포", "Trimani Via Cernaia, Roma"),
+        M("Trapizzino Termini", "길거리 음식", "~€8", "테이크아웃도 돼요", "Trapizzino Termini, Roma")
+      ],
+      dinner: [
+        M("Er Faciolaro", "로마 가정식", "~€30", "판테온 근처 · 가족이 운영해요", "Er Faciolaro, Roma"),
+        M("Pietro al Pantheon", "이탈리안", "~€28", "판테온 걸어서 5분 · 매일 11~23시", "Pietro al Pantheon, Roma"),
+        M("Navona Notte", "피자 · 라자냐", "~€28", "나보나 뒷골목 · 늦은 이동일에 무난해요", "Navona Notte, Roma")
+      ],
+      mealNote: "점심 후보는 테르미니 쪽이에요. 숙소(몬티)에서 가까운 곳에서 먹어도 좋아요.",
+      bring: ["항공권(폰)", "짐 3개 · 기내 가방 3개", "여권"],
+      notes: ["항공편은 출발 24시간 전까지 1번 변경할 수 있어요(차액만).", "2/11은 이른 아침이라 2/10 저녁에 짐을 미리 싸 둬요."]
+    },
+    {
+      date: "2027-02-12", n: 10, cls: "rome", route: "로마", title: "콜로세움과 포로 로마노", icon: "🏟️",
+      short: "콜로세움 투어",
+      summary: "아침 일찍 가이드와 고대 로마를 걸어요. 숙소에서 콜로세움까지 걸어서 6분이에요.",
+      effort: 3,
+      events: [
+        E("08:15", "🚶", "숙소 출발", "콜로세움 쪽으로 걸어서 약 6분", "free", { map: "Colosseo metro station, Roma" }),
+        E("08:30–09:00", "📍", "집합: 지하철 B선 Colosseo역", "현장 상황에 따라 바뀔 수 있어요. 전날 저녁 가이드가 보내는 카톡 단톡방에서 확인해요", "booked", { map: "Colosseo metro station, Roma" }),
+        E("오전", "🏟️", "콜로세움 → 포로 로마노 · 팔라티노 투어", "입장권은 가이드가 여권 영문 이름으로 대신 사요. 입장료는 현장에서 가이드에게 현금으로 내요", "booked", { map: "Colosseum, Roma", tag: "현금 약 €80 + 수신기 €3×3 준비" }),
+        E("12:00–13:00", "🍽️", "점심 (몬티)", "숙소 쪽으로 돌아와서", "free"),
+        E("13:00–15:00", "😴", "숙소에서 쉬어요 (꼭!)", "", "free"),
+        E("15:00–16:30", "🏛️", "캄피돌리오 광장 · 베네치아 광장 외관", "선택. 힘들면 쉬어요", "opt", { map: "Piazza del Campidoglio, Roma" }),
+        E("저녁", "🍽️", "몬티에서 저녁", "숙소에서 걸어서", "free")
+      ],
+      lunch: [
+        M("al42 Street Food Gourmet", "파스타 · 테이크아웃", "~€18", "몬티 · 콜로세움에서 걸어서 8분", "al42 Street Food, Roma"),
+        M("La Taverna dei Fori Imperiali", "이탈리안", "~€25", "몬티 · 포로에서 걸어서 5분 · 야외석", "La Taverna dei Fori Imperiali, Roma"),
+        M("Pizza Madonna dei Monti", "알 탈리오 피자", "~€12", "몬티 광장 · 분수 앞에서 먹는 피크닉형", "Pizza Madonna dei Monti, Roma")
+      ],
+      dinner: [
+        M("La Carbonara Monti", "로마 오스테리아", "~€35", "몬티 · 1906년부터 영업", "La Carbonara Monti, Roma"),
+        M("Trattoria Valentino", "트라토리아", "~€35", "몬티 · 현지인이 많이 가는 가성비 집", "Trattoria Valentino Roma"),
+        M("Cuoco e Camicia", "세련된 트라토리아", "~€50", "몬티 · 예약 권장", "Cuoco e Camicia, Roma")
+      ],
+      bring: ["여권 3개 (수안 학생 요금 확인용)", "유로 현금 €80 + €9", "편한 신발"],
+      notes: ["입장료: 성인 €35 × 2 + 수안(학생, 만 17세까지) €10 = €80. 수신기는 €3 × 3이에요.", "입장권은 환불이 안 돼요. 투어 무료취소는 2/6 08:00(한국 시각)까지예요."]
+    },
+    {
+      date: "2027-02-13", n: 11, cls: "rome", route: "로마", title: "보르게세 미술관", icon: "🗿",
+      short: "보르게세",
+      summary: "예약한 시간에 조각 명작을 보고, 공원에서 로마 전경을 봐요.",
+      effort: 2,
+      events: [
+        E("08:15", "🚇", "숙소 출발", "지하철 A선 Spagna역 + 걷기 15분", "free", { map: "Galleria Borghese, Roma" }),
+        E("09:00–11:00", "🗿", "보르게세 미술관 (2시간 고정 슬롯)", "베르니니의 조각 명작들. 시간이 정해져 있어서 늦으면 안 돼요", "need", { map: "Galleria Borghese, Roma", tag: "예매 오픈 12/15경 [확인 필요] — 아직 안 샀어요" }),
+        E("11:00–13:00", "🌳", "빌라 보르게세 정원 → 포폴로 광장 전망", "걸어서 약 2km", "free", { map: "Villa Borghese, Roma" }),
+        E("13:00–14:00", "🍽️", "점심", "", "free"),
+        E("14:00~", "😴", "숙소에서 쉬기 · 자유 시간", "", "free"),
+        E("저녁", "🍽️", "저녁", "인기 식당은 예약해요", "free")
+      ],
+      lunch: [
+        M("Canova Tadolini", "이탈리안", "~€25", "스파냐 쪽 · 조각 아틀리에를 식당으로 쓴 곳", "Canova Tadolini, Roma"),
+        M("Pastasciutta Flaminio", "파스타", "~€18", "플라미니오역 앞 · 빠르고 든든해요", "Pastasciutta, Roma"),
+        M("La Pariolina", "로마식 피자", "~€22", "공원 서쪽 · 얇은 로마 피자", "La Pariolina, Roma")
+      ],
+      dinner: [
+        M("EMME Ristorante Margutta", "로마 · 창작", "~€50", "스파냐 · 예약 필수", "EMME Ristorante Via Margutta, Roma"),
+        M("Girarrosto Fiorentino", "고기 · 토스카나", "~€50", "비아 베네토 · 1960년 노포", "Girarrosto Fiorentino, Roma"),
+        M("Fradiavolo Via Po", "장인 피자", "~€28", "파리올리 · 가족 단위에 알맞아요", "Fradiavolo, Roma")
+      ],
+      bring: ["보르게세 입장권(폰)"],
+      notes: ["이 날 로마에서 럭비 경기가 있을 수 있어요(미확인). 붐비면 저녁 식당은 꼭 예약해요."]
+    },
+    {
+      date: "2027-02-14", n: 12, cls: "rome", route: "로마", title: "쉬는 날 + 발렌타인 저녁", icon: "💝",
+      short: "휴식 · 발렌타인",
+      summary: "느긋하게 쉬고, 오후엔 박물관을 보고, 저녁엔 특별한 발렌타인 식사를 해요. 일요일이라 바티칸은 쉬는 날이에요.",
+      effort: 1,
+      events: [
+        E("09:00–11:00", "😴", "늦은 아침 · 휴식", "", "free"),
+        E("11:00–13:00", "🌿", "아피아 가도 또는 카라칼라 욕장 외관", "버스 118번으로 30~40분. 걷기 편한 신발을 신어요", "opt", { map: "Via Appia Antica, Roma" }),
+        E("13:00–14:00", "🍽️", "점심", "", "free"),
+        E("14:00–16:30", "🏛️", "카피톨리니 박물관", "판테온 내부나 트라스테베레 산책을 더해도 좋아요 (선택)", "opt", { map: "Capitoline Museums, Roma" }),
+        E("16:30~", "😴", "휴식 · 내일 바티칸 준비", "", "free"),
+        E("저녁", "💝", "발렌타인 저녁", "인기가 많아서 1월 초에 예약해야 해요", "need", { map: "Osteria da Fortunata, Roma", tag: "식당 예약 아직 안 했어요 (1/5 알림)" })
+      ],
+      lunch: [
+        M("Appia Antica Caffe", "카페 · 가벼운 식사", "~€20", "아피아 · 정원 테이블 · 일요일 08~21시", "Appia Antica Caffe, Roma"),
+        M("Antico Forno Roscioli", "빵집 · 포르노", "~€15", "캄포 데 피오리 · 일요일 08~18시", "Antico Forno Roscioli, Roma"),
+        M("Ginger", "브런치 · 건강식", "~€22", "판테온 뒤 · 매일 08~23시", "Ginger Roma")
+      ],
+      dinner: [
+        M("Osteria da Fortunata", "수제 파스타", "~€50", "나보나 · ★발렌타인 예약 필수 · 단품 주문 가능한지 확인", "Osteria da Fortunata, Roma"),
+        M("Pizzeria da Baffetto", "로마식 얇은 피자", "~€25", "나보나 · 회전이 빨라요 · 일요일 영업", "Pizzeria da Baffetto, Roma"),
+        M("Cantina e Cucina", "가정식", "~€50", "나보나 · 촛불 켠 석조실 · 조용한 가족석 요청", "Cantina e Cucina, Roma")
+      ],
+      bring: [],
+      notes: ["일요일은 바티칸이 쉬어서 휴식하는 날로 정했어요."]
+    },
+    {
+      date: "2027-02-15", n: 13, cls: "rome", route: "로마 · 바티칸", title: "바티칸 투어", icon: "⛪",
+      short: "바티칸 투어",
+      summary: "가이드와 바티칸 박물관 · 시스티나 예배당 · 성 베드로 대성당을 보는 가장 긴 날이에요.",
+      effort: 4,
+      events: [
+        E("08:15경", "🚇", "숙소 출발 → 오타비아노역", "지하철 A선, 약 30분. 집합 10분 전에 도착해요", "free", { map: "Ottaviano metro station, Roma" }),
+        E("09:05", "📍", "집합: 지하철 A선 Ottaviano역", "10~15분 달라질 수 있고, 변경은 카톡·문자로 안내해요", "booked", { map: "Ottaviano metro station, Roma", tag: "종교 행사로 시간·동선이 예고 없이 바뀔 수 있어요" }),
+        E("오전", "⛪", "바티칸 박물관 → 시스티나 → 성 베드로 대성당 → 지하묘지", "가이드 투어. 박물관 입장 비용은 입금 완료. 현장 현금: 성 베드로 대성당 예약비 €7 (인당인지 확인 필요) · 수신기 €3", "booked", { map: "Vatican Museums, Roma" }),
+        E("12:00–13:00", "🍽️", "점심 (프라티)", "", "free"),
+        E("13:00–15:00", "😴", "숙소에서 쉬어요 (꼭!)", "", "free"),
+        E("15:00–17:00", "⛪", "성 베드로 돔 오르기", "선택. 대성당 내부는 투어에 포함이고, 돔(예약제)만 추가예요", "check", { tag: "갈지 정해야 해요" }),
+        E("저녁", "🍽️", "저녁", "프라티에서 가볍게", "free")
+      ],
+      lunch: [
+        M("Hostaria Dino e Toni", "로마 가정식", "~€22", "프라티 · 박물관에서 걸어서 5분", "Hostaria Dino e Toni, Roma"),
+        M("Faruso", "이탈리안 · 고기", "~€25", "프라티 · 매일 12~24시", "Faruso Roma"),
+        M("Pompi Tiramisù", "디저트", "~€12", "프라티 · 수십 년 된 티라미수 명물", "Pompi Tiramisu, Roma")
+      ],
+      dinner: [
+        M("Dal Toscano", "토스카나 · 로마", "~€50", "프라티 · 바티칸 근처 대표 식당", "Dal Toscano, Roma"),
+        M("Il Bar Sotto il Mare", "해산물 파스타", "~€40", "프라티 · 고기 대신 해산물이 좋을 때", "Il Bar Sotto il Mare, Roma"),
+        M("La Pratolina", "이탈리안", "~€35", "프라티 · 동네 식당 분위기", "La Pratolina, Roma")
+      ],
+      bring: ["여권 3개 (수안은 미성년 요금 증빙)", "현금 €21 + €9", "어깨·무릎을 가리는 옷 (성 베드로 대성당 복장)"],
+      notes: ["투어 전날 카카오톡 단톡방에 초대돼요. 카톡 ‘전화번호로 친구 추가 허용’이 켜져 있어야 해요 (판매자 요청).", "미성년 요금은 구매 후 못 바꿔요. 현장에서 증빙을 못 보이면 입장이 안 돼요."]
+    },
+    {
+      date: "2027-02-16", n: 14, cls: "rome", cls2: "air", route: "로마 → 인천", title: "집으로 출발!", icon: "🧳",
+      short: "로마 → ✈️",
+      summary: "체크아웃하고 짐을 맡긴 뒤 마지막 로마를 즐기고, 밤 비행기로 출발해요.",
+      effort: 1,
+      events: [
+        E("~10:00", "🏨", "체크아웃 (07:00~10:00)", "숙소는 짐을 맡아 주지 않아요 → 근처 짐 보관소에 종일 맡겨요 (07:00~23:00 영업)", "check", { tag: "보관소 위치·가격 확인 필요" }),
+        E("10:30–13:00", "🚶", "숙소 주변 산책", "몬티 · 콜로세오 외관 · 기념품", "free"),
+        E("13:00–14:30", "🍽️", "마지막 점심", "", "free"),
+        E("14:30–17:30", "☕", "카페 · 휴식", "판테온을 다시 가도 좋아요. 17시 전에 돌아와요", "opt"),
+        E("18:30", "🧳", "짐 찾기 → 테르미니역", "", "free", { map: "Roma Termini" }),
+        E("19:00경", "🚆", "레오나르도 익스프레스 → 공항", "32분, 약 19:30 FCO 도착", "free", { map: "Rome Fiumicino Airport" }),
+        E("19:30–22:00", "🛫", "가벼운 식사 · 수속 · 탑승", "", "free"),
+        E("22:00", "✈️", "OZ562 로마 → 인천 출발", "아시아나 · 내일 17:25 인천 도착", "booked")
+      ],
+      lunch: [
+        M("Mercato Centrale Roma", "푸드홀", "~€20", "테르미니 · 각자 먹고 싶은 걸 골라요", "Mercato Centrale Roma"),
+        M("Trattoria Monti", "마르케 요리", "~€30", "몬티 · 평일 점심 예약 필수", "Trattoria Monti, Roma"),
+        M("Pietro al Pantheon", "이탈리안", "~€25", "판테온 · 아침 산책 후", "Pietro al Pantheon, Roma")
+      ],
+      dinner: [],
+      mealNote: "저녁은 공항에서 가볍게 먹어요.",
+      bring: ["여권", "항공권(폰)", "짐 보관 영수증"],
+      notes: ["짐 보관소는 숙소에 문의해서 위치와 1개당 가격을 미리 알아 둬요.", "큰 캐리어 3개 + 기내 가방 3개를 모두 맡겨야 해요."]
+    },
+    {
+      date: "2027-02-17", n: 15, cls: "air", route: "비행 → 인천", title: "집에 도착!", icon: "🏠",
+      short: "🏠 인천 도착",
+      summary: "비행기에서 푹 자고 오후에 인천에 도착해요. 모두 수고했어요!",
+      effort: 0,
+      events: [
+        E("17:25", "🛬", "인천공항 도착", "OZ562 · 2주 가까운 여행이 끝나요", "booked", { map: "Incheon International Airport" })
+      ],
+      lunch: [], dinner: [],
+      mealNote: "기내식이 나와요.",
+      bring: [],
+      notes: ["돌아오면 사진을 한곳에 모아 앨범을 만들어요 📸"]
+    }
+  ];
+})();
+
+/* 짐 싸기 · 알아두면 좋은 것.  체크 표시는 각자의 폰(브라우저)에만 저장돼요. */
+window.TRIP = window.TRIP || {};
+
+/* 홈의 여행 경로 리본 — 인천 → 파리 → 바르셀로나 → 로마 → 인천 사이의 이동 */
+TRIP.legs = [
+  { e: "✈️", t: "2/3 · 10:05" },
+  { e: "🚄", t: "2/7 · 06:56" },
+  { e: "✈️", t: "2/11 · 09:15" },
+  { e: "✈️", t: "2/16 · 22:00" }
+];
+
+TRIP.packing = [
+  { id: "docs", e: "🛂", t: "서류 · 돈", items: [
+    "여권 3개 (귀국일 기준 유효기간 3개월 이상)",
+    "항공권 · 숙소 · 투어 확인서 (폰에 저장 + 종이 한 부)",
+    "해외 결제가 되는 카드 2장 이상 (3D Secure 인증 확인)",
+    "유로 현금: 현장 지불용 약 €120 + 소액권",
+    "여행자보험 증권 (12/5 이후 가입)",
+    "여권 사진을 폰에 저장 (가우디 투어에서 불시에 확인해요)"
+  ] },
+  { id: "tech", e: "📱", t: "전자 기기", items: [
+    "휴대폰 · 충전기 · 충전 케이블",
+    "보조배터리 (기내에 들고 타요)",
+    "유선 이어폰 3.5mm × 3개 (베르사유·가우디 투어 수신기용)",
+    "데이터 eSIM 또는 로밍",
+    "여행용 멀티 어댑터 1개 (만약을 위해)"
+  ] },
+  { id: "wear", e: "🧥", t: "옷 · 신발", items: [
+    "겹쳐 입기 좋은 옷 (2월 유럽은 겨울)",
+    "따뜻한 겉옷 · 방수 재킷",
+    "목도리 · 장갑 · 모자",
+    "많이 걸어도 편한 신발 · 양말 여유분",
+    "성당용 옷: 어깨와 무릎을 가리는 옷 (모자·슬리퍼는 안 돼요)",
+    "접이식 우산"
+  ] },
+  { id: "life", e: "🧴", t: "생활 · 건강", items: [
+    "상비약 (소화제 · 진통제 · 밴드 · 멀미약)",
+    "각자 먹는 약",
+    "물티슈 · 휴지 · 핸드크림 · 립밤 (유럽은 건조해요)",
+    "앞으로 멜 수 있는 작은 가방 (소매치기 대비)",
+    "텀블러 · 간식 (이른 기차와 긴 비행)"
+  ] },
+  { id: "bag", e: "🧳", t: "짐 정리", items: [
+    "큰 캐리어 3개 (23kg 이하) + 기내 가방 3개 (10kg 이하) — 무게를 미리 재요",
+    "캐리어 이름표",
+    "2/7 · 2/11은 새벽 출발이라 전날 저녁에 짐을 미리 싸요",
+    "작은 지퍼백 · 파우치 (영수증·표 정리용)"
+  ] }
+];
+
+TRIP.tips = [
+  { e: "🕒", t: "시차", d: "파리 · 바르셀로나 · 로마는 모두 같은 시간대예요. 한국이 8시간 빨라요. 한국 18:00 = 현지 10:00." },
+  { e: "📞", t: "긴급할 때", d: "유럽 어디서나 긴급전화는 112예요. 여권 분실 등은 외교부 영사콜센터 +82-2-3210-0404(24시간)에 연락해요." },
+  { e: "🎒", t: "소매치기 조심", d: "지하철 · 관광지 · 람블라스에서는 가방을 앞으로 메고, 휴대폰을 테이블 위에 두지 않아요." },
+  { e: "🌡️", t: "날씨", d: "2월은 겨울이에요. 대략 파리 3~9℃, 바르셀로나 6~14℃, 로마 4~13℃예요. 비 올 수 있으니 우산과 방수 겉옷을 챙겨요." },
+  { e: "🌅", t: "해가 일찍 져요", d: "파리 일몰은 2/3 17:49, 2/5 17:52, 2/7 17:56이에요. 바르셀로나는 2/7 18:13이에요. 에펠탑은 일몰 직전에 올라가요." },
+  { e: "⛪", t: "성당 · 바티칸 복장", d: "어깨와 무릎을 가려요. 성가족 성당은 모자 · 슬리퍼 · 짧은 하의도 안 돼요(샌들은 가능)." },
+  { e: "🍽️", t: "식사 시간", d: "스페인은 저녁이 늦어요(20시 30분쯤부터 문 여는 곳이 많아요). 이탈리아 식당은 자릿세(coperto)가 붙을 수 있어요." },
+  { e: "🚇", t: "지하철 · 기차 표", d: "표는 목적지에서 나갈 때까지 버리지 말고 가지고 있어요. 중간에 검표가 있을 수 있어요." },
+  { e: "🔌", t: "전기", d: "한국과 같은 220V예요. 둥근 핀 2개짜리 플러그가 대부분 그대로 맞아요." },
+  { e: "🚻", t: "화장실", d: "공공 화장실은 유료인 곳이 많아요. 동전을 조금 챙기거나 식당·카페에서 해결해요." }
+];
+
+</script>
+<script>
+/* 가족여행 대시보드 — 화면 로직. 데이터는 window.TRIP (data_*.js). */
+(function () {
+  "use strict";
+  var T = window.TRIP;
+  var app = document.getElementById("app");
+  var DOW = ["일", "월", "화", "수", "목", "금", "토"];
+
+  /* ---------- 작은 도구 ---------- */
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function parse(s) { var p = s.split("-").map(Number); return new Date(p[0], p[1] - 1, p[2]); }
+  function iso(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+  function today() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function diffDays(a, b) { return Math.round((a - b) / 86400000); }
+  function md(s) { var d = parse(s); return (d.getMonth() + 1) + "월 " + d.getDate() + "일"; }
+  function ms(s) { var d = parse(s); return (d.getMonth() + 1) + "/" + d.getDate(); }
+  function dow(s) { return DOW[parse(s).getDay()]; }
+  function mapUrl(q) { return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q); }
+  var byDate = {}; T.days.forEach(function (d) { byDate[d.date] = d; });
+  function city(id) { return T.cities.filter(function (c) { return c.id === id; })[0]; }
+
+  var EV = { booked: ["ok", "예약됨"], need: ["need", "예매 필요"], pay: ["pay", "입금 필요"], check: ["chk", "확인 필요"], opt: ["opt", "선택"] };
+  function evBadge(st) { return EV[st] ? '<span class="pill ' + EV[st][0] + '">' + EV[st][1] + "</span>" : ""; }
+
+  /* ---------- 그림 (랜드마크) ---------- */
+  function art(id) {
+    var s = '<svg aria-hidden="true" fill="currentColor" ';
+    if (id === "eiffel") {
+      return s + 'viewBox="0 0 100 120"><path d="M50 4L52 22 56 22 60 46 66 46 74 88 88 116 78 116 68 98Q50 86 32 98L22 116 12 116 26 88 34 46 40 46 44 22 48 22Z"/><rect x="36" y="44" width="28" height="4" rx="2"/><rect x="28" y="76" width="44" height="5" rx="2.5"/></svg>';
+    }
+    if (id === "sagrada") {
+      var t = [[18, 60], [39, 80], [60, 104], [81, 80], [102, 60]], out = "";
+      t.forEach(function (a) {
+        var cx = a[0], h = a[1];
+        out += '<path d="M' + (cx - 7) + " 112V" + (112 - h + 16) + "L" + cx + " " + (112 - h) + "L" + (cx + 7) + " " + (112 - h + 16) + 'V112Z"/><circle cx="' + cx + '" cy="' + (112 - h - 3) + '" r="3"/>';
+      });
+      return s + 'viewBox="0 0 120 120">' + out + '<rect x="6" y="106" width="108" height="10" rx="3"/></svg>';
+    }
+    if (id === "colosseum") {
+      var d = "M6 94V46Q6 30 24 28H116Q134 30 134 46V94Z", tiers = [[36, 16], [57, 16], [78, 14]], i, k;
+      tiers.forEach(function (tr) {
+        for (i = 0; i < 11; i++) {
+          var step = 112 / 11, w = 6.4, x = 14 + i * step + (step - w) / 2, y = tr[0], h = tr[1];
+          d += "M" + x.toFixed(1) + " " + (y + h) + "V" + (y + w / 2) + "A" + w / 2 + " " + w / 2 + " 0 0 1 " + (x + w).toFixed(1) + " " + (y + w / 2) + "V" + (y + h) + "Z";
+        }
+      });
+      k = '<path fill-rule="evenodd" d="' + d + '"/><rect x="2" y="94" width="136" height="6" rx="3"/>';
+      return s + 'viewBox="0 0 140 100">' + k + "</svg>";
+    }
+    return "";
+  }
+
+  /* ---------- 계산 ---------- */
+  function dayStatus(day) {
+    var st = day.events.map(function (e) { return e.st; });
+    if (st.indexOf("need") >= 0 || st.indexOf("pay") >= 0) return "need";
+    if (st.indexOf("check") >= 0) return "chk";
+    if (st.indexOf("booked") >= 0) return "ok";
+    return "";
+  }
+  function dot(st) {
+    if (!st) return "";
+    var m = { ok: ["dot-ok", "✓", "준비 끝"], need: ["dot-need", "!", "예매·입금 필요"], chk: ["dot-chk", "?", "확인할 것"] }[st];
+    return '<span class="dotm ' + m[0] + '" title="' + m[2] + '" aria-label="' + m[2] + '">' + m[1] + "</span>";
+  }
+  function dueInfo(due) {
+    if (!due) return null;
+    var n = diffDays(parse(due), today());
+    if (n < 0) return { cls: "late", txt: "기한 지남", n: n };
+    if (n === 0) return { cls: "soon", txt: "오늘!", n: n };
+    return { cls: n <= 14 ? "soon" : "far", txt: "D-" + n, n: n };
+  }
+  function bookingStats() {
+    var ok = T.bookings.filter(function (b) { return b.st === "ok"; }).length;
+    return { ok: ok, total: T.bookings.length };
+  }
+  function openTodos() {
+    return T.todos.filter(function (t) { return !t.done; }).sort(function (a, b) { return (a.due || "9").localeCompare(b.due || "9"); });
+  }
+
+  /* ---------- 홈 ---------- */
+  function ribbon() {
+    var legs = T.legs, out = "", cs = T.cities;
+    function node(c, sub, nt, href, cls, e) {
+      var inner = '<span class="rb-dot">' + e + '</span><div class="rbx"><div class="rb-t">' + esc(c) + '</div><div class="rb-s">' + esc(sub) + "</div></div>" + (nt ? '<span class="rb-n">' + esc(nt) + "</span>" : "");
+      return href ? '<a class="rb-node" data-c="' + cls + '" href="' + href + '">' + inner + "</a>" : '<div class="rb-node rb-home" data-c="' + cls + '">' + inner + "</div>";
+    }
+    function leg(l, edge) {
+      var p = l.t.split(" · ");
+      return '<div class="rb-leg' + (edge ? " edge" : "") + '"><div class="line"></div><div class="lab"><span class="le">' + l.e + '</span> <span class="ld">' + esc(p[0]) + '</span><span class="lt"> · ' + esc(p[1] || "") + "</span></div></div>";
+    }
+    out += node("인천", "집에서 출발", "", null, "air", "🏠") + leg(legs[0], true);
+    cs.forEach(function (c, i) {
+      out += node(c.name, ms(c.from) + " ~ " + ms(c.to), c.nights + "박", "#/city/" + c.id, c.cls, c.flag) + leg(legs[i + 1], i === cs.length - 1);
+    });
+    out += node("인천", "2/17 17:25 도착", "", null, "air", "🏠");
+    return '<div class="card ribbon" role="list" aria-label="여행 경로">' + out + "</div>";
+  }
+
+  function calendar() {
+    var first = new Date(2027, 1, 1), offset = (first.getDay() + 6) % 7, cells = [], i;
+    var lastTrip = parse(T.meta.end).getDate();
+    var rows = Math.ceil((offset + lastTrip) / 7);
+    for (i = 0; i < rows * 7; i++) {
+      var dn = i - offset + 1, iso_ = "2027-02-" + pad(dn), day = dn >= 1 && dn <= 28 ? byDate[iso_] : null;
+      if (dn < 1 || dn > 28) { cells.push('<div class="cell off"></div>'); continue; }
+      if (!day) { cells.push('<div class="cell off"><span class="num">' + dn + '</span></div>'); continue; }
+      var two = day.cls2 ? " two" : "", td = iso_ === iso(today()) ? " today" : "";
+      cells.push('<a class="cell' + two + td + '" data-c="' + day.cls + '"' + (day.cls2 ? ' data-c2="' + day.cls2 + '"' : "") + ' href="#/day/' + iso_ + '"><span class="ctop"><span class="num">' + dn + "</span>" + dot(dayStatus(day)) + '</span><span class="ico">' + day.icon + '</span><span class="lab">' + esc(day.short) + "</span></a>");
+    }
+    var dow7 = ["월", "화", "수", "목", "금", "토", "일"].map(function (d) { return '<div class="dow">' + d + "</div>"; }).join("");
+    var list = T.days.map(function (day) {
+      return '<a class="drow" data-c="' + day.cls + '" href="#/day/' + day.date + '"><div class="dn"><b>' + parse(day.date).getDate() + "</b><span>" + dow(day.date) + '</span></div><div><div class="tt">' + esc(day.short) + '</div><div class="ss">' + esc(day.route) + '</div></div><div class="rt"><span>' + day.icon + "</span>" + dot(dayStatus(day)) + "</div></a>";
+    }).join("");
+    return '<div class="card cal"><div class="cal-head"><h3>🗓️ 2027년 2월 — 날짜를 눌러 보세요</h3><div class="legend"><span><i class="dot-ok">✓</i>준비 끝</span><span><i class="dot-need">!</i>예매·입금 필요</span><span><i class="dot-chk">?</i>확인할 것</span></div></div><div class="cal-grid" role="grid">' + dow7 + cells.join("") + '</div><div class="dlist">' + list + "</div></div>";
+  }
+
+  function prepPanel() {
+    var s = bookingStats(), pct = Math.round(s.ok / s.total * 100), r = 38, c = 2 * Math.PI * r;
+    var next = openTodos().filter(function (t) { return t.due; }).slice(0, 4).map(function (t) {
+      var di = dueInfo(t.due);
+      return '<a class="next" href="#/todo"><span class="e">' + t.e + '</span><span class="tt">' + esc(t.title) + '</span><span class="pill ' + di.cls + '">' + di.txt + "</span></a>";
+    }).join("");
+    return '<div class="card prep"><div class="ring-row"><div class="ring"><svg width="92" height="92" viewBox="0 0 92 92" aria-hidden="true"><circle cx="46" cy="46" r="' + r + '" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="46" cy="46" r="' + r + '" fill="none" stroke="var(--ok)" stroke-width="10" stroke-linecap="round" stroke-dasharray="' + (c * pct / 100).toFixed(1) + " " + c.toFixed(1) + '"/></svg><div class="pct"><div>' + pct + '%<small>' + s.ok + "/" + s.total + '</small></div></div></div><div><h3>준비 현황</h3><p class="sub">예약·예매 ' + s.total + "개 중 " + s.ok + "개가 끝났어요</p></div></div>" +
+      '<div><h3 style="font-size:15px;margin-bottom:8px">다가오는 할 일</h3><div class="nexts">' + next + '</div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="#/todo">할 일 모두 보기</a><a class="btn ghost" href="#/book">예약 현황</a></div></div>';
+  }
+
+  function cityCards() {
+    return '<div class="cities">' + T.cities.map(function (c) {
+      var hl = c.highlights.slice(0, 3).map(function (h) { return '<li data-e="' + h.e + '">' + esc(h.t) + "</li>"; }).join("");
+      return '<a class="card ccard" data-c="' + c.cls + '" href="#/city/' + c.id + '"><div class="cb"><div class="art">' + art(c.art) + '</div><div class="nm">' + c.flag + " " + esc(c.name) + '</div><div class="en">' + esc(c.en) + " · " + esc(c.country) + '</div><div class="tg">' + esc(c.tagline) + '</div></div><div class="cx"><div class="meta"><span class="chip">' + ms(c.from) + " ~ " + ms(c.to) + '</span><span class="chip">' + c.nights + '박</span></div><div class="stay">🏨 <b>' + esc(c.stay.name) + '</b></div><ul>' + hl + "</ul></div></a>";
+    }).join("") + "</div>";
+  }
+
+  function viewHome() {
+    var m = T.meta, t0 = today(), start = parse(m.start), end = parse(m.end), big, small, dd = diffDays(start, t0);
+    if (dd > 0) { big = "D-" + dd; small = "출발까지 " + dd + "일 · " + md(m.start) + " 출발"; }
+    else if (t0 <= end) { big = (diffDays(t0, start) + 1) + "일째"; small = "여행 중이에요! 오늘은 " + md(iso(t0)); }
+    else { big = "🎉"; small = "다녀왔어요 · 모두 수고했어요"; }
+    var crew = m.travelers.map(function (p) { return "<span><i>" + p.emoji + "</i>" + esc(p.name) + "</span>"; }).join("");
+    var nTours = T.bookings.filter(function (b) { return b.cat === "tour"; }).length;
+    var nFl = T.bookings.filter(function (b) { return b.cat === "flight"; }).length;
+    var nTr = T.bookings.filter(function (b) { return b.cat === "train"; }).length;
+    var tOk = T.bookings.filter(function (b) { return b.cat === "tour" && b.st === "ok"; }).length;
+    var tPay = T.bookings.filter(function (b) { return b.cat === "tour" && b.st === "pay"; }).length;
+    var stats = [["🗓️", "13박 15일", "2/3 ~ 2/17"], ["🏙️", T.cities.length + "개 도시", "3개 나라"], ["✈️", "비행 " + nFl + " · 기차 " + nTr, "이동은 모두 예약 끝"], ["🧑‍🏫", "가이드 투어 " + nTours + "번", "확정 " + tOk + (tPay ? " · 입금 전 " + tPay : "")]]
+      .map(function (x) { return '<div class="card stat"><span class="e">' + x[0] + "</span><b>" + x[1] + '</b><span class="s">' + x[2] + "</span></div>"; }).join("");
+    return '<section class="hero"><div class="art a1">' + art("eiffel") + '</div><div class="art a2">' + art("sagrada") + '</div><div class="art a3">' + art("colosseum") + '</div><div class="wrap hero-in"><div><div class="eyebrow">✈️ FAMILY TRIP · 2027</div><h1>' + esc(m.title) + '</h1><div class="route-line">' + T.cities.map(function (c) { return c.flag + " " + esc(c.name); }).join(" → ") + '</div><div class="dates">' + md(m.start) + "(" + dow(m.start) + ") ~ " + md(m.end) + "(" + dow(m.end) + ") · " + m.nights + '박</div><div class="crew">' + crew + '</div></div><div class="dday"><div class="big">' + big + '</div><div class="small">' + small + "</div></div></div></section>" +
+      '<div class="wrap"><section class="sec pull" aria-label="여행 경로">' + ribbon() + '</section><section class="sec"><div class="stats">' + stats + "</div></section>" +
+      '<section class="sec"><div class="sec-h"><h2>한눈에 보는 일정</h2><span class="hint">색깔 = 도시 · 눌러서 자세히</span></div><div class="cols">' + calendar() + prepPanel() + "</div></section>" +
+      '<section class="sec"><div class="sec-h"><h2>도시별로 보기</h2><span class="hint">숙소 · 가볼 곳</span></div>' + cityCards() + "</section></div>";
+  }
+
+  /* ---------- 하루 ---------- */
+  function heroFor(cls, cls2, inner, artId) {
+    return '<section class="dhero' + (cls2 ? " two" : "") + '" data-c="' + cls + '"' + (cls2 ? ' data-c2="' + cls2 + '"' : "") + ">" + (artId ? '<div class="art">' + art(artId) + "</div>" : "") + inner + "</section>";
+  }
+  function viewDay(date) {
+    var day = byDate[date];
+    if (!day) return notFound();
+    var idx = T.days.indexOf(day), prev = T.days[idx - 1], next = T.days[idx + 1];
+    var c = city(day.cls), meter = "";
+    for (var i = 1; i <= 4; i++) meter += '<i class="' + (i <= day.effort ? "on" : "") + '"></i>';
+    var effLabel = ["쉬는 날", "여유로워요", "보통이에요", "조금 힘들어요", "꽉 찬 날이에요"][day.effort];
+    var nb = day.events.filter(function (e) { return e.st === "booked"; }).length;
+    var facts = '<span class="fact">🚶 <span class="meter">' + meter + "</span> " + effLabel + "</span>" + (day.sunset ? '<span class="fact">🌅 일몰 ' + day.sunset + "</span>" : "") + (nb ? '<span class="fact">✅ 예약 ' + nb + "건</span>" : "") + '<span class="fact">📍 ' + esc(day.route) + "</span>";
+    var hero = heroFor(day.cls, day.cls2, '<span class="dayn">DAY ' + day.n + '</span><h1>' + day.icon + " " + esc(day.title) + '</h1><div class="dd">' + md(day.date) + " " + dow(day.date) + '요일</div><p class="sm">' + esc(day.summary) + '</p><div class="facts">' + facts + "</div>", c ? c.art : "");
+    var tl = day.events.map(function (e) {
+      return '<div class="ev ' + e.st + '"><div class="tm">' + esc(e.t) + '</div><div class="ib">' + e.e + '</div><div class="tx"><h3>' + esc(e.title) + " " + evBadge(e.st) + "</h3>" + (e.d ? "<p>" + esc(e.d) + "</p>" : "") + (e.tag ? '<span class="tag ' + (e.tagType || "") + '">' + esc(e.tag) + "</span>" : "") + (e.map ? '<a class="go" target="_blank" rel="noopener" href="' + mapUrl(e.map) + '">📍 지도에서 보기</a>' : "") + "</div></div>";
+    }).join("");
+    var side = "";
+    if (day.bring && day.bring.length) side += '<section class="card panel"><h2>🎒 꼭 챙겨요</h2><ul class="bring">' + day.bring.map(function (b) { return "<li>" + esc(b) + "</li>"; }).join("") + "</ul></section>";
+    if (day.notes && day.notes.length) side += '<section class="card panel"><h2>💡 알아두세요</h2><ul class="notes">' + day.notes.map(function (n) { return "<li>" + esc(n) + "</li>"; }).join("") + "</ul></section>";
+    function meals(title, list, e) {
+      var body = list.length ? '<div class="mgrid">' + list.map(function (m) {
+        return '<div class="meal"><div><b>' + esc(m.name) + '</b><div class="mk"><span class="chip plain">' + esc(m.kind) + "</span><span>" + esc(m.price) + '</span></div><div class="mn">' + esc(m.note) + '</div></div><a class="mapb" target="_blank" rel="noopener" href="' + mapUrl(m.q) + '" title="지도에서 보기" aria-label="' + esc(m.name) + ' 지도에서 보기">📍</a></div>';
+      }).join("") + "</div>" : '<div class="empty">' + (day.mealNote || "정해 둔 식당이 없어요.") + "</div>";
+      return '<section class="card panel"><h2>' + e + " " + title + "</h2>" + body + "</section>";
+    }
+    var mealHtml;
+    if (!day.lunch.length && !day.dinner.length) {
+      mealHtml = '<section class="card panel" style="margin-top:18px"><h2>🍽️ 식사</h2><div class="empty">' + esc(day.mealNote || "정해 둔 식당이 없어요.") + "</div></section>";
+    } else {
+      mealHtml = '<div class="meals">' + meals("점심 후보", day.lunch, "🥪") + meals("저녁 후보", day.dinner, "🍽️") + "</div>";
+      if (day.mealNote && day.lunch.length && day.dinner.length) mealHtml += '<p class="empty" style="margin-top:12px">' + esc(day.mealNote) + "</p>";
+    }
+    var pn = '<nav class="pn" aria-label="이전·다음 날">' + (prev ? '<a href="#/day/' + prev.date + '"><small>← 이전 날 · ' + ms(prev.date) + "</small><b>" + prev.icon + " " + esc(prev.title) + "</b></a>" : "<span></span>") + (next ? '<a class="nx" href="#/day/' + next.date + '"><small>다음 날 · ' + ms(next.date) + " →</small><b>" + next.icon + " " + esc(next.title) + "</b></a>" : "") + "</nav>";
+    document.title = ms(day.date) + " " + day.title + " · " + T.meta.title;
+    return '<div class="wrap"><a class="back" href="#/">← 전체 일정</a>' + hero + '<div class="two-col" data-c="' + day.cls + '"><section class="card panel"><h2>⏰ 하루 일정</h2><div class="tl">' + tl + '</div></section><div class="side">' + side + "</div></div>" + '<div data-c="' + day.cls + '">' + mealHtml + "</div>" + pn + "</div>";
+  }
+
+  /* ---------- 도시 ---------- */
+  function viewCity(id) {
+    var c = city(id);
+    if (!c) return notFound();
+    var s = c.stay;
+    var hero = heroFor(c.cls, null, '<span class="dayn">' + esc(c.country) + " · " + c.nights + '박</span><h1>' + c.flag + " " + esc(c.name) + '</h1><div class="dd">' + md(c.from) + " ~ " + md(c.to) + '</div><p class="sm">' + esc(c.intro) + "</p>", c.art);
+    var hotel = '<section class="card panel hotel"><h2>🏨 숙소</h2><h3>' + esc(s.name) + '</h3><div class="kv"><div><span>동네</span><b>' + esc(s.area) + "</b></div><div><span>주소</span>" + esc(s.address) + "</div><div><span>방</span>" + esc(s.room) + "</div><div><span>체크인</span>" + esc(s.checkin) + "</div>" + (s.checkout ? "<div><span>체크아웃</span>" + esc(s.checkout) + "</div>" : "") + '</div><ul class="facts-l">' + s.facts.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + '</ul><a class="btn sm" target="_blank" rel="noopener" href="' + mapUrl(s.map) + '" style="justify-self:start">📍 지도에서 보기</a></section>';
+    var hl = '<section class="card panel"><h2>✨ 가볼 곳</h2><div class="hl">' + c.highlights.map(function (h) { return '<div><span class="e">' + h.e + "</span><span><b>" + esc(h.t) + "</b><p>" + esc(h.d) + "</p></span></div>"; }).join("") + "</div></section>";
+    var days = '<section class="card panel"><h2>🗓️ 이 도시에서의 날들</h2><div class="dl-links">' + c.days.map(function (d) { var dy = byDate[d]; return '<a href="#/day/' + d + '"><span style="font-size:26px;text-align:center">' + dy.icon + "</span><span><b>" + ms(d) + "(" + dow(d) + ") " + esc(dy.title) + "</b><small>" + esc(dy.summary) + "</small></span>" + dot(dayStatus(dy)) + "</a>"; }).join("") + "</div></section>";
+    var getting = '<section class="card panel"><h2>🚆 오고 가는 길</h2><ul class="facts-l">' + c.getting.map(function (g) { return "<li>" + esc(g) + "</li>"; }).join("") + "</ul></section>";
+    document.title = c.name + " · " + T.meta.title;
+    return '<div class="wrap" data-c="' + c.cls + '"><a class="back" href="#/">← 전체 일정</a>' + hero + '<div class="two-col"><div class="side">' + hl + days + '</div><div class="side">' + hotel + getting + "</div></div></div>";
+  }
+
+  /* ---------- 할 일 ---------- */
+  function viewTodo() {
+    var open = openTodos(), done = T.todos.filter(function (t) { return t.done; }), late = open.filter(function (t) { var d = dueInfo(t.due); return d && d.n < 0; });
+    var groups = {}, order = [];
+    open.forEach(function (t) {
+      var k = t.due ? (parse(t.due).getFullYear() + "년 " + (parse(t.due).getMonth() + 1) + "월") : "날짜 없음";
+      if (!groups[k]) { groups[k] = []; order.push(k); }
+      groups[k].push(t);
+    });
+    function item(t) {
+      var di = dueInfo(t.due), cls = t.done ? "done" : (di && di.n < 0 ? "late" : "");
+      var right = t.done ? '<span class="pill ok">끝</span>' : (di ? '<span class="pill ' + di.cls + '">' + di.txt + "</span>" : "");
+      var sub = (t.due ? ms(t.due) + "(" + dow(t.due) + ") · " : "") + t.who;
+      return '<details class="td ' + cls + '"><summary><span class="e">' + t.e + '</span><div><div class="tt">' + esc(t.title) + '</div><div class="ss">' + esc(sub) + "</div></div>" + right + '</summary><div class="bd"><div>' + esc(t.detail) + "</div>" + (t.day ? '<a class="btn ghost sm" style="justify-self:start" href="#/day/' + t.day + '">' + ms(t.day) + " 일정 보기 →</a>" : "") + "</div></details>";
+    }
+    var html = '<div class="wrap"><div class="sec-h" style="margin-top:26px"><h2>✅ 해야 할 일</h2><span class="hint">눌러서 자세히 · 마지막 업데이트 ' + ms(T.meta.asOf) + "</span></div>";
+    if (late.length) html += '<div class="empty" style="margin-bottom:16px;border-style:solid;border-color:var(--pay)">⚠️ 기한이 지난 항목이 ' + late.length + "개 있어요. 아직 안 했는지 아빠에게 확인해 주세요 (이 페이지는 " + ms(T.meta.asOf) + " 기준이에요).</div>";
+    order.forEach(function (k) { html += '<section class="group"><h2>' + esc(k) + " <small>" + groups[k].length + '개</small></h2><div class="tds">' + groups[k].map(item).join("") + "</div></section>"; });
+    html += '<section class="group"><h2>🎉 이미 끝낸 일 <small>' + done.length + '개</small></h2><div class="tds">' + done.map(item).join("") + "</div></section></div>";
+    document.title = "해야 할 일 · " + T.meta.title;
+    return html;
+  }
+
+  /* ---------- 예약 ---------- */
+  function viewBook() {
+    var counts = {}, sum = "";
+    T.bookings.forEach(function (b) { counts[b.st] = (counts[b.st] || 0) + 1; });
+    Object.keys(T.status).forEach(function (k) { if (counts[k]) sum += '<span class="pill ' + T.status[k].cls + '">' + T.status[k].label + " " + counts[k] + "</span>"; });
+    var html = '<div class="wrap"><div class="sec-h" style="margin-top:26px"><h2>🎟️ 예약 현황</h2><span class="hint">예약번호는 일부러 넣지 않았어요</span></div><div class="sumbar">' + sum + "</div>";
+    T.bookingCats.forEach(function (cat) {
+      var list = T.bookings.filter(function (b) { return b.cat === cat.id; });
+      if (!list.length) return;
+      html += '<section class="group"><h2>' + cat.e + " " + cat.t + " <small>" + list.length + '개</small></h2><div class="bks">' + list.map(function (b) {
+        var st = T.status[b.st];
+        return '<div class="bk ' + b.st + '"><div class="hd"><span class="e">' + b.e + '</span><div><b>' + esc(b.title) + '</b><div class="sub">' + esc(b.sub) + '</div></div><span class="pill ' + st.cls + '">' + st.label + '</span></div><div class="wh">' + esc(b.when) + '</div><div class="nt">' + esc(b.note) + "</div>" + (b.day ? '<a class="lk" href="#/day/' + b.day + '">' + ms(b.day) + " 일정 보기 →</a>" : "") + "</div>";
+      }).join("") + "</div></section>";
+    });
+    document.title = "예약 현황 · " + T.meta.title;
+    return html + "</div>";
+  }
+
+  /* ---------- 짐 · 팁 ---------- */
+  var KEY = "trip2027.pack.v1";
+  function loadPack() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
+  function savePack(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { /* 저장이 막혀도 화면은 동작 */ } }
+  function viewPack() {
+    var st = loadPack();
+    var packs = T.packing.map(function (g) {
+      var n = g.items.filter(function (_, i) { return st[g.id + ":" + i]; }).length;
+      return '<section class="card pk"><h3><span>' + g.e + " " + esc(g.t) + "</span><small>" + n + "/" + g.items.length + '</small></h3><ul class="chk">' + g.items.map(function (it, i) {
+        return '<li><label><input type="checkbox" data-k="' + g.id + ":" + i + '"' + (st[g.id + ":" + i] ? " checked" : "") + "><span>" + esc(it) + "</span></label></li>";
+      }).join("") + "</ul></section>";
+    }).join("");
+    var tips = T.tips.map(function (t) { return '<div class="card tip"><span class="e">' + t.e + "</span><div><b>" + esc(t.t) + "</b><p>" + esc(t.d) + "</p></div></div>"; }).join("");
+    document.title = "짐 · 팁 · " + T.meta.title;
+    return '<div class="wrap"><div class="sec-h" style="margin-top:26px"><h2>🧳 짐 싸기</h2><button class="btn ghost sm" id="reset">체크 모두 지우기</button></div><p class="hint" style="margin:-6px 0 14px;color:var(--muted);font-size:14px">체크 표시는 이 폰(브라우저)에만 저장돼요. 가족끼리는 따로 체크해요.</p><div class="packs">' + packs + '</div><div class="sec-h" style="margin-top:34px"><h2>💡 알아두면 좋은 것</h2></div><div class="tips">' + tips + "</div></div>";
+  }
+
+  function notFound() {
+    return '<div class="wrap"><a class="back" href="#/">← 전체 일정</a><div class="empty">찾는 페이지가 없어요. 홈으로 돌아가 주세요.</div></div>';
+  }
+
+  /* ---------- 라우터 ---------- */
+  function route() {
+    var h = (location.hash || "#/").replace(/^#\/?/, ""), p = h.split("/"), html, nav = "home";
+    document.title = T.meta.title + " · " + T.meta.subtitle;
+    if (p[0] === "day") html = viewDay(p[1]);
+    else if (p[0] === "city") html = viewCity(p[1]);
+    else if (p[0] === "todo") { html = viewTodo(); nav = "todo"; }
+    else if (p[0] === "book") { html = viewBook(); nav = "book"; }
+    else if (p[0] === "pack") { html = viewPack(); nav = "pack"; }
+    else html = viewHome();
+    app.innerHTML = '<div class="view">' + html + '<div class="wrap"><div class="foot"><b>' + esc(T.meta.title) + "</b> · 마지막 업데이트 " + esc(T.meta.asOf) + "<br>가족이 보기 쉽게 정리한 요약이에요. 예약번호·계좌번호 같은 개인 정보는 일부러 넣지 않았고, 정보는 바뀔 수 있어요.</div></div></div>";
+    Array.prototype.forEach.call(document.querySelectorAll("[data-nav]"), function (a) {
+      if (a.getAttribute("data-nav") === nav) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    var root = document.documentElement;
+    root.style.scrollBehavior = "auto";   // 페이지를 옮길 때는 부드럽게 말고 바로 맨 위로
+    window.scrollTo(0, 0);
+    root.style.scrollBehavior = "";
+  }
+
+  document.addEventListener("change", function (ev) {
+    var t = ev.target;
+    if (t && t.matches && t.matches('input[type="checkbox"][data-k]')) {
+      var st = loadPack(); st[t.getAttribute("data-k")] = t.checked; savePack(st);
+      var group = t.getAttribute("data-k").split(":")[0], g = T.packing.filter(function (x) { return x.id === group; })[0];
+      var n = g.items.filter(function (_, i) { return st[group + ":" + i]; }).length, h = t.closest(".pk").querySelector("h3 small");
+      if (h) h.textContent = n + "/" + g.items.length;
+    }
+  });
+  document.addEventListener("click", function (ev) {
+    if (ev.target && ev.target.id === "reset" && confirm("짐 체크 표시를 모두 지울까요?")) { savePack({}); route(); }
+  });
+  window.addEventListener("hashchange", route);
+  route();
+})();
+
+</script>
+</body>
+</html>
